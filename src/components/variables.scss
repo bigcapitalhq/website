@@ -1,0 +1,8 @@
+
+$font-family-sans-serif: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$primary: #345dec;
+$secondary: #EDF1FC;
+$line-height-base: 1.6 !default;
+$carousel-transition: 0s;
+
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';

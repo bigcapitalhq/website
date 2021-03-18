@@ -5,9 +5,7 @@ export default function Intro() {
     <div className="intro">
       <div className="container">
         <h1 className="intro__title">
-          Most advanced accounting software for{" "}
-          <span className="highlight">startup</span> to{" "}
-          <span className="highlight">enterprise</span> businesses.
+          Most advanced accounting software for startup to enterprise businesses.
         </h1>
 
         <h2 className="intro__subtitle">
@@ -18,13 +16,13 @@ export default function Intro() {
 
         <div className="intro__buttons">
           <a className="btn btn-primary btn-lg mr-lg-2 mb-3 mb-lg-0" href="">
-            Request Demo
+            Request demo
           </a>
-          <a className="btn btn-secondary btn-lg" href="">
+          <a className="btn btn-outline-secondary btn-lg" href="">
             Signup
           </a>
         </div>
       </div>
     </div>
-  )
+  );
 }
