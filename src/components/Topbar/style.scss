@@ -347,7 +347,7 @@ h2::selection {
 .intro {
   text-align: center;
   padding-top: 100px;
-  padding-bottom: 100px;
+  padding-bottom: 80px;
 
   @include media-breakpoint-down('sm') {
     padding-top: 60px;
@@ -545,7 +545,7 @@ h2::selection {
     top: -420px;
     left: -500px;
     transform: scale(1.8);
-    opacity: 0.5;
+    opacity: 0.7;
   }
   }
 
@@ -555,9 +555,9 @@ h2::selection {
   }
 
   &__desc{
-    color: #595c79;
     margin-top: 0.4rem;
     margin-bottom: 0;
+    font-size: 18px;
   }
 }
 

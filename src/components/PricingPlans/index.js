@@ -43,10 +43,10 @@ export default function PricingPlans() {
             <div class="container">
                 <div class="row">
                     <div class="col-6">
-                <h1 class="pricing-section__title">Build the right plan for your team</h1>
+                <h1 class="pricing-section__title">Build the right plan for <br /> your team</h1>
                 </div>
-                <div class="col-4    offset-2">
-                <p class="pricing-section__desc">Exploring and understanding team, legacy, or foreign projects takes a lot of time and effort, implementations, usages, declarations.</p>
+                <div class="col-5    offset-1">
+                <p class="pricing-section__desc">Exploring and understanding team, legacy, or foreign projects takes.</p>
                 </div>
                 </div>
 
