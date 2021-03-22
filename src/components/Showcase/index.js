@@ -1,9 +1,9 @@
 import React from 'react'
-import { StaticImage  } from "gatsby-plugin-image"
-
+import ReactWOW from 'react-wow';
 
 export default function Showcase() {
     return (
+      <ReactWOW animation='fadeIn' duration={'2s'}>
         <div className="showcase">
         <div className="container showcase__container">
           <div className="showcase__app">
@@ -30,5 +30,6 @@ export default function Showcase() {
           </div>
         </div>
       </div>
+      </ReactWOW>
     )
 }

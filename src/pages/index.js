@@ -4,15 +4,19 @@ import SEO from "../components/seo"
 
 import Intro from "../components/intro"
 import Customers from "../components/Customers"
-import Showcase from "../components/showcase"
-import Features from "../components/features"
+import Showcase from "../components/Showcase"
+import Features from "../components/Features"
+import PricingPlans from '../components/PricingPlans'
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Bigcapital" />
     <Intro />
     <Customers /> 
-    {/* <Features /> */}
+    <Showcase />
+    <Features />
+    <PricingPlans />
+    {/*  */}
 {/*     <Showcase />
      */}
   </Layout>

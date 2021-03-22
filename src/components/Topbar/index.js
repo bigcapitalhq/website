@@ -1,11 +1,13 @@
 import React from "react"
 import { Link } from "gatsby"
+import ReactWOW from 'react-wow';
 import Logo from '../Logo';
 
 import './style.scss';
 
 export default function TopBar() {
   return (
+    <ReactWOW animation='fadeIn' duration={'1s'}>
     <div className="topbar">
       <div className="container">
         <nav className="navbar navbar-expand-lg navbar-light">
@@ -74,5 +76,6 @@ export default function TopBar() {
         </nav>
       </div>
     </div>
+    </ReactWOW>
   )
 }

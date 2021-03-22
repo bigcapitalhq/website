@@ -1,7 +1,9 @@
 import React from "react"
+import ReactWOW from 'react-wow';
 
 export default function Intro() {
   return (
+    <ReactWOW animation='fadeIn' duration={'1s'}>
     <div className="intro">
       <div className="container">
         <h1 className="intro__title">
@@ -24,5 +26,6 @@ export default function Intro() {
         </div>
       </div>
     </div>
+    </ReactWOW>
   );
 }
