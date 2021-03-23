@@ -1,0 +1,83 @@
+@import "../variables.scss";
+
+.footer {
+  @include media-breakpoint-down("sm") {
+    text-align: center;
+  }
+
+  > .container > .row {
+    border-top: 1px solid #dfe4ea;
+    padding-top: 40px;
+  }
+
+  .footer-logo {
+    svg {
+      margin-top: 6px;
+      margin-bottom: 10px;
+      width: 180px;
+    }
+  }
+
+  &__widget {
+    margin: 0 0 60px 0;
+
+    @include media-breakpoint-down("md") {
+      margin-bottom: 50px;
+    }
+    @include media-breakpoint-down("sm") {
+      margin-bottom: 40px;
+    }
+
+    &-title {
+      font-size: 18px;
+      line-height: 22px;
+      letter-spacing: -0.4px;
+      margin-bottom: 23px;
+      margin-top: 8px;
+      color: #18214d;
+
+      @include media-breakpoint-down("sm") {
+        margin-bottom: 20px;
+      }
+    }
+
+    &-list {
+      padding: 0;
+      list-style: none;
+
+      li {
+        margin-bottom: 11px;
+
+        a {
+          color: rgba(24, 33, 77, 0.5);
+          font-size: 16px;
+          line-height: 19px;
+          display: inline-block;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.footer-bottom {
+  border-top: 1px solid #dfe4ea;
+  padding-bottom: 30px;
+}
+
+.footer-copyright {
+  font-size: 14px;
+  color: rgba(24, 33, 77, 0.5);
+  letter-spacing: 0.1px;
+  text-align: center;
+
+  &__inner {
+    border-top: 1px solid #dfe4ea;
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+
+  p {
+    margin: 0;
+  }
+}

@@ -1,0 +1,26 @@
+@import "../variables.scss";
+
+.customers {
+  margin-bottom: 80px;
+
+  .row {
+    @include media-breakpoint-down("lg") {
+      justify-content: center !important;
+    }
+  }
+
+  &__customer {
+    &:not(:last-of-type) {
+      img {
+        @include media-breakpoint-down("lg") {
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+
+  &__inner-wrapper {
+    padding-top: 0;
+    padding-bottom: 20px;
+  }
+}

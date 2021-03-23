@@ -6,19 +6,18 @@ import Intro from "../components/intro"
 import Customers from "../components/Customers"
 import Showcase from "../components/Showcase"
 import Features from "../components/Features"
-import PricingPlans from '../components/PricingPlans'
+import PricingPlans from "../components/PricingPlans"
+
+import "../styles/index.scss"
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Bigcapital" />
     <Intro />
-    <Customers /> 
+    <Customers />
     <Showcase />
     <Features />
     <PricingPlans />
-    {/*  */}
-{/*     <Showcase />
-     */}
   </Layout>
 )
 

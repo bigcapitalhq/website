@@ -1,0 +1,49 @@
+@import "~animate.css/source/animate.css";
+// @import "../variables.scss";
+@import "../components/variables.scss";
+
+body {
+  background-color: #f0f2f6;
+}
+h1::selection,
+h2::selection {
+  background-color: #0038ff;
+  color: white;
+}
+.btn-outline-secondary {
+  border-color: #18214d;
+  color: #18214d;
+
+  &:hover {
+    color: #fff;
+    background-color: #18214d;
+  }
+}
+@-webkit-keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.rotating {
+  animation: rotating 20s linear infinite;
+}
+
+.bg-grad {
+  position: absolute;
+  left: 50%;
+  margin-left: -430px;
+  z-index: -9999;
+  margin-top: 0;
+  opacity: 0.4;
+}

@@ -1,0 +1,95 @@
+@import "../variables.scss";
+.showcase {
+  &__container {
+    padding-left: 0;
+    padding-right: 0;
+
+    @include media-breakpoint-down("lg") {
+      max-width: 100%;
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  &__app {
+    margin-bottom: -360px;
+    height: 740px;
+    padding-bottom: 40px;
+    width: 100%;
+    position: relative;
+
+    @include media-breakpoint-down("md") {
+      height: 640px;
+      margin-bottom: -320px;
+    }
+
+    @include media-breakpoint-down("sm") {
+      height: 540px;
+      margin-bottom: -270px;
+    }
+
+    .carousel {
+      height: 100%;
+
+      &-scrollable {
+        width: 100%;
+        overflow: scroll;
+      }
+
+      &-inner {
+        overflow: hidden;
+        height: 100%;
+        width: 1130px;
+        border-left: 15px solid #f5f6f800;
+        border-right: 15px solid #f5f6f800;
+
+        @include media-breakpoint-down("md") {
+          width: 1050px;
+        }
+        @include media-breakpoint-down("sm") {
+          width: 867px;
+        }
+      }
+
+      &-item {
+        border-radius: 15px;
+        overflow: hidden;
+
+        video {
+          @include media-breakpoint-down("md") {
+            height: 600px;
+          }
+          @include media-breakpoint-down("sm") {
+            height: 500px;
+          }
+        }
+      }
+    }
+
+    .carousel-indicators {
+      margin-bottom: -34px;
+
+      li {
+        position: relative;
+        background: transparent;
+        width: 40px;
+        height: 4px;
+        opacity: 0.3;
+
+        &:before {
+          content: "";
+          background: white;
+          display: block;
+          width: 100%;
+          height: 100%;
+          border-radius: 2px;
+        }
+
+        &.active {
+          opacity: 0.75;
+        }
+      }
+    }
+  }
+}
