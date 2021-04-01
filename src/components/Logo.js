@@ -8,12 +8,8 @@ export default function Logo({ width, height }) {
                 viewBox="0 0 309.09 42.89"
                 width={width}
                 height={height}
+                className={'bigcapital'}
               >
-                <defs>
-                  <style>
-                    {`.cls-1{fill:#2d95fd;}.cls-2{fill:#004dd0;}.cls-3{fill:#0045ba;}.cls-4{fill:#2392ff;}`}
-                  </style>
-                </defs>
                 <path
                   className="cls-1"
                   d="M56,3.16,61.33,8.5,31.94,37.9l-5.35-5.35Z"

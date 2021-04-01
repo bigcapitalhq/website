@@ -1,5 +1,12 @@
 @import "../variables.scss";
 
+svg.bigcapital {
+  .cls-1 { fill: #2d95fd; }
+  .cls-2 { fill: #004dd0; }
+  .cls-3 { fill: #0045ba; }
+  .cls-4 { fill: #2392ff; }
+}
+
 .topbar {
   display: flex;
 
@@ -138,8 +145,9 @@
       }
 
       &-link {
+
         &,
-        &:active{
+        &:active {
           color: #0f163c;
         }
 
@@ -191,6 +199,7 @@
             border-bottom: 1px solid #e6ecef;
           }
         }
+
         &-link {
           color: #0f163c;
           font-weight: 500;
