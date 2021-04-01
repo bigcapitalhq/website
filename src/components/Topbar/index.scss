@@ -2,7 +2,6 @@
 
 .topbar {
   display: flex;
-  // border-bottom: 1px solid #DFE4EA;
 
   &__inner-wrapper {
     display: flex;
@@ -49,7 +48,7 @@
     }
 
     &--login {
-      > a {
+      >a {
         border-radius: 36px;
         background-color: #edf1fc;
         border-color: #edf1fc;
@@ -65,7 +64,7 @@
     }
 
     &--contact-us {
-      > a {
+      >a {
         border-radius: 36px;
         border-color: #cfd4e6;
         padding-left: 16px;
@@ -76,10 +75,7 @@
 
   .navbar {
     background: transparent;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 1.4rem 0;
 
     @include media-breakpoint-up("lg") {
       // border-bottom: 1px solid #dfe5eb;
@@ -142,15 +138,19 @@
       }
 
       &-link {
-        color: #0f163c;
+        &,
+        &:active{
+          color: #0f163c;
+        }
+
+        &:hover,
+        &:focus {
+          color: #0039ff;
+        }
 
         @include media-breakpoint-up("lg") {
           padding-right: 12px;
           padding-left: 12px;
-        }
-
-        &:hover {
-          color: #0039ff;
         }
       }
 
@@ -160,15 +160,18 @@
       }
 
       &-item-primary {
-        > a {
+        >a {
+
           color: $primary;
         }
       }
     }
+
     &-light .navbar-toggler {
       border-color: transparent;
     }
   }
+
   .btn-outline-secondary {
     border-color: #18214d;
     color: #18214d;
@@ -176,6 +179,41 @@
     &:hover {
       color: #fff;
       background-color: #18214d;
+    }
+  }
+
+  .navbar-light {
+    .navbar-nav {
+
+      .nav {
+        &-item {
+          @include media-breakpoint-down("md") {
+            border-bottom: 1px solid #e6ecef;
+          }
+        }
+        &-link {
+          color: #0f163c;
+          font-weight: 500;
+          padding: 0 0.85rem;
+          height: 32px;
+          line-height: 30px;
+
+          &:hover {
+            color: #0039ff;
+          }
+        }
+
+        &-divider {
+          background: #bec3d5;
+        }
+      }
+    }
+
+    .btn-primary {
+      line-height: 30px;
+      height: 32px;
+      padding-top: 0;
+      padding-bottom: 0;
     }
   }
 }

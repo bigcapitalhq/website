@@ -3,7 +3,7 @@
 .features {
   background-color: #06091d;
   color: #fff;
-  padding: 420px 0 25px 0;
+  padding: 420px 0 40px 0;
   overflow: hidden;
 
   @include media-breakpoint-down("md") {
@@ -34,8 +34,14 @@
     color: inherit;
   }
 
-  &__feature {
+  &__title{
+    color: #fff;
+    font-weight: 800;
     margin-bottom: 60px;
+  }
+
+  &__feature {
+    margin-bottom: 45px;
 
     @include media-breakpoint-down("sm") {
       margin-bottom: 40px;
@@ -50,6 +56,14 @@
 
     &-desc {
       opacity: 0.6;
+    }
+
+    &-icon{
+      margin-bottom: 20px;
+      svg{
+        fill: #fff;
+        opacity: 0.85;
+      }
     }
   }
 

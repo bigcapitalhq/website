@@ -1,7 +1,7 @@
 @import "../variables.scss";
 
 .customers {
-  margin-bottom: 80px;
+  margin-bottom: 100px;
 
   .row {
     @include media-breakpoint-down("lg") {

@@ -48,22 +48,7 @@ export default function TopBar() {
                     Support
                   </Link>
                 </li>
-                <li className="nav-item d-none d-lg-block">
-                  <Link className="btn btn-outline-secondary" to={"#"}>
-                    Contact us
-                  </Link>
-                </li>
-                <li className="nav-item nav-item-primary d-lg-none">
-                  <Link className="nav-link" to={"#"}>
-                    Contact us
-                  </Link>
-                </li>
                 <li className="nav-divider mr-1 ml-1"></li>
-                <li className="nav-item">
-                  <Link className="nav-link" to={"#"}>
-                    Signup
-                  </Link>
-                </li>
                 <li className="nav-item nav-item-primary d-lg-none">
                   <Link className="nav-link" to={"#"}>
                     Login
@@ -72,6 +57,17 @@ export default function TopBar() {
                 <li className="nav-item d-none d-lg-block">
                   <Link className="nav-link" to={"#"}>
                     Login
+                  </Link>
+                </li>
+
+                <li className="nav-item d-none d-lg-block">
+                  <Link className="btn btn-primary" to={"#"}>
+                    Contact us
+                  </Link>
+                </li>
+                <li className="nav-item nav-item-primary d-lg-none">
+                  <Link className="nav-link" to={"#"}>
+                    Contact us
                   </Link>
                 </li>
               </ul>

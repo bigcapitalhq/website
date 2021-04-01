@@ -1,13 +1,17 @@
 @import "../variables.scss";
 
 .footer {
+  background: #060a1d;
+  color: rgba(255, 255, 255, 0.65);
+
+
   @include media-breakpoint-down("sm") {
     text-align: center;
   }
 
   > .container > .row {
     border-top: 1px solid #dfe4ea;
-    padding-top: 40px;
+    padding-top: 50px;
   }
 
   .footer-logo {
@@ -34,7 +38,7 @@
       letter-spacing: -0.4px;
       margin-bottom: 23px;
       margin-top: 8px;
-      color: #18214d;
+      color: rgba(255, 255, 255, 0.75);
 
       @include media-breakpoint-down("sm") {
         margin-bottom: 20px;
@@ -49,7 +53,7 @@
         margin-bottom: 11px;
 
         a {
-          color: rgba(24, 33, 77, 0.5);
+          color: rgba(255, 255, 255, 0.75);
           font-size: 16px;
           line-height: 19px;
           display: inline-block;
@@ -67,12 +71,12 @@
 
 .footer-copyright {
   font-size: 14px;
-  color: rgba(24, 33, 77, 0.5);
+  color: rgba(255, 255, 255, 0.65);
   letter-spacing: 0.1px;
   text-align: center;
 
   &__inner {
-    border-top: 1px solid #dfe4ea;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 28px;
     padding-bottom: 28px;
   }

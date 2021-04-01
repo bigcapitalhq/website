@@ -2,8 +2,8 @@
 
 .intro {
   text-align: center;
-  padding-top: 100px;
-  padding-bottom: 80px;
+  padding-top: 110px;
+  padding-bottom: 100px;
 
   @include media-breakpoint-down("sm") {
     padding-top: 60px;
@@ -16,7 +16,7 @@
     color: #18214d;
     font-weight: 800;
     margin: 0 auto;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     letter-spacing: -0.02rem;
 
     @include media-breakpoint-up("sm") {
@@ -77,12 +77,12 @@
 
   &__buttons {
     .btn {
-      height: 46px;
+      height: 44px;
       font-size: 18px;
-      line-height: 46px;
+      line-height: 44px;
       padding-top: 0;
       padding-bottom: 0;
-      border-radius: 46px;
+      border-radius: 44px;
       padding-left: 20px;
       padding-right: 20px;
 
@@ -90,14 +90,14 @@
         width: 100%;
       }
     }
-    .btn-outline-secondary {
-      border-color: #18214d;
-      color: #18214d;
+    // .btn-outline-secondary {
+    //   border-color: #18214d;
+    //   color: #18214d;
 
-      &:hover {
-        color: #fff;
-        background-color: #18214d;
-      }
-    }
+    //   &:hover {
+    //     color: #fff;
+    //     background-color: #18214d;
+    //   }
+    // }
   }
 }

@@ -1,89 +1,99 @@
 @import "../variables.scss";
+
 body {
   background-color: #f0f2f6;
 }
 
 .pricing-section {
   padding: 100px 0;
+  background-color: #e4eef7;
 
-  .bg-gradient {
-    z-index: -99;
+  &__title {
+    font-size: 40px;
+    font-weight: 800;
+  }
 
-    img {
-      z-index: 1;
-      top: -420px;
-      left: -500px;
-      transform: scale(1.8);
-      opacity: 0.7;
+  &__desc {
+    margin-top: 0.4rem;
+    margin-bottom: 0;
+    font-size: 18px;
+  }
+}
+
+.pricing-plans {
+  margin-top: 40px;
+  display: flex;
+
+  .pricing-plan{
+    display: flex;
+    flex-direction: column;
+
+    &:not(:last-child) {
+      margin-right: 25px;
     }
-    // }
+  }
+}
 
-    &__title {
-      font-size: 40px;
+.pricing-plan {
+  background: #f8fafd;
+  backdrop-filter: blur(1000px);
+  border-radius: 10px;
+  padding: 32px 28px;
+
+  &.is-primary{
+    border: 2px solid #0a5ee7;
+  }
+
+  &__title {
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  &__desc {
+    color: #555975;
+  }
+
+  &__price {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #dfdfdf;
+    padding-top: 18px;
+    margin-top: auto;
+
+    .amount {
       font-weight: 800;
+      padding-right: 14px;
+      margin: 0;
+      font-size: 30px;
     }
 
-    &__desc {
-      margin-top: 0.4rem;
-      margin-bottom: 0;
-      font-size: 18px;
-    }
-  }
-
-  .pricing-plans {
-    margin-top: 40px;
-  }
-
-  .pricing-plan {
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(1000px);
-    border-radius: 10px;
-    padding: 30px 24px;
-
-    &__title {
-      font-size: 22px;
-      font-weight: 600;
-    }
-
-    &__desc {
+    p {
+      margin: 0;
       color: #555975;
+      font-size: 14px;
     }
+  }
 
-    &__price {
-      display: flex;
-      align-items: center;
-      // padding-top: 20px;
+  &__features {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-bottom: 20px;
 
-      .amount {
-        font-weight: bold;
-        padding-right: 14px;
-        margin: 0;
-        font-size: 40px;
+    li {
+      position: relative;
+      font-weight: 500;
+      margin-bottom: 12px;
+      padding-left: 30px;
+      line-height: 22px;
+
+      &:last-child {
+        margin-bottom: 0;
       }
-      p {
-        margin: 0;
-        color: #555975;
-        font-size: 14px;
-      }
-    }
 
-    &__features {
-      margin: 0 0 28px;
-      padding: 0;
-      padding-left: 5px;
-      list-style: none;
-
-      li {
-        font-weight: 600;
-        margin-bottom: 6px;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-
-        .icon {
-          margin-right: 10px;
-        }
+      .icon {
+        position: absolute;
+        left: 0;
       }
     }
   }
