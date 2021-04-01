@@ -27,6 +27,7 @@ body {
   .pricing-plan{
     display: flex;
     flex-direction: column;
+    width: 33.3%;
 
     &:not(:last-child) {
       margin-right: 25px;

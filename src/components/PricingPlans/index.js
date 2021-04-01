@@ -1,8 +1,10 @@
 import React from "react";
 import className from 'classnames';
 import "./index.scss"
-// import "../Topbar/style.scss"
 
+/**
+ * Feature line.
+ */
 function FeatureLine({ children }) {
   return (
     <li>
@@ -23,33 +25,38 @@ function FeatureLine({ children }) {
   )
 }
 
+/**
+ * Pricing plan.
+ */
 function PricingPlan({
   title,
   primary,
   features,
-  price
+  price,
+  description
 }) {
   return (
     <div class={className(
       'pricing-plan',
-      {
-        'is-primary': primary,
-      }
+      { 'is-primary': primary }
     )}>
       <h1 class="pricing-plan__title">{ title }</h1>
       <p class="pricing-plan__desc">
-        Ge beyond email and customize your workflow.
+        { description }
       </p>
 
       <ul class="pricing-plan__features">{ features }</ul>
       <div class="pricing-plan__price">
         <h1 class="amount">{ price }</h1>
-        <p>Per month</p>
+        <p>Per year</p>
       </div>
     </div>
   )
 }
 
+/**
+ * Pricing plans.
+ */
 export default function PricingPlans() {
   return (
     <div class="pricing-section">
@@ -69,43 +76,50 @@ export default function PricingPlans() {
         </div>
 
         <div class="pricing-plans">
-          
-              <PricingPlan
-                title={"Capital Starter"}
-                features={
-                  <>
-                    <FeatureLine>Sale and purchase invoices.</FeatureLine>
-                    <FeatureLine>Customers/vendors accounts.</FeatureLine>
-                    <FeatureLine>Expense tracking</FeatureLine>
-                    <FeatureLine>Manual journals.</FeatureLine>
-                    <FeatureLine>Financial reports.</FeatureLine>
-                    <FeatureLine>For one user and accountant.</FeatureLine>
-                  </>
-                }
-                price={'LD1,200LD'}
-              />
-            
-              <PricingPlan title={"Capital Plus"} primary={true} features={
-                <>
-                  <FeatureLine>All <strong>Capital Starter</strong> features.</FeatureLine>
-                  <FeatureLine>Multi-currency.</FeatureLine>
-                  <FeatureLine>Purchase and sell orders.</FeatureLine>
-                  <FeatureLine>Inventory management.</FeatureLine>
-                  <FeatureLine>Three users with your accountant.</FeatureLine>
-                  <FeatureLine>Advanced financial reports.</FeatureLine>
-                </>
-              }
-              price={'LD2,400'}/>
-            
-              <PricingPlan title={"Capital Enterprise"} features={
-                <>
-                  <FeatureLine>All <strong>Capital Essential</strong> features.</FeatureLine>
-                  <FeatureLine>Track multi-branches and locations.</FeatureLine>
-                  <FeatureLine>Projects accounting and timesheets.</FeatureLine>
-                  <FeatureLine>Accounting dimensions.</FeatureLine>
-                </>
-              } price={'LD3400'} />
-            
+          <PricingPlan
+            title={"Capital Starter"}
+            description={'Suitable for business has no multi-currency invoices.'}
+            price={'LD1,200LD'}
+            features={
+              <>
+                <FeatureLine>Sale and purchase invoices.</FeatureLine>
+                <FeatureLine>Customers/vendors accounts.</FeatureLine>
+                <FeatureLine>Expense tracking</FeatureLine>
+                <FeatureLine>Manual journals.</FeatureLine>
+                <FeatureLine>Financial reports.</FeatureLine>
+                <FeatureLine>For one user and accountant.</FeatureLine>
+              </>
+            }
+          />
+          <PricingPlan
+            title={"Capital Plus"}
+            primary={true}
+            description={'Suitable for business pay in foreign currencies and has multi-warehouses.'} 
+            price={'LD2,400'}
+            features={
+              <>
+                <FeatureLine>All <strong>Capital Starter</strong> features.</FeatureLine>
+                <FeatureLine>Multi-currency.</FeatureLine>
+                <FeatureLine>Purchase and sell orders.</FeatureLine>
+                <FeatureLine>Inventory management.</FeatureLine>
+                <FeatureLine>Three users with your accountant.</FeatureLine>
+                <FeatureLine>Advanced financial reports.</FeatureLine>
+              </>
+            }
+          />
+          <PricingPlan
+            title={"Capital Enterprise"}
+            description={'Suitable for business has projects or multi-branches transactions.'} 
+            price={'LD3,400'}
+            features={
+              <>
+                <FeatureLine>All <strong>Capital Essential</strong> features.</FeatureLine>
+                <FeatureLine>Track multi-branches and locations.</FeatureLine>
+                <FeatureLine>Projects accounting and timesheets.</FeatureLine>
+                <FeatureLine>Accounting dimensions.</FeatureLine>
+              </>
+            }
+          />
         </div>
       </div>
     </div>
