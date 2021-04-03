@@ -11,7 +11,7 @@ export default function Customers() {
         <div className="container">
           <div className="customers__inner-wrapper">
             <div className="row justify-content-between">
-              <div className="customers__customer col-lg-auto align-self-center text-center">
+              {/* <div className="customers__customer col-lg-auto align-self-center text-center">
                 <StaticImage src="../../images/names-faces.png" alt="" />
               </div>
 
@@ -33,7 +33,7 @@ export default function Customers() {
                   src="../../images/sellout.png"
                   alt=""
                 />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

@@ -3,6 +3,7 @@
   &__container {
     padding-left: 0;
     padding-right: 0;
+    max-width: 1220px;
 
     @include media-breakpoint-down("lg") {
       max-width: 100%;
@@ -40,9 +41,9 @@
       &-inner {
         overflow: hidden;
         height: 100%;
-        width: 1130px;
-        border-left: 15px solid #f5f6f800;
-        border-right: 15px solid #f5f6f800;
+        // width: 1130px;
+        // border-left: 15px solid #f5f6f800;
+        // border-right: 15px solid #f5f6f800;
 
         @include media-breakpoint-down("md") {
           width: 1050px;
@@ -53,8 +54,9 @@
       }
 
       &-item {
-        border-radius: 15px;
+        // border-radius: 15px;
         overflow: hidden;
+        z-index: 9999;
 
         video {
           @include media-breakpoint-down("md") {
@@ -88,6 +90,31 @@
 
         &.active {
           opacity: 0.75;
+        }
+      }
+    }
+  }
+}
+
+.showcase-browser{
+
+  &__header{
+    height: 25px;
+    background: #dce1e4;
+
+    &-close-btns{
+      display: inline-block;
+      margin-left: 16px;
+
+      span{
+        display: inline-block;
+        height: 10px;
+        width: 10px;
+        background-color: #fff;
+        border-radius: 10px;
+        
+        &:not(:first-child) {
+          margin-left: 8px;
         }
       }
     }
