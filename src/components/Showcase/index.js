@@ -9,11 +9,11 @@ function ShowcaseCarousel() {
   return (
     <Carousel>
       <Carousel.Item>
-        <StaticImage src="../../assets/images/showcase/showcase-2.png" alt="" />
+        <StaticImage src="../../assets/images/showcase/showcase-3.png" alt="" />
       </Carousel.Item>
 
       <Carousel.Item>
-        <StaticImage src="../../assets/images/showcase/showcase-3.png" alt="" />
+        <StaticImage src="../../assets/images/showcase/showcase-2.png" alt="" />
       </Carousel.Item>
 
       <Carousel.Item>
@@ -32,13 +32,13 @@ function ShowcaseCarousel() {
         <StaticImage src="../../assets/images/showcase/showcase-7.png" alt="" />
       </Carousel.Item>
 
-      <Carousel.Item>
+      {/* <Carousel.Item>
         <StaticImage src="../../assets/images/showcase/showcase-8.png" alt="" />
-      </Carousel.Item>
+      </Carousel.Item> */}
 
-      <Carousel.Item>
+      {/* <Carousel.Item>
         <StaticImage src="../../assets/images/showcase/showcase-9.png" alt="" />
-      </Carousel.Item>
+      </Carousel.Item> */}
       {/* <Carousel.Item>
         <img className="d-block w-100" alt="..." />
       </Carousel.Item>

@@ -79,7 +79,7 @@ export default function PricingPlans() {
           <PricingPlan
             title={"Capital Starter"}
             description={'Suitable for business has no multi-currency invoices.'}
-            price={'LD1,200LD'}
+            price={'LD1,200'}
             features={
               <>
                 <FeatureLine>Sale and purchase invoices.</FeatureLine>

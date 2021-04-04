@@ -1,9 +1,10 @@
 @import "../variables.scss";
+
 .showcase {
   &__container {
     padding-left: 0;
     padding-right: 0;
-    max-width: 1220px;
+    max-width: 1220px !important;
 
     @include media-breakpoint-down("lg") {
       max-width: 100%;
@@ -15,7 +16,7 @@
 
   &__app {
     margin-bottom: -360px;
-    height: 740px;
+    
     padding-bottom: 40px;
     width: 100%;
     position: relative;
@@ -99,19 +100,23 @@
 .showcase-browser{
 
   &__header{
-    height: 25px;
-    background: #dce1e4;
+    height: 18px;
+    background: #6d7688;
+    display: flex;
+    border-radius: 12px 12px 0 0;
 
     &-close-btns{
-      display: inline-block;
+      display: flex;
       margin-left: 16px;
 
       span{
-        display: inline-block;
-        height: 10px;
-        width: 10px;
+        align-self: center;
+        display: block;
+        height: 6px;
+        width: 6px;
         background-color: #fff;
         border-radius: 10px;
+        opacity: 0.6;
         
         &:not(:first-child) {
           margin-left: 8px;
