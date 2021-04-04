@@ -1,11 +1,11 @@
 import React from "react"
 import ReactWOW from "react-wow"
-import { Carousel } from 'react-bootstrap';
+import { Carousel } from "react-bootstrap"
 import { StaticImage } from "gatsby-plugin-image"
+import Img from "gatsby-image"
 import "./index.scss"
 
 function ShowcaseCarousel() {
-
   return (
     <Carousel>
       <Carousel.Item>
@@ -46,25 +46,23 @@ function ShowcaseCarousel() {
         <img className="d-block w-100" alt="..." />
       </Carousel.Item>           */}
     </Carousel>
-  );
+  )
 }
 
 function ShowcaseBrowser({ children }) {
   return (
     <div className="showcase-browser">
-      <div className={'showcase-browser__header'}>
-        <div className={'showcase-browser__header-close-btns'}>
+      <div className={"showcase-browser__header"}>
+        <div className={"showcase-browser__header-close-btns"}>
           <span></span>
           <span></span>
           <span></span>
         </div>
       </div>
 
-      <div className={'showcase-browser__body'}>
-        { children }
-      </div>
+      <div className={"showcase-browser__body"}>{children}</div>
     </div>
-  );
+  )
 }
 
 export default function Showcase() {
