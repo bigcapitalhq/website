@@ -109,27 +109,23 @@ svg.bigcapital {
       position: relative;
       right: -0.5rem;
     }
-
-    &-inner {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-
-      @include media-breakpoint-down("md") {
-        border-bottom: 1px solid rgb(223, 229, 234);
-        width: 100%;
-        padding-bottom: 12px;
-      }
-    }
-
+ 
     .btn {
-      // color: #18214D;
       border-radius: 39px;
       padding-left: 16px;
       padding-right: 16px;
       margin-left: 12px;
       margin-right: 12px;
+    }
+
+    .navbar{
+      &-collapse{
+        .navbar-nav{
+          @include media-breakpoint-down('md') {
+            padding-top: 15px;
+          }
+        }
+      }
     }
 
     .nav {
@@ -145,6 +141,11 @@ svg.bigcapital {
       }
 
       &-link {
+
+        @include media-breakpoint-down('md') {
+          padding-left: 0;
+          padding-right: 0;
+        }
 
         &,
         &:active {
@@ -196,7 +197,7 @@ svg.bigcapital {
       .nav {
         &-item {
           @include media-breakpoint-down("md") {
-            border-bottom: 1px solid #e6ecef;
+            border-bottom: 1px solid rgba(24, 34, 77, 0.15);
           }
         }
 
@@ -209,6 +210,13 @@ svg.bigcapital {
 
           &:hover {
             color: #0039ff;
+          }
+
+          @include media-breakpoint-down('md') {
+            height: 45px;
+            line-height: 45px;
+            padding-left: 0;
+            padding-right: 0;
           }
         }
 

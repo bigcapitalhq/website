@@ -7,9 +7,10 @@ import Footer from "./Footer"
 const Layout = ({ children }) => {
   return (
     <>
-      <div class="bg-grad rotating">
-        <img src="https://method.blue/images/04.jpg" />
+      <div class="bg-grad">
+        <img src="https://method.blue/images/04.jpg" class="rotating" />
       </div>
+
       <TopBar />
       <main>{children}</main>
       <Footer />

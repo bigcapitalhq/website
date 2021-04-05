@@ -1,31 +1,32 @@
 @import "../variables.scss";
 
 .showcase {
+  .gatsby-image-wrapper [data-main-image]{
+    transition-duration: 0s !important;
+  }
+
   &__container {
-    padding-left: 0;
-    padding-right: 0;
-    max-width: 1220px !important;
+    max-width: 1220px;
+    margin-left: auto;
+    margin-right: auto;
 
     @include media-breakpoint-down("lg") {
       max-width: 100%;
       width: 100%;
-      padding-left: 0;
-      padding-right: 0;
     }
   }
 
   &__app {
     margin-bottom: -360px;
-    
     padding-bottom: 40px;
     width: 100%;
     position: relative;
+    z-index: 9999;
 
     @include media-breakpoint-down("md") {
       height: 640px;
       margin-bottom: -320px;
     }
-
     @include media-breakpoint-down("sm") {
       height: 540px;
       margin-bottom: -270px;
@@ -38,35 +39,16 @@
         width: 100%;
         overflow: scroll;
       }
-
       &-inner {
-        overflow: hidden;
         height: 100%;
-        // width: 1130px;
-        // border-left: 15px solid #f5f6f800;
-        // border-right: 15px solid #f5f6f800;
-
-        @include media-breakpoint-down("md") {
-          width: 1050px;
-        }
-        @include media-breakpoint-down("sm") {
-          width: 867px;
-        }
       }
-
       &-item {
-        // border-radius: 15px;
-        overflow: hidden;
-        z-index: 9999;
-
-        video {
-          @include media-breakpoint-down("md") {
-            height: 600px;
-          }
-          @include media-breakpoint-down("sm") {
-            height: 500px;
-          }
-        }
+        width: 100%;
+        overflow-y: hidden;
+        overflow-x: auto;
+        height: 100%;
+        padding-left: 0;
+        padding-right: 0;
       }
     }
 
@@ -98,6 +80,14 @@
 }
 
 .showcase-browser{
+  padding-left: 15px;
+  padding-right: 15px;
+
+  @include media-breakpoint-down("sm") {
+    width: 950px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 
   &__header{
     height: 18px;
@@ -123,5 +113,9 @@
         }
       }
     }
+  }
+
+  &__body{
+    min-height: 600px;
   }
 }

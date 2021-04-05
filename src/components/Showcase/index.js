@@ -2,49 +2,71 @@ import React from "react"
 import ReactWOW from "react-wow"
 import { Carousel } from "react-bootstrap"
 import { StaticImage } from "gatsby-plugin-image"
-import Img from "gatsby-image"
 import "./index.scss"
 
 function ShowcaseCarousel() {
   return (
-    <Carousel>
+    <Carousel controls={false} touch={false}>
       <Carousel.Item>
-        <StaticImage src="../../assets/images/showcase/showcase-3.png" alt="" />
+        <ShowcaseBrowser>
+          <StaticImage
+            src="../../assets/images/showcase/showcase-3.png"
+            alt=""
+            backgroundColor={'#fff'}
+          />
+        </ShowcaseBrowser>
       </Carousel.Item>
 
       <Carousel.Item>
-        <StaticImage src="../../assets/images/showcase/showcase-2.png" alt="" />
+        <ShowcaseBrowser>
+          <StaticImage
+            src="../../assets/images/showcase/showcase-2.png"
+            alt=""
+            backgroundColor={'#fff'}
+            loading={'eager'}
+          />
+        </ShowcaseBrowser>
       </Carousel.Item>
 
       <Carousel.Item>
-        <StaticImage src="../../assets/images/showcase/showcase-4.png" alt="" />
+        <ShowcaseBrowser>
+          <StaticImage
+            src="../../assets/images/showcase/showcase-4.png"
+            alt=""
+            backgroundColor={'#fff'}
+          />
+        </ShowcaseBrowser>
       </Carousel.Item>
 
       <Carousel.Item>
-        <StaticImage src="../../assets/images/showcase/showcase-5.png" alt="" />
+        <ShowcaseBrowser>
+          <StaticImage
+            src="../../assets/images/showcase/showcase-5.png"
+            alt=""
+            backgroundColor={'#fff'}
+          />
+        </ShowcaseBrowser>
+      </Carousel.Item>
+
+      <Carousel.Item backgroundColor={'#fff'}>
+        <ShowcaseBrowser>
+          <StaticImage
+            src="../../assets/images/showcase/showcase-6.png"
+            alt=""
+            backgroundColor={'#fff'}
+          />
+        </ShowcaseBrowser>
       </Carousel.Item>
 
       <Carousel.Item>
-        <StaticImage src="../../assets/images/showcase/showcase-6.png" alt="" />
+        <ShowcaseBrowser>
+          <StaticImage
+            src="../../assets/images/showcase/showcase-7.png"
+            alt=""
+            backgroundColor={'#fff'}
+          />
+        </ShowcaseBrowser>
       </Carousel.Item>
-
-      <Carousel.Item>
-        <StaticImage src="../../assets/images/showcase/showcase-7.png" alt="" />
-      </Carousel.Item>
-
-      {/* <Carousel.Item>
-        <StaticImage src="../../assets/images/showcase/showcase-8.png" alt="" />
-      </Carousel.Item> */}
-
-      {/* <Carousel.Item>
-        <StaticImage src="../../assets/images/showcase/showcase-9.png" alt="" />
-      </Carousel.Item> */}
-      {/* <Carousel.Item>
-        <img className="d-block w-100" alt="..." />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img className="d-block w-100" alt="..." />
-      </Carousel.Item>           */}
     </Carousel>
   )
 }
@@ -67,16 +89,12 @@ function ShowcaseBrowser({ children }) {
 
 export default function Showcase() {
   return (
-    <ReactWOW animation="fadeIn" duration={"2s"}>
-      <div className="showcase">
-        <div className="container showcase__container">
-          <div className="showcase__app">
-            <ShowcaseBrowser>
-              <ShowcaseCarousel />
-            </ShowcaseBrowser>
-          </div>
+    <div className="showcase" id="showcase">
+      <div className="showcase__container">
+        <div className="showcase__app">
+          <ShowcaseCarousel />
         </div>
       </div>
-    </ReactWOW>
+    </div>
   )
 }

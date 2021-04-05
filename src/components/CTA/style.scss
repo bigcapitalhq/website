@@ -1,12 +1,29 @@
+@import "../variables.scss";
 
 
-.CTA-section{
-    padding: 100px 0;
+.CTA-section {
+    padding: 100px 15px;
 
-    &__title{
+    @include media-breakpoint-down('md') {
+        padding-bottom: 90px;
+        padding-top: 90px;
+    }
+
+    &__title {
         max-width: 800px;
         font-weight: 800;
         margin: 0 auto;
         text-align: center;
+        font-size: 40px;
+
+        @include media-breakpoint-down('md') {
+            font-size: 35px;
+        }
+        @include media-breakpoint-down('sm') {
+            font-size: 30px;
+        }
+        @include media-breakpoint-down('xs') {
+            font-size: 28px;
+        }
     }
 }

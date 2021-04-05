@@ -59,15 +59,15 @@ function PricingPlan({
  */
 export default function PricingPlans() {
   return (
-    <div class="pricing-section">
+    <div class="pricing-section" id="pricing-section">
       <div class="container">
         <div class="row">
-          <div class="col-6">
+          <div class="col-lg-6 col-md-12">
             <h1 class="pricing-section__title">
               Choose the right plan for <br /> your business
             </h1>
           </div>
-          <div class="col-5 offset-1">
+          <div class="col-lg-5 offset-lg-1 col-md-12">
             <p class="pricing-section__desc">
               Exploring and understanding team, legacy, or foreign projects
               takes.

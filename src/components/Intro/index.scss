@@ -2,8 +2,8 @@
 
 .intro {
   text-align: center;
-  padding-top: 110px;
-  padding-bottom: 100px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 
   @include media-breakpoint-down("sm") {
     padding-top: 60px;
@@ -19,12 +19,17 @@
     margin-bottom: 10px;
     letter-spacing: -0.02rem;
 
-    @include media-breakpoint-up("sm") {
-      width: 90%;
+    span{
+      display: inline-block;
+      
+      &:before{
+        content: "";
+        display: block;
+      }
     }
 
-    @include media-breakpoint-down("sm") {
-      font-weight: bold;
+    @include media-breakpoint-up("lg") {
+      width: 90%;
     }
 
     @include media-breakpoint-down("lg") {
@@ -44,7 +49,7 @@
 
     @include media-breakpoint-down("xs") {
       font-size: 28px;
-      line-height: 38px;
+      line-height: 32px;
     }
   }
 
@@ -56,7 +61,7 @@
     margin: 0 auto;
     margin-bottom: 25px;
 
-    @include media-breakpoint-up("sm") {
+    @include media-breakpoint-up("lg") {
       width: 80%;
     }
 
@@ -70,7 +75,7 @@
     }
 
     @include media-breakpoint-down("xs") {
-      line-height: 26px;
+      line-height: 24px;
       font-size: 16px;
     }
   }
@@ -88,6 +93,26 @@
 
       @include media-breakpoint-down("md") {
         width: 100%;
+      }
+
+      @include media-breakpoint-down('sm') {
+        line-height: 40px;
+        height: 40px;
+        border-radius: 40px;
+      }
+      & + .btn {
+
+        @include media-breakpoint-up('lg') {
+          margin-left: 16px;
+        }
+
+        @include media-breakpoint-down('md') {
+          margin-top: 16px; 
+        }
+
+        @include media-breakpoint-down('sm') {
+          margin-top: 12px;
+        }
       }
     }
   }

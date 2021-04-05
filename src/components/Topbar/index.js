@@ -1,6 +1,6 @@
 import React from "react"
-import { Link } from "gatsby"
 import ReactWOW from "react-wow"
+import { Navbar, Nav, Button } from "react-bootstrap"
 import Logo from "../Logo"
 
 import "./index.scss"
@@ -8,71 +8,47 @@ import "./index.scss"
 export default function TopBar() {
   return (
     <ReactWOW animation="fadeIn" duration={"1s"}>
-      <div className="topbar">
+      <div className="topbar" id="topbar">
         <div className="container">
-          <nav className="navbar navbar-expand-lg navbar-light">
-            <div className="navbar-inner">
-              <a className="navbar-branch">
-                <Logo />
-              </a>
-              <button
-                className="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <span className="navbar-toggler-icon"></span>
-              </button>
-            </div>
+          <Navbar expand="lg">
+            <Navbar.Brand>
+              <Logo width={200} />
+            </Navbar.Brand>
 
-            <div
-              className="collapse navbar-collapse"
-              id="navbarSupportedContent"
-            >
-              <ul className="navbar-nav ml-auto">
-                <li className="nav-item">
-                  <Link className="nav-link" to={"#"}>
-                    Features
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to={"#"}>
-                    Pricing
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to={"#"}>
-                    Support
-                  </Link>
-                </li>
+            <Navbar.Toggle />
+
+            <Navbar.Collapse>
+              <Nav className="ml-auto">
+                <Nav.Item>
+                  <Nav.Link href="#features-title">Features</Nav.Link>
+                </Nav.Item>
+
+                <Nav.Item>
+                  <Nav.Link href="#pricing-section">Pricing</Nav.Link>
+                </Nav.Item>
+
+                <Nav.Item>
+                  <Nav.Link>Support</Nav.Link>
+                </Nav.Item>
+
                 <li className="nav-divider mr-1 ml-1"></li>
-                <li className="nav-item nav-item-primary d-lg-none">
-                  <Link className="nav-link" to={"#"}>
-                    Login
-                  </Link>
-                </li>
-                <li className="nav-item d-none d-lg-block">
-                  <Link className="nav-link" to={"#"}>
-                    Login
-                  </Link>
-                </li>
 
-                <li className="nav-item d-none d-lg-block">
-                  <Link className="btn btn-primary" to={"#"}>
+                <Nav.Item>
+                  <Nav.Link href={"https://app.bigcapital.ly"}>Login</Nav.Link>
+                </Nav.Item>
+
+                <Nav.Item className={"d-none d-lg-block"}>
+                  <Button variant="primary" link={"#"}>
                     Contact us
-                  </Link>
-                </li>
+                  </Button>
+                </Nav.Item>
+
                 <li className="nav-item nav-item-primary d-lg-none">
-                  <Link className="nav-link" to={"#"}>
-                    Contact us
-                  </Link>
+                  <Nav.Link>Contact us</Nav.Link>
                 </li>
-              </ul>
-            </div>
-          </nav>
+              </Nav>
+            </Navbar.Collapse>
+          </Navbar>
         </div>
       </div>
     </ReactWOW>

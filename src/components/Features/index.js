@@ -1,15 +1,18 @@
 import React from "react"
-import ChartSVG from '../../assets/svg/chart.svg';
-import CloudSVG from '../../assets/svg/cloud.svg';
-import InventorySVG from '../../assets/svg/inventory.svg';
-import MoneySVG from '../../assets/svg/money.svg';
-import PaymentSVG from '../../assets/svg/payment.svg';
-import ReceiptSVG from '../../assets/svg/receipt.svg';
-import PeopleSVG from '../../assets/svg/people.svg';
-import HelpSVG from '../../assets/svg/help.svg';
-import ShoppingBagSVG from '../../assets/svg/ShoppingBag.svg'
+import ChartSVG from "../../assets/svg/chart.svg"
+import CloudSVG from "../../assets/svg/cloud.svg"
+import InventorySVG from "../../assets/svg/inventory.svg"
+import MoneySVG from "../../assets/svg/money.svg"
+import PaymentSVG from "../../assets/svg/payment.svg"
+import ReceiptSVG from "../../assets/svg/receipt.svg"
+import PeopleSVG from "../../assets/svg/people.svg"
+import HelpSVG from "../../assets/svg/help.svg"
+import ShoppingBagSVG from "../../assets/svg/ShoppingBag.svg"
 import "./index.scss"
 
+/**
+ * Feature component.
+ */
 function Feature({ icon, title, desc }) {
   return (
     <div
@@ -17,27 +20,28 @@ function Feature({ icon, title, desc }) {
       data-target="#appCarousel"
       data-slide-to="0"
     >
-      {icon && (
-        <div class="features__feature-icon">{ icon }</div>
-      )}
+      {icon && <div class="features__feature-icon">{icon}</div>}
       <h4 class="features__feature-title">{title}</h4>
       <p class="features__feature-desc">{desc}</p>
     </div>
   )
 }
 
-  export default function Features() {
-    return (
-    <div class="features">
+/**
+ * Features section.
+ */
+export default function Features() {
+  return (
+    <div class="features" id="features">
       <div class="bg-gradient position-relative">
         <img
           class="gradient-2 position-absolute"
           src="https://method.blue/images/02.jpg"
         />
-      </div>  
+      </div>
 
       <div class="container">
-        <h1 class="features__title">Discover the features you need</h1>
+        <h1 class="features__title" id="features-title">Discover the features you need</h1>
 
         <div class="row">
           <div class="col-12 col-md-6 col-lg-4">
