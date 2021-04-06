@@ -41,25 +41,27 @@ export default function Features() {
       </div>
 
       <div class="container">
-        <h1 class="features__title" id="features-title">Discover the features you need</h1>
+        <h1 class="features__title" id="features-title">
+          Discover the features you need
+        </h1>
 
         <div class="row">
           <div class="col-12 col-md-6 col-lg-4">
             <Feature
-              icon={<ChartSVG />}
-              title={"Financial Reports"}
+              icon={<PaymentSVG />}
+              title={"Sales & Purchases Invoicing"}
               desc={
-                "You don't have to wait to end of the month to generate business reports. Bigcapital has financial reports to run your business with intelligence."
+                "Create your sell invoices with your customers or purchase invoices with your vendors, manage recurring invoices and easily track customers/vendors payments."
               }
             />
           </div>
 
           <div class="col-12 col-md-6 col-lg-4">
             <Feature
-              icon={<CloudSVG />}
-              title={"Cloud Accounting"}
+              icon={<ChartSVG />}
+              title={"Financial Reports"}
               desc={
-                "Exploring and understanding team, legacy, or foreign projects takes a lot of time and effort, implementations, usages, declarations."
+                "You don't have to wait to end of the month to generate business reports. Bigcapital has financial reports to run your business with intelligence."
               }
             />
           </div>
@@ -76,10 +78,30 @@ export default function Features() {
 
           <div class="col-12 col-md-6 col-lg-4">
             <Feature
+              icon={<PeopleSVG />}
+              title={"Accountants & Bookkeepers"}
+              desc={
+                "The software should facilitate collaboration with your accountant, Bigcapital allows to invite users to your organization with role-based permissions."
+              }
+            />
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <Feature
+              icon={<ReceiptSVG />}
+              title={"Expense Accounting"}
+              desc={
+                "The software gives you a single place to track all business expenses from employee payroll to office renting and categorize them on accounts and bill them to your customers."
+              }
+            />
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4">
+            <Feature
               icon={<MoneySVG />}
               title={"Multi-currency Accounting"}
               desc={
-                "Pay and get paid in any currency with real time exchange rates conversions."
+                "Pay and get paid and do manual journals in any currency with real time exchange rates conversions."
               }
             />
           </div>
@@ -96,20 +118,10 @@ export default function Features() {
 
           <div class="col-12 col-md-6 col-lg-4">
             <Feature
-              icon={<PaymentSVG />}
-              title={"Sales & Purchases Invoices"}
+              icon={<CloudSVG />}
+              title={"Cloud Accounting"}
               desc={
-                "Exploring and understanding team, legacy, or foreign projects takes a lot of time and effort, implementations, usages, declarations."
-              }
-            />
-          </div>
-
-          <div class="col-12 col-md-6 col-lg-4">
-            <Feature
-              icon={<PeopleSVG />}
-              title={"Accountants & Bookkeepers"}
-              desc={
-                "Exploring and understanding team, legacy, or foreign projects takes a lot of time and effort, implementations, usages, declarations."
+                "Your account information is securely stored in the cloud, available anytime on all your devices and track business transactions to see what business is doing from anywhere."
               }
             />
           </div>
@@ -117,17 +129,7 @@ export default function Features() {
           <div class="col-12 col-md-6 col-lg-4">
             <Feature
               icon={<ShoppingBagSVG />}
-              title={"AR/AP Accounts"}
-              desc={
-                "Exploring and understanding team, legacy, or foreign projects takes a lot of time and effort, implementations, usages, declarations."
-              }
-            />
-          </div>
-
-          <div class="col-12 col-md-6 col-lg-4">
-            <Feature
-              icon={<ReceiptSVG />}
-              title={"Accounts Receivable, payable and customers"}
+              title={"Easy-to-use Software"}
               desc={
                 "Exploring and understanding team, legacy, or foreign projects takes a lot of time and effort, implementations, usages, declarations."
               }

@@ -64,13 +64,12 @@ export default function PricingPlans() {
         <div class="row">
           <div class="col-lg-6 col-md-12">
             <h1 class="pricing-section__title">
-              Choose the right plan for <br /> your business
+              Choose the right plan for your business
             </h1>
           </div>
           <div class="col-lg-5 offset-lg-1 col-md-12">
             <p class="pricing-section__desc">
-              Exploring and understanding team, legacy, or foreign projects
-              takes.
+              With Bigcapital only pay for what services and features you use. 
             </p>
           </div>
         </div>

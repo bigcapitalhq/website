@@ -17,13 +17,25 @@ body {
     font-weight: 800;
 
     @include media-breakpoint-down('md') {
-      font-size: 34px;
+      font-size: 32px;
+    }
+
+    @include media-breakpoint-down('sm') {
+      font-size: 30px;
+    }
+
+    @include media-breakpoint-down('xs') {
+      font-size: 28px;
     }
   }
+
   &__desc {
-    margin-top: 0.4rem;
     margin-bottom: 0;
     font-size: 18px;
+
+    @include media-breakpoint-up('lg') {
+      margin-top: 0.4rem;
+    }
   }
 }
 
@@ -35,7 +47,7 @@ body {
     flex-direction: column;
   }
 
-  .pricing-plan{
+  .pricing-plan {
     display: flex;
     flex-direction: column;
     width: 33.3%;
@@ -64,7 +76,7 @@ body {
   border-radius: 10px;
   padding: 32px 28px;
 
-  &.is-primary{
+  &.is-primary {
     border: 2px solid #0a5ee7;
   }
 
