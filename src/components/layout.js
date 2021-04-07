@@ -1,22 +1,16 @@
 import * as React from "react"
-import className from 'classnames';
+import className from "classnames"
 import PropTypes from "prop-types"
+import { Img } from "react-image"
 
 import TopBar from "./Topbar"
 import Footer from "./Footer"
 
 const Layout = ({ children }) => {
-  const [isLoaded, setIsLoaded] = React.useState(false);
-
   return (
     <>
-      <div className={className('bg-grad', {
-        'is-loaded': isLoaded
-      })}>
-        <img
-          onLoad={() => {
-            setIsLoaded(true)
-          }}
+      <div className={className("bg-grad")}>
+        <Img
           src={"blur/blur-1.jpeg"}
           class="rotating"
         />
