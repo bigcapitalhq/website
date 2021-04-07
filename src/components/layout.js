@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <div class="bg-grad">
-        <img src={'blur/blur-1.png'} class="rotating" />
+        <img src={'blur/blur-1.jpeg'} class="rotating" />
       </div>
 
       <TopBar />
