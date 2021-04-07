@@ -13,7 +13,11 @@ import "../styles/index.scss"
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Bigcapital" />
+    <SEO
+      title="Bigcapital"
+      description="Financial Accounting Automation"
+      lang="en"
+    />
     <Intro />
     <Showcase />
     <Features />

@@ -4,11 +4,12 @@ import PropTypes from "prop-types"
 import TopBar from "./Topbar"
 import Footer from "./Footer"
 
+
 const Layout = ({ children }) => {
   return (
     <>
       <div class="bg-grad">
-        <img src="https://method.blue/images/04.jpg" class="rotating" />
+        <img src={'blur/blur-1.png'} class="rotating" />
       </div>
 
       <TopBar />

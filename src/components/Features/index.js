@@ -36,7 +36,7 @@ export default function Features() {
       <div class="bg-gradient position-relative">
         <img
           class="gradient-2 position-absolute"
-          src="https://method.blue/images/02.jpg"
+          src="blur/blur-2.jpeg"
         />
       </div>
 
