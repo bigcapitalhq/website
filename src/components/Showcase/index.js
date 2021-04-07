@@ -1,5 +1,4 @@
 import React from "react"
-import ReactWOW from "react-wow"
 import { Carousel } from "react-bootstrap"
 import { StaticImage } from "gatsby-plugin-image"
 import "./index.scss"
@@ -20,10 +19,9 @@ function ShowcaseCarousel() {
       <Carousel.Item>
         <ShowcaseBrowser>
           <StaticImage
-            src="../../assets/images/showcase/showcase-2.png"
+            src="../../assets/images/showcase/showcase-10.png"
             alt=""
             backgroundColor={'#fff'}
-            loading={'eager'}
           />
         </ShowcaseBrowser>
       </Carousel.Item>

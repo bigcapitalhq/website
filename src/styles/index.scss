@@ -52,6 +52,10 @@ h2::selection {
   overflow: hidden;
   z-index: -99999;
   height: 856px;
+  
+  &:not(.is-loaded) {
+    opacity: 0;
+  }
 
   img {
     position: absolute;
