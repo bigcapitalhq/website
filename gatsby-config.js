@@ -23,6 +23,16 @@ module.exports = {
         extensions: ["css", "html", "js", "svg", "png"],
       },
     },
+
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Inter\:400,500,600,800`, // you can also specify font weights and styles
+        ],
+        display: "swap",
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
