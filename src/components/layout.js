@@ -9,13 +9,6 @@ import Footer from "./Footer"
 const Layout = ({ children }) => {
   return (
     <>
-      <div className={className("bg-grad")}>
-        <Img
-          src={"blur/blur-1.jpeg"}
-          class="rotating"
-        />
-      </div>
-
       <TopBar />
       <main>{children}</main>
       <Footer />

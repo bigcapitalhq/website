@@ -13,14 +13,14 @@ export default function Intro() {
           </h1>
 
           <h2 className="intro__subtitle">
-          Control your business bookkeeping with automated and manual accounting, to create smarter reports for making the right decisions.
+            Control your business bookkeeping with automated and manual accounting, to create smarter reports for making the right decisions.
           </h2>
 
           <div className="intro__buttons">
-            <a className="btn btn-primary btn-lg" href="">
+            <a className="btn btn-primary btn-lg" href="/request-demo">
               Request demo
             </a>
-            <a className="btn btn-outline-secondary btn-lg" href="">
+            <a className="btn btn-outline-secondary btn-lg" href="/request-demo">
               Signup
             </a>
           </div>

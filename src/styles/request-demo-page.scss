@@ -1,0 +1,73 @@
+@import "./index.scss";
+
+body{
+    background-color: #fff;
+}
+.request-demo {
+    max-width: 800px;
+    margin: 7rem 0;
+    margin-bottom: 10rem;
+
+    @include media-breakpoint-down('sm') {
+        margin-top: 4rem;
+    }
+
+    &__title {
+        font-weight: 900;
+        font-size: 65px;
+        margin-bottom: 25px;
+
+        @include media-breakpoint-down('sm') {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+    }
+
+    &__thanks-title{
+        font-weight: 900;
+        font-size: 65px;
+        margin-bottom: 25px;
+
+        @include media-breakpoint-down('sm') {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+    }
+
+    &__desc {
+        font-size: 20px;
+        margin-bottom: 70px;
+        opacity: 0.9;
+
+        @include media-breakpoint-down('sm') {
+            font-size: 16px;
+            margin-bottom: 50px;
+        }
+    }
+
+    &__form {
+        .form-group {
+            margin-bottom: 1.6rem;
+        }
+        .form-control {
+            height: calc(2em + 0.75rem + 2px);
+            padding: 0.375rem 1rem;
+            font-size: 1.1rem;
+            color: #495057;
+            background-color: transparent;
+            // border: 1px solid #b9c0c7;
+            border-radius: 0.25rem;
+        }
+
+        .footer-hint {
+            margin-bottom: 1.5rem;
+            opacity: 0.85;
+        }
+
+        .btn[type="submit"] {
+            min-width: 180px;
+            font-size: 20px;
+        }
+
+    }
+}

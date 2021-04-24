@@ -12,7 +12,9 @@ export default function TopBar() {
         <div className="container">
           <Navbar expand="lg">
             <Navbar.Brand>
-              <Logo width={200} />
+              <a href="/">
+                <Logo width={200} />
+              </a>
             </Navbar.Brand>
 
             <Navbar.Toggle />
@@ -38,9 +40,9 @@ export default function TopBar() {
                 </Nav.Item>
 
                 <Nav.Item className={"d-none d-lg-block"}>
-                  <Button variant="primary" link={"#"}>
+                  <a class="btn btn-primary" href={"/request-demo"}>
                     Contact us
-                  </Button>
+                  </a>
                 </Nav.Item>
 
                 <li className="nav-item nav-item-primary d-lg-none">

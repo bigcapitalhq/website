@@ -1,6 +1,9 @@
 import * as React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import className from "classnames"
+import { Img } from "react-image"
+import BodyClassName from 'react-body-classname';
 
 import Intro from "../components/Intro"
 import Customers from "../components/Customers"
@@ -13,11 +16,18 @@ import "../styles/index.scss"
 
 const IndexPage = () => (
   <Layout>
+    <div className={className("bg-grad")}>
+        <Img
+          src={"blur/blur-1.jpeg"}
+          class="rotating"
+        />
+      </div>
     <SEO
       title="Bigcapital"
       description="Financial Accounting Automation"
       lang="en"
     />
+    <BodyClassName className="homepage" />
     <Intro />
     <Showcase />
     <Features />
