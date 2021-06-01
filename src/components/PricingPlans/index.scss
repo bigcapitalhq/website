@@ -35,6 +35,71 @@ body {
 
     @include media-breakpoint-up('lg') {
       margin-top: 0.4rem;
+    } 
+  }
+
+  .period-note{
+    font-size: 12px;
+    opacity: 0.8;
+    margin-top: 2px;
+    margin-bottom: 0;
+  }
+
+  &__billing-cycle {
+    display: flex;
+    margin-bottom: 0;
+    padding-top: 8px;
+
+    @include media-breakpoint-down('md') {
+      margin-bottom: 20px;
+    }
+
+    .form-label{
+      margin-right: 8px;
+    }
+
+    .billing-cycle{
+      
+      &__item{
+
+        &.active{
+          text-decoration: underline;
+        }
+      }  
+    }
+
+    .custom-control{
+      padding-left: 2.75rem;
+
+      &.custom-switch{
+        .custom-control-input:checked ~ .custom-control-label::after{
+          transform: translateX(1.05rem);
+        }  
+
+        .custom-control-label{
+
+          &::before{ 
+            left: -2.75rem;
+            width: 2.25rem;
+            height: 1.2rem;
+            border-radius: 1.2rem;
+            border-color: $primary;
+            background-color: $primary;
+          }
+
+          &::after{
+            left: calc(-2.75rem + 2px);
+            width: calc(1.2rem - 4px);
+            height: calc(1.2rem - 4px);
+            background-color: #fff;
+            border-color: #fff;    
+          }
+        }
+      }
+    }
+
+    .custom-control-input:checked ~ .custom-control-label::before{
+
     }
   }
 }
