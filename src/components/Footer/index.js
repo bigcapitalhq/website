@@ -100,7 +100,7 @@ export default function Footer() {
                   Online accounting software, built to automate business financial processes.
                 </p>
                 <p className="mb-1">
-                  <strong>Phone number</strong>: +218-92 738 19 87
+                  <strong>Phone number</strong>: +218-927381987
                 </p>
                 <p>
                   <strong>Email</strong>: info@bigcapital.com
