@@ -12,10 +12,10 @@ function SocialWidget() {
       </strong>
       <ul className="footer__widget-list">
         <li>
-          <a target="_blank" href="#">Facebook</a>
+          <a target="_blank" href="https://www.facebook.com/bigcapitalHQ">Facebook</a>
         </li>
         <li>
-          <a target="_blank" href="#">Twitter</a>
+          <a target="_blank" href="https://twitter.com/BigcapitalHQ">Twitter</a>
         </li>
         <li>
           <a target="_blank" href="#">Medium</a>
@@ -100,7 +100,7 @@ export default function Footer() {
                   Online accounting software, built to automate business financial processes.
                 </p>
                 <p className="mb-1">
-                  <strong>Phone number</strong>: +218927918381
+                  <strong>Phone number</strong>: +218-92 738 19 87
                 </p>
                 <p>
                   <strong>Email</strong>: info@bigcapital.com
