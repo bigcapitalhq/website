@@ -22,11 +22,11 @@ export default function TopBar() {
             <Navbar.Collapse>
               <Nav className="ml-auto">
                 <Nav.Item>
-                  <Nav.Link href="#features-title">Features</Nav.Link>
+                  <Nav.Link href="/#features-title">Features</Nav.Link>
                 </Nav.Item>
 
                 <Nav.Item>
-                  <Nav.Link href="#pricing-section">Pricing</Nav.Link>
+                  <Nav.Link href="/#pricing-section">Pricing</Nav.Link>
                 </Nav.Item>
 
                 <Nav.Item>
