@@ -5,8 +5,8 @@ import "./index.scss"
 
 const PLANS = [
   {
-    title: "Capital Starter",
-    description: "Suitable for business has no multi-currency invoices.",
+    title: "Capital Essentials",
+    description: "Suitable for business has no multi-currency invoices and branches.",
     monthlyPrice: 100,
     annuallyPrice: 1200,
     features: [
@@ -14,13 +14,13 @@ const PLANS = [
       "Customers/vendors accounts.",
       "Inventory management.",
       "Manual journals.",
-      "Financial reports.",
+      "Advanced Financial reports.",
       "For two users and accountant.",
     ],
     mostPopular: true,
   },
   {
-    title: "Capital Starter",
+    title: "Capital Plus",
     description:
       "Suitable for business pay in foreign currencies and has multi-warehouses.",
     monthlyPrice: 200,
@@ -33,7 +33,7 @@ const PLANS = [
       "Purchase and sell orders.",
       "Multi-stocks management.",
       "Four users with your accountant.",
-      "Advanced financial reports.",
+      "Custom roles and permissions.",
     ],
   },
   {
