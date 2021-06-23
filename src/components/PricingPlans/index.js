@@ -1,49 +1,56 @@
-import React from "react";
-import className from 'classnames';
-import { Form, Badge } from 'react-bootstrap';
+import React from "react"
+import className from "classnames"
+import { Form, Badge } from "react-bootstrap"
 import "./index.scss"
 
 const PLANS = [
   {
-    title: 'Capital Starter',
-    description: 'Suitable for business has no multi-currency invoices.',
+    title: "Capital Starter",
+    description: "Suitable for business has no multi-currency invoices.",
     monthlyPrice: 100,
     annuallyPrice: 1200,
     features: [
-      'Sale and purchase invoices.',
-      'Customers/vendors accounts.',
-      'Expense tracking.',
-      'Manual journals.',
-      'Financial reports.',
-      'For one user and accountant.'
+      "Sale and purchase invoices.",
+      "Customers/vendors accounts.",
+      "Inventory management.",
+      "Manual journals.",
+      "Financial reports.",
+      "For two users and accountant.",
     ],
+    mostPopular: true,
   },
   {
-    title: 'Capital Starter',
-    description: 'Suitable for business pay in foreign currencies and has multi-warehouses.',
+    title: "Capital Starter",
+    description:
+      "Suitable for business pay in foreign currencies and has multi-warehouses.",
     monthlyPrice: 200,
     annuallyPrice: 2400,
     features: [
-      <>All <strong>Capital Starter</strong> features.</>,
-      'Multi-currency',
-      'Purchase and sell orders.',
-      'Inventory management.',
-      'Three users with your accountant.',
-      'Advanced financial reports.'
+      <>
+        All <strong>Capital Starter</strong> features.
+      </>,
+      "Multi-currency",
+      "Purchase and sell orders.",
+      "Multi-stocks management.",
+      "Four users with your accountant.",
+      "Advanced financial reports.",
     ],
   },
   {
-    title: 'Capital Enterprise',
-    description: 'Suitable for business has projects or multi-branches transactions.',
+    title: "Capital Enterprise",
+    description:
+      "Suitable for business has projects or multi-branches transactions.",
     monthlyPrice: 300,
     annuallyPrice: 3400,
     features: [
-      <>All <strong>Capital Essential</strong> features.</>,
-      'Track multi-branches and locations.',
-      'Projects accounting and timesheets.',
-      'Accounting dimensions.',
+      <>
+        All <strong>Capital Essential</strong> features.
+      </>,
+      "Track multi-branches and locations.",
+      "Projects accounting and timesheets.",
+      "Accounting dimensions.",
     ],
-  }
+  },
 ]
 
 /**
@@ -64,7 +71,7 @@ function FeatureLine({ children }) {
           <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" />
         </svg>
       </span>
-      <span class="text">{ children }</span>
+      <span class="text">{children}</span>
     </li>
   )
 }
@@ -78,20 +85,26 @@ function PricingPlan({
   features,
   price,
   description,
-  pricePostfix
+  pricePostfix,
+  mostPopular,
 }) {
   return (
-    <div class={className(
-      'pricing-plan',
-      { 'is-primary': primary }
-    )}>
-      <h1 class="pricing-plan__title">{ title }</h1>
-      <p class="pricing-plan__desc">{ description }</p>
-      <ul class="pricing-plan__features">{ features }</ul>
+    <div
+      class={className("pricing-plan", {
+        "is-primary": primary,
+        "is-most-popular": mostPopular,
+      })}
+    >
+      {mostPopular && (
+        <div class="pricing-plan__most-popular">Most popular</div>
+      )}
+      <h1 class="pricing-plan__title">{title}</h1>
+      <p class="pricing-plan__desc">{description}</p>
+      <ul class="pricing-plan__features">{features}</ul>
 
       <div class="pricing-plan__price">
-        <h1 class="amount">LD{ price }</h1>
-        <p>{ pricePostfix }</p>
+        <h1 class="amount">LD{price}</h1>
+        <p>{pricePostfix}</p>
       </div>
     </div>
   )
@@ -101,12 +114,12 @@ function PricingPlan({
  * Pricing plans.
  */
 export default function PricingPlans() {
-  const [isAnnual, setIsAnnual] = React.useState(false);
+  const [isAnnual, setIsAnnual] = React.useState(true)
 
-  const handlSwitchChange = (value) => {
-    const isChecked = value.target.checked;
-    setIsAnnual(isChecked);
-  };
+  const handlSwitchChange = value => {
+    const isChecked = value.target.checked
+    setIsAnnual(isChecked)
+  }
   return (
     <div class="pricing-section" id="pricing-section">
       <div class="container">
@@ -119,25 +132,35 @@ export default function PricingPlans() {
             <div class="pricing-section__billing-cycle">
               <Form.Label for={"billing-cycle-switch"}>
                 <span>Billing cycle: </span>
-                <span className={className(
-                  'billing-cycle__item',
-                  'billing-cycle__item--month',
-                  {
-                    active: !isAnnual,
-                  })}>
-                  3 Months
+                <span
+                  className={className(
+                    "billing-cycle__item",
+                    "billing-cycle__item--month",
+                    {
+                      active: !isAnnual,
+                    }
+                  )}
+                >
+                  Monthly
                 </span>
               </Form.Label>
-              <Form.Check type="switch" id="billing-cycle-switch" onChange={handlSwitchChange} />
-              
+              <Form.Check
+                type="switch"
+                id="billing-cycle-switch"
+                onChange={handlSwitchChange}
+                checked={isAnnual}
+              />
+
               <Form.Label
                 for={"billing-cycle-switch"}
-                  className={className(
-                  'billing-cycle__item',
-                  'billing-cycle__item--month',
+                className={className(
+                  "billing-cycle__item",
+                  "billing-cycle__item--month",
                   {
                     active: isAnnual,
-                  })}>
+                  }
+                )}
+              >
                 Annually
               </Form.Label>
             </div>
@@ -147,24 +170,25 @@ export default function PricingPlans() {
               With Bigcapital only pay for what services and features you use.
             </p>
 
-            <p class="period-note">The minimum period you can subscribe is 3 months</p>
+            <p class="period-note">
+              Annually the minimum period you can subscribe.
+            </p>
           </div>
         </div>
 
         <div class="pricing-plans">
-         { PLANS.map((plan) => (
-           <PricingPlan
-             title={plan.title}
-             description={plan.description}
-             price={isAnnual ? plan.annuallyPrice : plan.monthlyPrice}
-             features={
-               plan.features.map((feature) => (
-                 <FeatureLine>{ feature }</FeatureLine>
-              ))
-             }
-             pricePostfix={isAnnual ? 'Per year.' : 'Per month.'}
-           />
-         )) }
+          {PLANS.map(plan => (
+            <PricingPlan
+              title={plan.title}
+              description={plan.description}
+              price={isAnnual ? plan.annuallyPrice : plan.monthlyPrice}
+              features={plan.features.map(feature => (
+                <FeatureLine>{feature}</FeatureLine>
+              ))}
+              pricePostfix={isAnnual ? "Per year." : "Per month."}
+              mostPopular={plan.mostPopular}
+            />
+          ))}
         </div>
       </div>
     </div>
