@@ -90,6 +90,10 @@ function RequestDemoForm({ onSubmitSuccess }) {
                 <Form.Control.Feedback type="invalid">
                   {error}
                 </Form.Control.Feedback>
+
+                <Form.Text className="text-muted">
+                  Should be correct.
+                </Form.Text>
               </Form.Group>
             )}
           </Field>
