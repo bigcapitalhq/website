@@ -1,0 +1,15 @@
+@import "../components/variables.scss";
+
+// Navigation bar bookkeeping.
+// --------------------------------------
+.navbar--bookkeeping {
+    padding-top: 0.4rem !important;
+    padding-bottom: 0.4rem !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+    .navbar-brand {
+        font-size: 16px;
+        font-weight: 600;
+        color: #10173d !important;
+    }
+}

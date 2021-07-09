@@ -8,7 +8,6 @@ svg.bigcapital {
 }
 
 .topbar {
-  display: flex;
 
   &__inner-wrapper {
     display: flex;
@@ -82,11 +81,7 @@ svg.bigcapital {
 
   .navbar {
     background: transparent;
-    padding: 1.2rem 0;
-
-    @include media-breakpoint-up("lg") {
-      // border-bottom: 1px solid #dfe5eb;
-    }
+    padding: 1rem 0;
 
     @include media-breakpoint-down("md") {
       padding-bottom: 0;

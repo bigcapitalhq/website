@@ -1,0 +1,32 @@
+@import "../../components/variables.scss";
+
+
+// How works
+// --------------------------------------
+.howWorks {
+    margin-top: 40px;
+}
+
+.howWorksBox{   
+
+    &__title {
+        font-weight: 800;
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+
+    &__image {
+        margin-bottom: 15px;
+        position: relative;
+        z-index: -999999999999;
+        text-align: center;
+
+        img {
+            max-width: 100%;
+
+            @include media-breakpoint-down('sm') {
+                max-width: 300px;
+            }
+        }
+    }
+}

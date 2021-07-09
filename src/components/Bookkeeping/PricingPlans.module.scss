@@ -1,0 +1,28 @@
+
+// Pricing plans.
+// --------------------------------------
+.pricingSection {
+    background-color: #00113B;
+    margin: 80px 0;
+    padding: 80px 0;
+
+    &__title,
+    &__desc {
+        text-align: center;
+        color: #fff;
+    }
+
+    &__title {
+        font-weight: 800;
+        margin-bottom: 14px;
+    }
+
+    &__desc {
+        margin: 0 auto;
+        width: 80%;
+        opacity: 0.75;
+    }
+    .plans {
+        margin-top: 35px;
+    }    
+}

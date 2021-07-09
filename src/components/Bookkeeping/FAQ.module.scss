@@ -1,0 +1,56 @@
+// FAQ
+// --------------------------------------
+.FAQSection {
+    margin: 80px 0;
+
+
+    &__title {
+        text-align: center;
+        font-weight: 800;
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+}
+
+.questionBox {
+    border-top: 1px solid #c7ccd6;
+    padding: 20px 0;
+    position: relative;
+
+    &__title {
+        font-weight: 900;
+        font-size: 16px;
+        margin: 0;
+
+        [dir="rtl"] &{
+            font-size: 18px;
+        }
+    }
+
+    &__header {
+        display: flex;
+        cursor: pointer;
+    }
+
+    &__icon {
+        margin-left: auto;
+        position: absolute;
+        right: 0;
+        top: 28px;
+        margin-top: -12px;
+
+        svg {
+            fill: #69799c;
+        }
+    }
+
+    &__content{
+        display: none;
+        padding-top: 18px;
+
+        &.isOpen{
+            display: block;
+        }
+    }
+
+}

@@ -1,68 +1,81 @@
 import React from "react"
+import { Dropdown } from "react-bootstrap"
+import {  FormattedMessage as T } from 'react-intl';
 import Logo from "../Logo"
 
 import "./index.scss"
 
-
+/**
+ * Social media links widget.
+ */
 function SocialWidget() {
   return (
     <div className="footer__widget">
-      <strong className="footer__widget-title d-block">
-        Socials
-      </strong>
+      <strong className="footer__widget-title d-block"><T id={'Socials'} /></strong>
       <ul className="footer__widget-list">
         <li>
-          <a target="_blank" href="https://www.facebook.com/bigcapitalHQ">Facebook</a>
+          <a target="_blank" href="https://www.facebook.com/bigcapitalHQ">
+            Facebook
+          </a>
         </li>
         <li>
-          <a target="_blank" href="https://twitter.com/BigcapitalHQ">Twitter</a>
+          <a target="_blank" href="https://twitter.com/BigcapitalHQ">
+            Twitter
+          </a>
         </li>
         <li>
-          <a target="_blank" href="#">Medium</a>
+          <a target="_blank" href="#">
+            Medium
+          </a>
         </li>
         <li>
-          <a target="_blank" href="#">LinkedIn</a>
+          <a target="_blank" href="#">
+            LinkedIn
+          </a>
         </li>
       </ul>
     </div>
-  );
+  )
 }
 
 function CompanyWidget() {
   return (
     <div className="footer__widget">
-      <strong className="footer__widget-title d-block">
-        Legal
-      </strong>
-      <ul className="footer__widget-list">
-        <li>
-          <a target="_blank" href="#">Licence</a>
-        </li>
-        <li>
-          <a target="_blank" href="#">Refund Policy</a>
-        </li>
-        <li>
-          <a target="_blank" href="#">About Us</a>
-        </li>
-        <li>
-          <a target="_blank" href="#">Contact Us</a>
-        </li>
-      </ul>
-    </div>
-  );
-}
-
-function PagesWidget() {
-
-  return (
-    <div className="footer__widget">
-      <strong className="footer__widget-title d-block">
-        Content
-      </strong>
+      <strong className="footer__widget-title d-block">Legal</strong>
       <ul className="footer__widget-list">
         <li>
           <a target="_blank" href="#">
-            Blog
+            Licence
+          </a>
+        </li>
+        <li>
+          <a target="_blank" href="#">
+            Refund Policy
+          </a>
+        </li>
+        <li>
+          <a target="_blank" href="#">
+            <T id={'About Us'} />
+          </a>
+        </li>
+        <li>
+          <a target="_blank" href="#">
+            <T id={'Contact Us'} />
+          </a>
+        </li>
+      </ul>
+    </div>
+  )
+}
+
+function PagesWidget() {
+  return (
+    <div className="footer__widget">
+      <strong className="footer__widget-title d-block"><T id={'Content'} /></strong>
+      <ul className="footer__widget-list">
+        <li>
+          <a target="_blank" href="#">
+            <T id={'Blog'} />
           </a>
         </li>
         <li>
@@ -72,20 +85,33 @@ function PagesWidget() {
         </li>
         <li>
           <a target="_blank" href="#">
-            Technical Suppert
+            <T id={'Technical Support'} />
           </a>
         </li>
         <li>
           <a target="_blank" href="#">
-            Learning Center
+            <T id={'Learning Center'} />
           </a>
         </li>
       </ul>
     </div>
-  );
+  )
 }
 
 export default function Footer() {
+  // Handle language change.
+  const onChangeLanguage = React.useCallback(
+    local => () => {
+      window.localStorage.setItem("lang", local)
+
+      setTimeout(() => {
+        window.scrollTo(0, 0)
+      })
+      window.location.reload()
+    },
+    []
+  );
+
   return (
     <div className="footer">
       <div className="container">
@@ -97,14 +123,31 @@ export default function Footer() {
               </a>
               <div className="footer-text mb-0 mt-3">
                 <p>
-                  Online accounting software, built to automate business financial processes.
+                  <T id={'Online accounting software, built to automate business financial processes.'} />
                 </p>
                 <p className="mb-1">
-                  <strong>Phone number</strong>: +218-927381987
+                  <strong><T id={'Phone number'} /></strong>: +218-927381987
                 </p>
                 <p>
-                  <strong>Email</strong>: info@bigcapital.com
+                  <strong><T id={'Email'} /></strong>: info@bigcapital.com
                 </p>
+              </div>
+
+              <div>
+                <Dropdown size="md" className={'dropdown--change-language'}>
+                  <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    <T id={'Change language'} />
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    <Dropdown.Item onClick={onChangeLanguage("en")}>
+                      English
+                    </Dropdown.Item>
+                    <Dropdown.Item onClick={onChangeLanguage("ar")}>
+                      عربية
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
               </div>
             </div>
           </div>
@@ -127,7 +170,7 @@ export default function Footer() {
       <div class="footer-copyright">
         <div class="container">
           <div class="footer-copyright__inner">
-            <p>Copyright © 2021 — Made by Bigcapital Technologies.</p>
+            <p><T id={'Copyright © 2021 — Made by Bigcapital Technologies.'} /></p>
           </div>
         </div>
       </div>

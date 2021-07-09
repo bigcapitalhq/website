@@ -1,5 +1,6 @@
 @import "../variables.scss";
 
+// Features.
 .features {
   background-color: #06091d;
   color: #fff;
@@ -9,14 +10,23 @@
   @include media-breakpoint-down("md") {
     padding-top: 350px;
   }
+
   @include media-breakpoint-down("sm") {
     padding-top: 300px;
   }
+  :global {
+    .container {
+      position: relative;
+      z-index: 999;
+    }
+  }
 
-  .bg-gradient {
+  &__background {
     opacity: 0.7;
+    position: relative;
 
     img {
+      position: absolute;
       z-index: 1;
       top: -900px;
       left: 1000px;
@@ -25,16 +35,12 @@
     }
   }
 
-  .container {
-    position: relative;
-    z-index: 999;
-  }
-
+ 
   h4 {
     color: inherit;
   }
 
-  &__title{
+  &__title {
     color: #fff;
     font-weight: 800;
     margin-bottom: 60px;
@@ -48,33 +54,6 @@
     @include media-breakpoint-down('sm') {
       margin-bottom: 30px;
       font-size: 30px;
-    }
-  }
-
-  &__feature {
-    margin-bottom: 45px;
-
-    @include media-breakpoint-down("sm") {
-      margin-bottom: 40px;
-    }
-
-    &-title {
-      margin-bottom: 16px;
-      font-weight: 600;
-      opacity: 0.9;
-      font-size: 20px;
-    }
-
-    &-desc {
-      opacity: 0.6;
-    }
-
-    &-icon{
-      margin-bottom: 20px;
-      svg{
-        fill: #fff;
-        opacity: 0.85;
-      }
     }
   }
 
@@ -92,5 +71,34 @@
     transform: scale(1.5);
     z-index: 1;
     opacity: 0.7;
+  }
+}
+
+// Feature.
+.feature {
+  margin-bottom: 45px;
+
+  @include media-breakpoint-down("sm") {
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    font-weight: 600;
+    opacity: 0.9;
+    font-size: 20px;
+  }
+
+  &__desc {
+    opacity: 0.6;
+  }
+
+  &__icon {
+    margin-bottom: 20px;
+
+    svg {
+      fill: #fff;
+      opacity: 0.85;
+    }
   }
 }

@@ -15,7 +15,7 @@ import CTASection from '../components/CTA';
 import "../styles/index.scss"
 
 const IndexPage = () => (
-  <Layout>
+  <Layout name={'homepage'}>
     <div className={className("bg-grad")}>
         <Img
           src={"blur/blur-1.jpeg"}
@@ -25,7 +25,7 @@ const IndexPage = () => (
     <SEO
       title="Bigcapital"
       description="Financial Accounting Automation"
-      lang="en"
+    lang="en"
     />
     <BodyClassName className="homepage" />
     <Intro />

@@ -1,37 +1,51 @@
 import * as React from "react"
 import { Form, Button } from "react-bootstrap"
 import classNames from "classnames"
-import { mapKeys, snakeCase } from 'lodash';
+import { mapKeys, snakeCase } from "lodash"
 import { Formik, Field } from "formik"
 import ReactWOW from "react-wow"
 import * as yup from "yup"
 import axios from "axios"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { FormattedMessage as T, useIntl } from "react-intl"
 import "../styles/request-demo-page.scss"
 
 const ApiService = axios.create({
-  baseURL: 'http://localhost:1337'
-});
-
-const ValidationSchema = yup.object({
-  fullName: yup.string().required().label("Full name"),
-  businessName: yup.string().required().label("Business name"),
-  phoneNumber: yup.string().required().label("Phone number"),
-  businessEmail: yup.string().required().label("Business email"),
-});
+  baseURL: "http://localhost:1337",
+})
 
 const InitialValues = {
   fullName: "",
   businessName: "",
   phoneNumber: "",
   businessEmail: "",
-};
+}
 
 function RequestDemoForm({ onSubmitSuccess }) {
+  const { formatMessage } = useIntl()
+
+  const ValidationSchema = yup.object({
+    fullName: yup
+      .string()
+      .required()
+      .label(formatMessage({ id: "Full name" })),
+    businessName: yup
+      .string()
+      .required()
+      .label(formatMessage({ id: "Business name" })),
+    phoneNumber: yup
+      .string()
+      .required()
+      .label(formatMessage({ id: "Phone number" })),
+    businessEmail: yup
+      .string()
+      .required()
+      .label(formatMessage({ id: "Business email" })),
+  })
 
   const handleSubmit = (values, { setSubmitting }) => {
-    const formattedValues = mapKeys(values, (value, key) => snakeCase(key));
+    const formattedValues = mapKeys(values, (value, key) => snakeCase(key))
 
     setSubmitting(true)
     ApiService.post("/free-demo-requests", formattedValues)
@@ -42,7 +56,7 @@ function RequestDemoForm({ onSubmitSuccess }) {
       .catch(() => {
         setSubmitting(false)
       })
-  };
+  }
 
   return (
     <Formik
@@ -61,7 +75,7 @@ function RequestDemoForm({ onSubmitSuccess }) {
               <Form.Group controlId="fullName">
                 <Form.Control
                   type="text"
-                  placeholder="Full Name"
+                  placeholder={formatMessage({ id: 'Full Name' })}
                   isInvalid={error && touched}
                   feedback={error}
                   {...field}
@@ -70,7 +84,7 @@ function RequestDemoForm({ onSubmitSuccess }) {
                   {error}
                 </Form.Control.Feedback>
                 <Form.Text className="text-muted">
-                  We'll never share your information with anyone else.
+                  <T id={"We'll never share your information with anyone else."} />
                 </Form.Text>
               </Form.Group>
             )}
@@ -81,7 +95,7 @@ function RequestDemoForm({ onSubmitSuccess }) {
               <Form.Group controlId="businessName">
                 <Form.Control
                   type="text"
-                  placeholder="Business Name"
+                  placeholder={formatMessage({ id: 'Business Name' })}
                   isInvalid={error && touched}
                   feedback={error}
                   {...field}
@@ -91,9 +105,7 @@ function RequestDemoForm({ onSubmitSuccess }) {
                   {error}
                 </Form.Control.Feedback>
 
-                <Form.Text className="text-muted">
-                  Should be correct.
-                </Form.Text>
+                <Form.Text className="text-muted">Should be correct.</Form.Text>
               </Form.Group>
             )}
           </Field>
@@ -103,7 +115,7 @@ function RequestDemoForm({ onSubmitSuccess }) {
               <Form.Group controlId="phoneNumber">
                 <Form.Control
                   type="text"
-                  placeholder="Phone Number"
+                  placeholder={formatMessage({ id: 'Phone Number' })}
                   isInvalid={error && touched}
                   feedback={error}
                   {...field}
@@ -120,7 +132,7 @@ function RequestDemoForm({ onSubmitSuccess }) {
               <Form.Group controlId="businessEmail">
                 <Form.Control
                   type="text"
-                  placeholder="Business Email"
+                  placeholder={formatMessage({ id: 'Business Email' })}
                   isInvalid={error && touched}
                   feedback={error}
                   {...field}
@@ -133,12 +145,15 @@ function RequestDemoForm({ onSubmitSuccess }) {
           </Field>
 
           <p className="footer-hint">
-            Please note, we are currently experiencing higher than normal
-            contact request volumes. Thanks for your understanding!
+            <T
+              id={
+                "Please note, we are currently experiencing higher than normal contact request volumes. Thanks for your understanding!"
+              }
+            />
           </p>
 
           <Button variant="primary" type="submit">
-            Get in Touch
+            <T id={"Get in Touch"} />
           </Button>
         </Form>
       )}
@@ -164,21 +179,25 @@ const RequestDemoPage = () => {
         <div class="request-demo">
           {success ? (
             <h1 class="request-demo__thanks-title">
-              Thank you. We received the contact request from you.
+              <T id={"Thank you. We received the contact request from you."} />
             </h1>
           ) : (
             <>
-              <ReactWOW animation="fadeIn" duration={"1s"} delay={'0.2s'}>
+              <ReactWOW animation="fadeIn" duration={"1s"} delay={"0.2s"}>
                 <h1 className="request-demo__title">Become a client</h1>
               </ReactWOW>
 
-              <ReactWOW animation="fadeIn" duration={"1s"} delay={'0.3s'}>
+              <ReactWOW animation="fadeIn" duration={"1s"} delay={"0.3s"}>
                 <p className="request-demo__desc">
-                  Request product free tour to see how our comprehensive financial accounting software can help your organization to help automate your accounting processes.
+                  <T
+                    id={
+                      "Request product free tour to see how our comprehensive financial accounting software can help your organization to help automate your accounting processes."
+                    }
+                  />
                 </p>
               </ReactWOW>
 
-              <ReactWOW animation="fadeIn" duration={"1s"} delay={'0.4s'}>
+              <ReactWOW animation="fadeIn" duration={"1s"} delay={"0.4s"}>
                 <RequestDemoForm onSubmitSuccess={handleSubmitSuccess} />
               </ReactWOW>
             </>

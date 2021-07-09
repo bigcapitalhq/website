@@ -1,3 +1,4 @@
+
 module.exports = {
   siteMetadata: {
     title: `Bigcapital`,
@@ -23,7 +24,6 @@ module.exports = {
         extensions: ["css", "html", "js", "svg", "png"],
       },
     },
-
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
@@ -54,6 +54,7 @@ module.exports = {
         },
       },
     },
+    'gatsby-plugin-postcss',
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

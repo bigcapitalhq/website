@@ -1,0 +1,40 @@
+
+
+
+// Footer (Call-to-action)
+// --------------------------------------
+.footerCTA {
+    padding: 100px 15px;
+    background-color: #000931;
+
+    &__title {
+        max-width: 800px;
+        font-weight: 800;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 40px;
+        color: #fff;
+    }
+
+    &__body {
+        margin: 26px auto 0;
+        max-width: 600px;
+
+        .form-group {
+            margin-bottom: 0;
+        }
+
+        .row {
+            margin-left: -8px;
+            margin-right: -8px;
+
+            [class^="col"] {
+                padding-left: 8px;
+                padding-right: 8px;
+            }
+            .btn {
+                background-color: #0138ff;
+            }
+        }
+    }
+}

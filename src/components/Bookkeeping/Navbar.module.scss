@@ -1,0 +1,13 @@
+// Navigation bar bookkeeping.
+// --------------------------------------
+.navbarBookkeeping {
+    padding-top: 0.4rem !important;
+    padding-bottom: 0.4rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+    .navbarTitle {
+        font-size: 16px;
+        font-weight: 600;
+        color: #10173d;
+    }
+}
