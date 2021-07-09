@@ -63,7 +63,7 @@ const PLANS = [
  */
 export default function PricingPlans() {
   return (
-    <div className={className(styles.pricingSection)} id="pricing-section">
+    <div className={className(styles.pricingSection)} id="pricing">
       <div class="container">
         <h1 className={className(styles.pricingSection__title)}>
           <T id={'Choose the right plan for your business'} />

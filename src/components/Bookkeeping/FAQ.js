@@ -82,7 +82,7 @@ const questions = [
  */
 export default function FAQ() {
   return (
-    <div className={className(styles.FAQSection)}>
+    <div id="FAQ" className={className(styles.FAQSection)}>
       <div class="container">
         <h1 className={className(styles.FAQSection__title)}>
           <T id={"Frequently Asked Questions"} />

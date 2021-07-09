@@ -25,12 +25,12 @@ function HowWorkBox({ desc, title, image }) {
  */
 export default function HowWorks() {
   return (
-    <div className={className(styles.howWorks)}>
+    <div id={"how-works"} className={className(styles.howWorks)}>
       <div class="container">
         <div class="row">
           <div class="col-12 col-md-6 col-lg-4">
             <HowWorkBox
-              image={<Img src="./images/illustrator-delivery.webp" />}
+              image={<Img src="images/illustrator-delivery.webp" />}
               title={<T id={"Recoding financial transactions"} />}
               desc={
                 <T
@@ -44,7 +44,7 @@ export default function HowWorks() {
 
           <div class="col-12 col-md-6 col-lg-4">
             <HowWorkBox
-              image={<Img src="./images/illustrator-work.webp" />}
+              image={<Img src="images/illustrator-work.webp" />}
               title={<T id={"Financial reports preparation"} />}
               desc={
                 <T
@@ -58,7 +58,7 @@ export default function HowWorks() {
 
           <div class="col-12 col-md-6 col-lg-4">
             <HowWorkBox
-              image={<Img src="./images/illustrator-boxes.webp" />}
+              image={<Img src="images/illustrator-boxes.webp" />}
               title={<T id={"Delivering financial reports"} />}
               desc={
                 <T

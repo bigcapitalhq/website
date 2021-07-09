@@ -19,25 +19,25 @@ export default function BookkeepingNavbar() {
         <Navbar.Collapse>
           <Nav className="ml-auto">
             <Nav.Item>
-              <Nav.Link href="/#features-title">
+              <Nav.Link href="#introduction">
                 <T id={"Introduction"} />
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link href="/#pricing-section">
+              <Nav.Link href="#how-works">
                 <T id={"How we work"} />
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link>
+              <Nav.Link href={"#pricing"}>
                 <T id={"Pricing"} />
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
-              <Nav.Link href={"https://app.bigcapital.ly"}>
+              <Nav.Link href={"#FAQ"}>
                 <T id={"FAQ"} />
               </Nav.Link>
             </Nav.Item>

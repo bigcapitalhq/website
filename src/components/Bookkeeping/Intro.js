@@ -8,7 +8,7 @@ import * as styles from "./intro.module.scss"
 
 export default function Intro() {
   return (
-    <div className={className(styles.intro)}>
+    <div id={"introduction"} className={className(styles.intro)}>
       <div className={className(styles.intro__background)}>
         <Img src={"blur/blue-white-background.png"} class="rotating" />
       </div>
