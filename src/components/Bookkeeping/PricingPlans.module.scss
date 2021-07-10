@@ -1,3 +1,5 @@
+@import "../../components/variables.scss";
+
 
 // Pricing plans.
 // --------------------------------------
@@ -15,6 +17,11 @@
     &__title {
         font-weight: 800;
         margin-bottom: 14px;
+        font-size: 40px;
+
+        @include media-breakpoint-down('sm') {
+            font-size: 32px;
+        }
     }
 
     &__desc {
