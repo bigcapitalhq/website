@@ -75,7 +75,7 @@ function RequestDemoForm({ onSubmitSuccess }) {
               <Form.Group controlId="fullName">
                 <Form.Control
                   type="text"
-                  placeholder={formatMessage({ id: 'Full Name' })}
+                  placeholder={formatMessage({ id: "Full Name" })}
                   isInvalid={error && touched}
                   feedback={error}
                   {...field}
@@ -84,7 +84,9 @@ function RequestDemoForm({ onSubmitSuccess }) {
                   {error}
                 </Form.Control.Feedback>
                 <Form.Text className="text-muted">
-                  <T id={"We'll never share your information with anyone else."} />
+                  <T
+                    id={"We'll never share your information with anyone else."}
+                  />
                 </Form.Text>
               </Form.Group>
             )}
@@ -95,7 +97,7 @@ function RequestDemoForm({ onSubmitSuccess }) {
               <Form.Group controlId="businessName">
                 <Form.Control
                   type="text"
-                  placeholder={formatMessage({ id: 'Business Name' })}
+                  placeholder={formatMessage({ id: "Business Name" })}
                   isInvalid={error && touched}
                   feedback={error}
                   {...field}
@@ -115,7 +117,7 @@ function RequestDemoForm({ onSubmitSuccess }) {
               <Form.Group controlId="phoneNumber">
                 <Form.Control
                   type="text"
-                  placeholder={formatMessage({ id: 'Phone Number' })}
+                  placeholder={formatMessage({ id: "Phone Number" })}
                   isInvalid={error && touched}
                   feedback={error}
                   {...field}
@@ -132,7 +134,7 @@ function RequestDemoForm({ onSubmitSuccess }) {
               <Form.Group controlId="businessEmail">
                 <Form.Control
                   type="text"
-                  placeholder={formatMessage({ id: 'Business Email' })}
+                  placeholder={formatMessage({ id: "Business Email" })}
                   isInvalid={error && touched}
                   feedback={error}
                   {...field}

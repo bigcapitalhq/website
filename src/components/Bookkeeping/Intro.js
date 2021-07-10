@@ -4,7 +4,7 @@ import className from "classnames"
 import ReactWOW from "react-wow"
 import { FormattedMessage as T, sanitizeHTML } from "react-intl"
 import BookkeepingCTA from "./CTA"
-import * as styles from "./intro.module.scss"
+import * as styles from "./Intro.module.scss"
 
 export default function Intro() {
   return (

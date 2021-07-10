@@ -2,7 +2,7 @@ import React from "react"
 import className from "classnames"
 import { FormattedMessage as T } from 'react-intl'
 import { useLocalization } from '../Localization';
-import * as styles from "./plans.module.scss"
+import * as styles from "./Plans.module.scss"
 
 /**
  * Plan feature line.

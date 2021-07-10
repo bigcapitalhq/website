@@ -2,7 +2,7 @@ import React from "react"
 import { Plan, Plans, PlanFeatureLine } from "../Plans"
 import className from "classnames"
 import { FormattedMessage as T } from "react-intl"
-import * as styles from "./pricingPlans.module.scss"
+import * as styles from "./PricingPlans.module.scss"
 
 const PLANS = [
   {

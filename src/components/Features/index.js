@@ -10,7 +10,7 @@ import ReceiptSVG from "../../assets/svg/receipt.svg"
 import PeopleSVG from "../../assets/svg/people.svg"
 import HelpSVG from "../../assets/svg/help.svg"
 import ShoppingBagSVG from "../../assets/svg/ShoppingBag.svg"
-import * as styles from "./features.module.scss"
+import * as styles from "./Features.module.scss"
 
 /**
  * Feature component.

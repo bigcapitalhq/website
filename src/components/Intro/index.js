@@ -2,7 +2,7 @@ import React from "react"
 import ReactWOW from "react-wow"
 import className from "classnames"
 import { FormattedMessage as T } from "react-intl"
-import * as styles from "./intro.module.scss"
+import * as styles from "./Intro.module.scss"
 
 /**
  * Homepage - Introduction.

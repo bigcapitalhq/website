@@ -2,7 +2,7 @@ import React from "react"
 import { IntlProvider } from "react-intl"
 import cookie from "cookie"
 import queryParser from "querystring"
-import { lowerCase } from "lodash"
+import { lowerCase, startsWith } from "lodash"
 import rtlDetect from "rtl-detect"
 import intlMessagesEN from "../locals/en/index.json"
 import intlMessagesAR from "../locals/ar/index.json"
@@ -12,13 +12,14 @@ import { Helmet } from "react-helmet"
 const LocalizationContext = React.createContext()
 
 // Localization context.
-export const useLocalization = () => React.useContext(LocalizationContext);
+export const useLocalization = () => React.useContext(LocalizationContext)
 
 /**
  * I18n localization.
  */
 export default function Localization({ children }) {
   const i18nConfig = initLocalization()
+
   const isRTL = rtlDetect.isRtlLang(i18nConfig.locale)
   const dir = isRTL ? "rtl" : "ltr"
 
@@ -46,17 +47,8 @@ function initLocalization(config = {}) {
   const i18nConfig = { locale: "en", messages: intlMessagesEN, ...config }
   const lang = detarmineLocalization()
 
-  // Mutate the messages.
-  switch (lang) {
-    case "ar":
-      i18nConfig.messages = intlMessagesAR
-      break
-    case "en":
-      i18nConfig.messages = intlMessagesEN
-      break
-    default:
-      i18nConfig.messages = intlMessagesEN
-      break
+  if (startsWith(lang, 'ar')) {
+    i18nConfig.messages = intlMessagesAR
   }
   // Mutate the localization code.
   i18nConfig.locale = lang
@@ -64,10 +56,11 @@ function initLocalization(config = {}) {
   return i18nConfig
 }
 
+// Retrieve the local from browser url query params.
 function getLocaleFromURL() {
   const urlLocaleKey = "lang"
 
-  if (urlLocaleKey) {
+  if (urlLocaleKey && typeof window !== "undefined") {
     let query = window.location.search.split("?")
 
     if (query.length >= 2) {
@@ -77,32 +70,37 @@ function getLocaleFromURL() {
   }
 }
 
+// Retrieve the local from browser cookies.
 function getLocaleFromCookie() {
   const cookieLocaleKey = "lang"
 
-  if (cookieLocaleKey) {
+  if (cookieLocaleKey && typeof document !== "undefined") {
     let params = cookie.parse(document.cookie)
     return params && params[cookieLocaleKey]
   }
 }
 
+// Retrieves the local from local storage.
 function getLocaleFromLocalStorage() {
   const localStorageLocaleKey = "lang"
 
-  if (localStorageLocaleKey && window.localStorage) {
+  if (localStorageLocaleKey && typeof window !== "undefined") {
     return window.localStorage.getItem(localStorageLocaleKey)
   }
 }
 
+// Retrieves the local from the navigator browser or browser user language.
 function getLocaleFromBrowser() {
-  return navigator.language || navigator.userLanguage
+  return typeof navigator !== "undefined"
+    ? navigator.language || navigator.userLanguage
+    : null
 }
 
 function detarmineLocalization() {
-  return lowerCase(
+  return (
     getLocaleFromURL() ||
-      getLocaleFromCookie() ||
-      getLocaleFromLocalStorage() ||
-      getLocaleFromBrowser()
+    getLocaleFromCookie() ||
+    getLocaleFromLocalStorage() ||
+    getLocaleFromBrowser()
   )
 }
