@@ -12,9 +12,9 @@ const PLANS = [
     monthlyPrice: 750,
     features: [
       <T id={"Free accounting and point of sale software."} />,
+      <T id={"Chart of accounts preparation suits your business activities."} />,
       <T id={"Preparing a profit and loss report containing purchases, sales, expenses, revenues and net income."} />,
       <T id={"Receivable/Payable balances report."} />,
-      <T id={"Chart of accounts preparation suits your business activities."} />,
     ],
   },
   {
