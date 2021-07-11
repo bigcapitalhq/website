@@ -1,0 +1,104 @@
+@import "../variables.scss";
+
+// Features.
+.features {
+  background-color: #06091d;
+  color: #fff;
+  padding: 420px 0 40px 0;
+  overflow: hidden;
+
+  @include media-breakpoint-down("md") {
+    padding-top: 350px;
+  }
+
+  @include media-breakpoint-down("sm") {
+    padding-top: 300px;
+  }
+  :global {
+    .container {
+      position: relative;
+      z-index: 999;
+    }
+  }
+
+  &__background {
+    opacity: 0.7;
+    position: relative;
+
+    img {
+      position: absolute;
+      z-index: 1;
+      top: -900px;
+      left: 1000px;
+      transform: scale(1.8);
+      z-index: 1;
+    }
+  }
+
+ 
+  h4 {
+    color: inherit;
+  }
+
+  &__title {
+    color: #fff;
+    font-weight: 800;
+    margin-bottom: 60px;
+    font-size: 40px;
+
+    @include media-breakpoint-down('md') {
+      font-size: 38px;
+      margin-bottom: 38px;
+    }
+
+    @include media-breakpoint-down('sm') {
+      margin-bottom: 30px;
+      font-size: 30px;
+    }
+  }
+
+  .bg-gradient {
+    position: relative;
+
+    @include media-breakpoint-down('md') {
+      display: none;
+    }
+  }
+
+  .gradient-1 {
+    top: -264px;
+    left: 400px;
+    transform: scale(1.5);
+    z-index: 1;
+    opacity: 0.7;
+  }
+}
+
+// Feature.
+.feature {
+  margin-bottom: 45px;
+
+  @include media-breakpoint-down("sm") {
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    font-weight: 600;
+    opacity: 0.9;
+    font-size: 20px;
+  }
+
+  &__desc {
+    opacity: 0.6;
+  }
+
+  &__icon {
+    margin-bottom: 20px;
+
+    svg {
+      fill: #fff;
+      opacity: 0.85;
+    }
+  }
+}
