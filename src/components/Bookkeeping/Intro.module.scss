@@ -5,7 +5,6 @@
 // --------------------------------------
 .intro {
     padding-top: 80px;
-    background: red !important;
 
     @include media-breakpoint-down('sm') {
         padding-top: 60px;
