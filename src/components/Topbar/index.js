@@ -43,11 +43,11 @@ export default function TopBar({
                 </NavDropdown>
 
                 <Nav.Item>
-                  <Nav.Link href="/#features-title"><T id={'Features'} /></Nav.Link>
+                  <Nav.Link href="/#features"><T id={'Features'} /></Nav.Link>
                 </Nav.Item>
 
                 <Nav.Item>
-                  <Nav.Link href="/#pricing-section"><T id={'Pricing'} /></Nav.Link>
+                  <Nav.Link href="/#pricing"><T id={'Pricing'} /></Nav.Link>
                 </Nav.Item>
 
                 <Nav.Item>

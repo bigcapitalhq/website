@@ -85,7 +85,7 @@ export default function PricingPlans() {
   }
 
   return (
-    <div className={className(styles.pricingSection)}>
+    <div className={className(styles.pricingSection)} id={'pricing'}>
       <div class="container">
         <div class="row">
           <div class="col-lg-6 col-md-12">
