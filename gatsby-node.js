@@ -1,54 +1,50 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/node-apis/
- */
+const path = require(`path`)
+const { createFilePath } = require(`gatsby-source-filesystem`)
 
-// You can delete this file if you're not using it
+const createLegalPages = async ({ graphql, actions, reporter }) => {
+  const { createPage } = actions
 
-// // Load App's css (scss)
-// import "@/assets/css/app.scss"
+  // Get all legal pages body, title and slug.
+  const results = await graphql(`
+    query {
+      allMdx {
+        nodes {
+          id
+          slug
+          body
+          frontmatter {
+            title
+            slug
+          }
+        }
+      }
+    }
+  `)
 
-// // Import bootstrap js
-// import "bootstrap/dist/js/bootstrap.bundle.min"
+  if (results.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading your blog posts`,
+      result.errors
+    )
+    return
+  }
 
-// // Load project image
-// import projectImage from "@/assets/images/mws-profile.png"
+  const pages = results.data.allMdx.nodes
 
-// // Let's append the image to the page
-// const main = document.getElementById("app")
-// const image = document.createElement("img")
-// image.setAttribute("src", projectImage)
-// main.appendChild(image)
+  const postTemplate = path.resolve("src/templates/legal-template.js")
 
-// // Make a button and attach an async await call to test.
-// const button = document.createElement("button")
-// button.innerHTML = "Emulate async/await call"
-// button.className = "main-button"
-// main.appendChild(button)
+  pages.forEach(post => {
+    createPage({
+      path: post.frontmatter.slug,
+      component: postTemplate,
+      context: {
+        id: post.id,
+        slug: post.slug,
+      },
+    })
+  })
+}
 
-// const pinkyPromise = () => {
-//   return new Promise(resolve => {
-//     setTimeout(() => {
-//       resolve("I pinky promise!")
-//     }, 2000)
-//   })
-// }
-
-// button.addEventListener("click", async () => {
-//   button.innerHTML = "Wait a few seconds..."
-//   const result = await pinkyPromise()
-//   window.alert(result)
-//   button.innerHTML = "Emulate async/await call"
-// })
-
-// // Make a link to this project's github
-// const div = document.createElement("div")
-// const link = document.createElement("a")
-// link.setAttribute(
-//   "href",
-//   "https://github.com/johndatserakis/modern-webpack-starter"
-// )
-// link.innerHTML = "View on GitHub"
-// div.appendChild(link)
-// main.appendChild(div)
+exports.createPages = async args => {
+  await createLegalPages(args)
+}

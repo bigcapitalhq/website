@@ -47,12 +47,13 @@ function initLocalization(config = {}) {
   const i18nConfig = { locale: "en", messages: intlMessagesEN, ...config }
   const lang = detarmineLocalization()
 
-  if (startsWith(lang, 'ar')) {
+  if (startsWith(lang, "ar")) {
     i18nConfig.messages = intlMessagesAR
   }
   // Mutate the localization code.
-  i18nConfig.locale = lang
-
+  if (lang) {
+    i18nConfig.locale = lang
+  }
   return i18nConfig
 }
 

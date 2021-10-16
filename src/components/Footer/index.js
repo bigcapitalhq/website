@@ -44,13 +44,13 @@ function CompanyWidget() {
       <strong className="footer__widget-title d-block">Legal</strong>
       <ul className="footer__widget-list">
         <li>
-          <a target="_blank" href="#">
-            Licence
+          <a href="/legal/terms-of-use">
+            Terms & conditions
           </a>
         </li>
         <li>
-          <a target="_blank" href="#">
-            Refund Policy
+          <a href="/legal/privacy-policy">
+            Privacy policy
           </a>
         </li>
         <li>
