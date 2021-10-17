@@ -1,5 +1,6 @@
 import React from "react"
 import ReactWOW from "react-wow"
+import { Link } from "gatsby-plugin-react-i18next"
 import { Navbar, Nav, NavDropdown } from "react-bootstrap"
 import { Trans } from "gatsby-plugin-react-i18next"
 import Logo from "../Logo"
@@ -18,9 +19,9 @@ export default function TopBar({ beforeNavbar, afterNavbar }) {
         <div className="container">
           <Navbar expand="lg">
             <Navbar.Brand>
-              <a href="/">
+              <Link to={"/"}>
                 <Logo width={200} />
-              </a>
+              </Link>
             </Navbar.Brand>
 
             <Navbar.Toggle />

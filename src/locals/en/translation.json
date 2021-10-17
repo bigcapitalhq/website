@@ -32,7 +32,7 @@
     "Monthly": "Monthly",
     "Annually": "Annually",
     "With Bigcapital only pay for what services and features you use.": "With Bigcapital only pay for what services and features you use.",
-    "Annually the minimum period you can subscribe.": "Annually the minimum period you can subscribe.",
+    "6 Months the minimum period you can subscribe.": "6 Months the minimum period you can subscribe.",
     "Phone Number": "Phone Number",
     "Call me": "Call me",
     "Full Name": "Full Name",
@@ -125,5 +125,7 @@
     "All services in the previous plan Dafter 100.": "All services in the previous plan Dafter 100.",
     "All services in the previous plan Dafter 200.": "All services in the previous plan Dafter 200.",
     "All services in the previous plan Dafter 300.": "All services in the previous plan Dafter 300.",
-    "bigcapital_legal_information": "Bigcapital Legal Information"
+    "bigcapital_legal_information": "Bigcapital Legal Information",
+    "Request free trial": "Request free trial",
+    "Should be correct.": "Should be correct."
 }   

@@ -30,7 +30,7 @@ export default function HowWorks() {
         <div class="row">
           <div class="col-12 col-md-6 col-lg-4">
             <HowWorkBox
-              image={<Img src="../images/illustrator-delivery.png" />}
+              image={<Img src="/images/illustrator-delivery.png" />}
               title={<Trans>Recoding financial transactions</Trans>}
               desc={
                 <Trans>
@@ -45,7 +45,7 @@ export default function HowWorks() {
 
           <div class="col-12 col-md-6 col-lg-4">
             <HowWorkBox
-              image={<Img src="../images/illustrator-work.png" />}
+              image={<Img src="/images/illustrator-work.png" />}
               title={<Trans>Financial reports preparation</Trans>}
               desc={
                 <Trans>
@@ -59,7 +59,7 @@ export default function HowWorks() {
 
           <div class="col-12 col-md-6 col-lg-4">
             <HowWorkBox
-              image={<Img src="../images/illustrator-boxes.png" />}
+              image={<Img src="/images/illustrator-boxes.png" />}
               title={<Trans>Delivering financial reports</Trans>}
               desc={
                 <Trans>

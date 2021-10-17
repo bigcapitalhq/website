@@ -97,7 +97,7 @@ function RequestDemoForm({ onSubmitSuccess }) {
                   {error}
                 </Form.Control.Feedback>
 
-                <Form.Text className="text-muted">Should be correct.</Form.Text>
+                <Form.Text className="text-muted"><Trans>Should be correct.</Trans></Form.Text>
               </Form.Group>
             )}
           </Field>
@@ -177,7 +177,7 @@ const RequestDemoPage = () => {
           ) : (
             <>
               <ReactWOW animation="fadeIn" duration={"1s"} delay={"0.2s"}>
-                <h1 className="request-demo__title">Become a client</h1>
+                <h1 className="request-demo__title"><Trans>Request free trial</Trans></h1>
               </ReactWOW>
 
               <ReactWOW animation="fadeIn" duration={"1s"} delay={"0.3s"}>

@@ -13,7 +13,7 @@ export default function Intro() {
   return (
     <div id={"introduction"} className={className(styles.intro)}>
       <div className={className(styles.intro__background)}>
-        <Img src={"blur/blue-white-background.png"} class="rotating" />
+        <Img src={"/blur/blue-white-background.png"} class="rotating" />
       </div>
 
       <div class="container">

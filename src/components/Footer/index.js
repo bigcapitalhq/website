@@ -46,10 +46,14 @@ function CompanyWidget() {
       <strong className="footer__widget-title d-block">Legal</strong>
       <ul className="footer__widget-list">
         <li>
-          <Link to={"/legal/terms-of-use"}>Terms & conditions</Link>
+          <Link to={"/legal/terms-of-use"}>
+            <Trans>Terms & conditions</Trans>
+          </Link>
         </li>
         <li>
-          <Link to={"/legal/privacy-policy"}>Privacy policy</Link>
+          <Link to={"/legal/privacy-policy"}>
+            <Trans>Privacy policy</Trans>
+          </Link>
         </li>
         <li>
           <a target="_blank" href="#">

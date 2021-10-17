@@ -53,7 +53,7 @@ export default function Features() {
                 <Trans>
                   Create your sell invoices with your customers or purchase
                   invoices with your vendors, manage recurring invoices and
-                  easily track customers/vendors payments."
+                  easily track customers/vendors payments.
                 </Trans>
               }
             />
@@ -67,7 +67,7 @@ export default function Features() {
                 <Trans>
                   You don't have to wait to end of the month to generate
                   business reports. Bigcapital has financial reports to run your
-                  business with intelligence."
+                  business with intelligence.
                 </Trans>
               }
             />
@@ -81,7 +81,7 @@ export default function Features() {
                 <Trans>
                   Easily track your inventory items, and when you purchase or
                   sell for an item the stock amount will be automatically
-                  incremented or decremented with smart inventory reports."
+                  incremented or decremented with smart inventory reports.
                 </Trans>
               }
             />
@@ -95,7 +95,7 @@ export default function Features() {
                 <Trans>
                   The software should facilitate collaboration with your
                   accountant, Bigcapital allows to invite users to your
-                  organization with role-based permissions."
+                  organization with role-based permissions.
                 </Trans>
               }
             />
@@ -109,7 +109,7 @@ export default function Features() {
                 <Trans>
                   The software gives you a single place to track all business
                   expenses from employee payroll to office renting and
-                  categorize them on accounts and bill them to your customers."
+                  categorize them on accounts and bill them to your customers.
                 </Trans>
               }
             />
@@ -122,7 +122,7 @@ export default function Features() {
               desc={
                 <Trans>
                   Pay and get paid and do manual journals in any currency with
-                  real time exchange rates conversions."
+                  real time exchange rates conversions.
                 </Trans>
               }
             />
@@ -135,7 +135,7 @@ export default function Features() {
               desc={
                 <Trans>
                   Bigcapital provides free online support, 12 hours a day seven
-                  days a week, as part of your subscription plan."
+                  days a week, as part of your subscription plan.
                 </Trans>
               }
             />
@@ -149,7 +149,7 @@ export default function Features() {
                 <Trans>
                   Your account information is securely stored in the cloud,
                   available anytime on all your devices and track business
-                  transactions to see what business is doing from anywhere."
+                  transactions to see what business is doing from anywhere.
                 </Trans>
               }
             />
@@ -163,7 +163,7 @@ export default function Features() {
                 <Trans>
                   Exploring and understanding team, legacy, or foreign projects
                   takes a lot of time and effort, implementations, usages,
-                  declarations."
+                  declarations.
                 </Trans>
               }
             />

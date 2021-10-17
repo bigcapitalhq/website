@@ -3,7 +3,6 @@ import className from "classnames"
 import { Img } from "react-image"
 import BodyClassName from "react-body-classname"
 import { graphql } from "gatsby"
-import { Trans } from "gatsby-plugin-react-i18next"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -20,7 +19,7 @@ import "../styles/index.scss"
 const IndexPage = () => (
   <Layout name={"homepage"}>
     <div className={className("bg-grad")}>
-      <Img src={"blur/blur-1.jpeg"} class="rotating" />
+      <Img src={"/blur/blur-1.jpeg"} class="rotating" />
     </div>
     <SEO
       title="Bigcapital"

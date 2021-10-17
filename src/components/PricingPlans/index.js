@@ -10,7 +10,7 @@ const getPricingPlans = () => [
     title: "Capital Essentials",
     description: (
       <Trans>
-        Suitable for business has no multi-currency invoices and branches."
+        Suitable for business has no multi-currency invoices and branches.
       </Trans>
     ),
     monthlyPrice: 100,
@@ -90,7 +90,7 @@ export default function PricingPlans() {
 
             <div className={className(styles.pricingSection__billingCycle)}>
               <Form.Label for={"billing-cycle-switch"}>
-                <span>Billing cycle: </span>
+                <span><Trans>Billing cycle:</Trans> </span>
                 <span
                   className={className(
                     "billing-cycle__item",
@@ -131,7 +131,7 @@ export default function PricingPlans() {
             </p>
 
             <p class="period-note">
-              <Trans>Annually the minimum period you can subscribe.</Trans>
+              <Trans>6 Months the minimum period you can subscribe.</Trans>
             </p>
           </div>
         </div>
