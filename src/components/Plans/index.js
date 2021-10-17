@@ -1,7 +1,7 @@
 import React from "react"
 import className from "classnames"
-import { FormattedMessage as T } from 'react-intl'
-import { useLocalization } from '../Localization';
+import { Trans } from "gatsby-plugin-react-i18next"
+import { useLocalization } from "../Localization"
 import * as styles from "./Plans.module.scss"
 
 /**
@@ -39,7 +39,7 @@ export function Plan({
   pricePostfix,
   mostPopular,
 }) {
-  const { isRTL } = useLocalization();
+  const { isRTL } = useLocalization()
 
   return (
     <div
@@ -49,7 +49,9 @@ export function Plan({
       })}
     >
       {mostPopular && (
-        <div className={className(styles.plan__mostPopular)}><T id={'Most popular'} /></div>
+        <div className={className(styles.plan__mostPopular)}>
+          <Trans>Most popular</Trans>
+        </div>
       )}
       <div className={className(styles.plan__titleWrap)}>
         <h1 className={className(styles.plan__title)}>{title}</h1>
@@ -59,14 +61,14 @@ export function Plan({
 
       <div className={className(styles.plan__price)}>
         <h1 className={className(styles.amount)}>
-          {isRTL ? price : ''}
-          <T id={'LD'} />
-          {!isRTL ? price : ''}
+          {isRTL ? price : ""}
+          <Trans>LD</Trans>
+          {!isRTL ? price : ""}
         </h1>
         <p>{pricePostfix}</p>
       </div>
     </div>
-  );
+  )
 }
 
 /**
@@ -76,10 +78,10 @@ export function Plans({ children, vertical }) {
   return (
     <div
       className={className(styles.plans, {
-        [styles.plansVertical]: vertical
+        [styles.plansVertical]: vertical,
       })}
     >
       {children}
     </div>
-  );
+  )
 }

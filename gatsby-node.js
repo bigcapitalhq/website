@@ -7,11 +7,10 @@ const createLegalPages = async ({ graphql, actions, reporter }) => {
   // Get all legal pages body, title and slug.
   const results = await graphql(`
     query {
-      allMdx {
+      allMdx(filter: { frontmatter: { locale: { eq: "en", } } }){
         nodes {
           id
           slug
-          body
           frontmatter {
             title
             slug
@@ -28,9 +27,10 @@ const createLegalPages = async ({ graphql, actions, reporter }) => {
     )
     return
   }
-
+  // Pages nodes.
   const pages = results.data.allMdx.nodes
 
+  // Legal template.
   const postTemplate = path.resolve("src/templates/legal-template.js")
 
   pages.forEach(post => {
@@ -39,7 +39,7 @@ const createLegalPages = async ({ graphql, actions, reporter }) => {
       component: postTemplate,
       context: {
         id: post.id,
-        slug: post.slug,
+        slug: post.frontmatter.slug,
       },
     })
   })

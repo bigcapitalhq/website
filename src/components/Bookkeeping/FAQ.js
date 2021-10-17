@@ -1,6 +1,6 @@
 import React from "react"
 import className from "classnames"
-import { FormattedMessage as T } from "react-intl"
+import { Trans } from "gatsby-plugin-react-i18next"
 import * as styles from "./FAQ.module.scss"
 
 /**
@@ -58,34 +58,74 @@ function Quation({ question, answer }) {
   )
 }
 
-const questions = [
+const getQuestions = () => [
   {
-    question: <T id={'What is the benefit of financial reports?'} />,
-    answer: <T id={"Financial reports reflects the financial activity of any organization, A balance sheet or statement of financial position, reports on a company's assets, liabilities, and owners equity at a given point in time, and income statement reports on a company's income, expenses, and profits over a stated period, and cash flow statement reports on a company's cash flow activities."} />,
+    question: <Trans>What is the benefit of financial reports?</Trans>,
+    answer: (
+      <Trans>
+        Financial reports reflects the financial activity of any organization, A
+        balance sheet or statement of financial position, reports on a company's
+        assets, liabilities, and owners equity at a given point in time, and
+        income statement reports on a company's income, expenses, and profits
+        over a stated period, and cash flow statement reports on a company's
+        cash flow activities.
+      </Trans>
+    ),
   },
   {
-    question: <T id={'What is the difference between bookkeeping and accounting?'} />,
-    answer: <T id={"The accounting job is more general and comprehensive than the bookkeeper job, and the main difference between the accountant and the bookkeeper is that the accountant prepares financial reports (financial statements), while the bookkeeper is the person who records all financial transactions based on agreed accounting principles and standards."} />
+    question: (
+      <Trans>What is the difference between bookkeeping and accounting?</Trans>
+    ),
+    answer: (
+      <Trans>
+        The accounting job is more general and comprehensive than the bookkeeper
+        job, and the main difference between the accountant and the bookkeeper
+        is that the accountant prepares financial reports (financial
+        statements), while the bookkeeper is the person who records all
+        financial transactions based on agreed accounting principles and
+        standards.
+      </Trans>
+    ),
   },
   {
-    question: <T id={'How is the import of all receipts and invoices daily?'} />,
-    answer: <T id={"The daily communication with the organization takes place through two methods, using softwares, that made by us, that saves the trouble of transportation to import all daily invoices and receipts, and through personal attendance to the organization headquarter to make inventory adjustments and cash treasury, these tasks carried out by the bookkeeper."} />
+    question: (
+      <Trans>How is the import of all receipts and invoices daily?</Trans>
+    ),
+    answer: (
+      <Trans>
+        The daily communication with the organization takes place through two
+        methods, using softwares, that made by us, that saves the trouble of
+        transportation to import all daily invoices and receipts, and through
+        personal attendance to the organization headquarter to make inventory
+        adjustments and cash treasury, these tasks carried out by the
+        bookkeeper.
+      </Trans>
+    ),
   },
   {
-    question: <T id={'Can the plan be changed at any time?'} />,
-    answer: <T id={"Sure! Each plan has a set of specific services to meet your business needs, and it is normal for business requirements to change over time, so the plan can be changed at any time to a plan of more or less services."} />
-  }
+    question: <Trans>Can the plan be changed at any time?</Trans>,
+    answer: (
+      <Trans>
+        Sure! Each plan has a set of specific services to meet your business
+        needs, and it is normal for business requirements to change over time,
+        so the plan can be changed at any time to a plan of more or less
+        services.
+      </Trans>
+    ),
+  },
 ]
 
 /**
  * FAQ
  */
 export default function FAQ() {
+  const questions = getQuestions()
+
   return (
     <div id="FAQ" className={className(styles.FAQSection)}>
       <div class="container">
         <h1 className={className(styles.FAQSection__title)}>
-          <T id={"Frequently Asked Questions"} />
+          <Trans>Frequently Asked Questions</Trans>
         </h1>
       </div>
 
@@ -93,8 +133,11 @@ export default function FAQ() {
         <div class="container">
           <div class="row">
             <div class="col-12">
-              {questions.map((question) => (
-                <Quation question={question.question} answer={question.answer} />
+              {questions.map(question => (
+                <Quation
+                  question={question.question}
+                  answer={question.answer}
+                />
               ))}
             </div>
           </div>

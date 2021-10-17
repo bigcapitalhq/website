@@ -1,40 +1,37 @@
 import React from "react"
 import className from "classnames"
-import { FormattedMessage as T, useIntl } from "react-intl"
+import { Trans, useTranslation } from "gatsby-plugin-react-i18next"
 import { Form } from "react-bootstrap"
 import { Plan, Plans, PlanFeatureLine } from "../Plans"
 import * as styles from "./PricingPlans.module.scss"
 
-const PLANS = [
+const getPricingPlans = () => [
   {
     title: "Capital Essentials",
     description: (
-      <T
-        id={
-          "Suitable for business has no multi-currency invoices and branches."
-        }
-      />
+      <Trans>
+        Suitable for business has no multi-currency invoices and branches."
+      </Trans>
     ),
     monthlyPrice: 100,
     annuallyPrice: 1200,
     features: [
-      <T id={"Sale and purchase invoices."} />,
-      <T id={"Customers/vendors accounts."} />,
-      <T id={"Inventory management."} />,
-      <T id={"Manual journals."} />,
-      <T id={"Advanced Financial reports."} />,
-      <T id={"For two users and accountant."} />,
+      <Trans>Sale and purchase invoices.</Trans>,
+      <Trans>Customers/vendors accounts.</Trans>,
+      <Trans>Inventory management.</Trans>,
+      <Trans>Manual journals.</Trans>,
+      <Trans>Advanced Financial reports.</Trans>,
+      <Trans>For two users and accountant.</Trans>,
     ],
     mostPopular: true,
   },
   {
     title: "Capital Plus",
     description: (
-      <T
-        id={
-          "Suitable for business pay in foreign currencies and has multi-warehouses."
-        }
-      />
+      <Trans>
+        Suitable for business pay in foreign currencies and has
+        multi-warehouses.
+      </Trans>
     ),
     monthlyPrice: 200,
     annuallyPrice: 2400,
@@ -42,21 +39,19 @@ const PLANS = [
       <>
         All <strong>Capital Starter</strong> features.
       </>,
-      <T id={"Multi-currency"} />,
-      <T id={"Purchase and sell orders."} />,
-      <T id={"Multi-stocks management."} />,
-      <T id={"Four users with your accountant."} />,
-      <T id={"Custom roles and permissions."} />,
+      <Trans>Multi-currency</Trans>,
+      <Trans>Purchase and sell orders.</Trans>,
+      <Trans>Multi-stocks management.</Trans>,
+      <Trans>Four users with your accountant.</Trans>,
+      <Trans>Custom roles and permissions.</Trans>,
     ],
   },
   {
     title: "Capital Enterprise",
     description: (
-      <T
-        id={
-          "Suitable for business has projects or multi-branches transactions."
-        }
-      />
+      <Trans>
+        Suitable for business has projects or multi-branches transactions.
+      </Trans>
     ),
     monthlyPrice: 300,
     annuallyPrice: 3400,
@@ -64,19 +59,19 @@ const PLANS = [
       <>
         All <strong>Capital Essential</strong> features.
       </>,
-      <T id={"Track multi-branches and locations."} />,
-      <T id={"Projects accounting and timesheets."} />,
-      <T id={"Accounting dimensions."} />,
+      <Trans>Track multi-branches and locations.</Trans>,
+      <Trans>Projects accounting and timesheets.</Trans>,
+      <Trans>Accounting dimensions.</Trans>,
     ],
   },
-] 
+]
 
 /**
  * Pricing plans.
  */
 export default function PricingPlans() {
   const [isAnnual, setIsAnnual] = React.useState(true)
-  const { formatMessage } = useIntl()
+  const { t } = useTranslation()
 
   // Handle switch change.
   const handlSwitchChange = value => {
@@ -85,12 +80,12 @@ export default function PricingPlans() {
   }
 
   return (
-    <div className={className(styles.pricingSection)} id={'pricing'}>
+    <div className={className(styles.pricingSection)} id={"pricing"}>
       <div class="container">
         <div class="row">
           <div class="col-lg-6 col-md-12">
             <h1 className={className(styles.pricingSection__title)}>
-              <T id={"Choose the right plan for your business"} />
+              <Trans>Choose the right plan for your business</Trans>
             </h1>
 
             <div className={className(styles.pricingSection__billingCycle)}>
@@ -105,7 +100,7 @@ export default function PricingPlans() {
                     }
                   )}
                 >
-                  <T id={"Monthly"} />
+                  <Trans>Monthly</Trans>
                 </span>
               </Form.Label>
               <Form.Check
@@ -124,27 +119,25 @@ export default function PricingPlans() {
                   }
                 )}
               >
-                <T id={"Annually"} />
+                <Trans>Annually</Trans>
               </Form.Label>
             </div>
           </div>
           <div class="col-lg-5 offset-lg-1 col-md-12">
             <p className={className(styles.pricingSection__desc)}>
-              <T
-                id={
-                  "With Bigcapital only pay for what services and features you use."
-                }
-              />
+              <Trans>
+                With Bigcapital only pay for what services and features you use.
+              </Trans>
             </p>
 
             <p class="period-note">
-              <T id={"Annually the minimum period you can subscribe."} />
+              <Trans>Annually the minimum period you can subscribe.</Trans>
             </p>
           </div>
         </div>
 
         <Plans>
-          {PLANS.map(plan => (
+          {getPricingPlans().map(plan => (
             <Plan
               title={plan.title}
               description={plan.description}
@@ -152,11 +145,7 @@ export default function PricingPlans() {
               features={plan.features.map(feature => (
                 <PlanFeatureLine>{feature}</PlanFeatureLine>
               ))}
-              pricePostfix={
-                isAnnual
-                  ? formatMessage({ id: "Per year." })
-                  : formatMessage({ id: "Per month." })
-              }
+              pricePostfix={isAnnual ? t("Per year.") : t("Per month.")}
               mostPopular={plan.mostPopular}
             />
           ))}

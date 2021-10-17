@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { MDXProvider } from "@mdx-js/react"
+import { useTranslation } from "gatsby-plugin-react-i18next"
 import {
   LegalContainer,
   LegalContent,
@@ -31,7 +32,7 @@ function LegalSidebarPage() {
   )
 }
 
-export default function LegalPage({ data }) {
+export default function LegalPage({ data, ...rest }) {
   const {
     body,
     frontmatter: { title },
@@ -39,11 +40,13 @@ export default function LegalPage({ data }) {
 
   const mdxComponents = { h2: LegalH2, h3: LegalH3 }
 
+  const { t } = useTranslation()
+
   return (
     <Layout name={"legal"}>
       <LegalPager>
         <LegalHeader>
-          <LegalTitle>Bigcapital Legal Information</LegalTitle>
+          <LegalTitle>{t("bigcapital_legal_information")}</LegalTitle>
         </LegalHeader>
 
         <LegalContainer>
@@ -65,8 +68,17 @@ export default function LegalPage({ data }) {
 }
 
 export const query = graphql`
-  query POST_BY_SLUG($id: String!) {
-    mdx(id: { eq: $id }) {
+  query($language: String!, $slug: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+    mdx: mdx(frontmatter: { slug: { eq: $slug }, locale: { eq: $language } }) {
       id
       slug
       body

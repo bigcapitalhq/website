@@ -1,7 +1,7 @@
 import React from "react"
 import * as yup from "yup"
 import { Form, Button } from "react-bootstrap"
-import { FormattedMessage as T, useIntl } from 'react-intl';
+import { Trans, useTranslation } from "gatsby-plugin-react-i18next"
 import { Field, Formik } from "formik"
 
 // Validation schema.
@@ -13,7 +13,7 @@ const ValidationSchema = yup.object({
  * Bookkeeping CTA.
  */
 export default function BookkeepingCTA() {
-  const { formatMessage } = useIntl();
+  const { t } = useTranslation()
 
   // Initial values.
   const initialValues = {
@@ -29,10 +29,7 @@ export default function BookkeepingCTA() {
       validationSchema={ValidationSchema}
     >
       {({ handleSubmit }) => (
-        <Form
-          noValidate
-          onSubmit={handleSubmit}
-        >
+        <Form noValidate onSubmit={handleSubmit}>
           <div class="row">
             <div class="col-8">
               <Field name="fullName">
@@ -40,7 +37,7 @@ export default function BookkeepingCTA() {
                   <Form.Group controlId="fullName">
                     <Form.Control
                       type="text"
-                      placeholder={formatMessage({ id: 'Phone number' })}
+                      placeholder={t("Phone number")}
                       isInvalid={error && touched}
                       feedback={error}
                       {...field}
@@ -55,7 +52,7 @@ export default function BookkeepingCTA() {
 
             <div class="col-4">
               <Button block={true} variant="primary">
-                <T id={'Contact us'} />
+                <Trans>Contact us</Trans>
               </Button>
             </div>
           </div>

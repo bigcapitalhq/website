@@ -1,7 +1,7 @@
 import React from "react"
-import { FormattedMessage as T } from "react-intl"
 import { Navbar, Nav } from "react-bootstrap"
-import className from 'classnames'
+import className from "classnames"
+import { Trans } from "gatsby-plugin-react-i18next"
 import * as styles from "./Navbar.module.scss"
 
 /**
@@ -12,7 +12,7 @@ export default function BookkeepingNavbar() {
     <div className="container">
       <Navbar className={className(styles.navbarBookkeeping)} expand="lg">
         <Navbar.Brand href="#" className={className(styles.navbarTitle)}>
-          <T id={"Bookkeeping services"} />
+          <Trans>Bookkeeping services</Trans>
         </Navbar.Brand>
         <Navbar.Toggle />
 
@@ -20,25 +20,25 @@ export default function BookkeepingNavbar() {
           <Nav className="ml-auto">
             <Nav.Item>
               <Nav.Link href="#introduction">
-                <T id={"Introduction"} />
+                <Trans>Introduction</Trans>
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
               <Nav.Link href="#how-works">
-                <T id={"How we work"} />
+                <Trans>How we work</Trans>
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
               <Nav.Link href={"#pricing"}>
-                <T id={"Pricing"} />
+                <Trans>Pricing</Trans>
               </Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
               <Nav.Link href={"#FAQ"}>
-                <T id={"FAQ"} />
+                <Trans>FAQ</Trans>
               </Nav.Link>
             </Nav.Item>
           </Nav>

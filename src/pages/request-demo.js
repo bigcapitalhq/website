@@ -1,14 +1,16 @@
 import * as React from "react"
 import { Form, Button } from "react-bootstrap"
+import { graphql } from "gatsby"
 import classNames from "classnames"
 import { mapKeys, snakeCase } from "lodash"
 import { Formik, Field } from "formik"
 import ReactWOW from "react-wow"
 import * as yup from "yup"
 import axios from "axios"
+import { Trans, useTranslation } from "gatsby-plugin-react-i18next"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { FormattedMessage as T, useIntl } from "react-intl"
+
 import "../styles/request-demo-page.scss"
 
 const ApiService = axios.create({
@@ -23,25 +25,13 @@ const InitialValues = {
 }
 
 function RequestDemoForm({ onSubmitSuccess }) {
-  const { formatMessage } = useIntl()
+  const { t } = useTranslation()
 
   const ValidationSchema = yup.object({
-    fullName: yup
-      .string()
-      .required()
-      .label(formatMessage({ id: "Full name" })),
-    businessName: yup
-      .string()
-      .required()
-      .label(formatMessage({ id: "Business name" })),
-    phoneNumber: yup
-      .string()
-      .required()
-      .label(formatMessage({ id: "Phone number" })),
-    businessEmail: yup
-      .string()
-      .required()
-      .label(formatMessage({ id: "Business email" })),
+    fullName: yup.string().required().label(t("Full name")),
+    businessName: yup.string().required().label(t("Business name")),
+    phoneNumber: yup.string().required().label(t("Phone number")),
+    businessEmail: yup.string().required().label(t("Business email")),
   })
 
   const handleSubmit = (values, { setSubmitting }) => {
@@ -75,7 +65,7 @@ function RequestDemoForm({ onSubmitSuccess }) {
               <Form.Group controlId="fullName">
                 <Form.Control
                   type="text"
-                  placeholder={formatMessage({ id: "Full Name" })}
+                  placeholder={t("Full Name")}
                   isInvalid={error && touched}
                   feedback={error}
                   {...field}
@@ -84,9 +74,9 @@ function RequestDemoForm({ onSubmitSuccess }) {
                   {error}
                 </Form.Control.Feedback>
                 <Form.Text className="text-muted">
-                  <T
-                    id={"We'll never share your information with anyone else."}
-                  />
+                  <Trans>
+                    We'll never share your information with anyone else.
+                  </Trans>
                 </Form.Text>
               </Form.Group>
             )}
@@ -97,7 +87,7 @@ function RequestDemoForm({ onSubmitSuccess }) {
               <Form.Group controlId="businessName">
                 <Form.Control
                   type="text"
-                  placeholder={formatMessage({ id: "Business Name" })}
+                  placeholder={t("Business Name")}
                   isInvalid={error && touched}
                   feedback={error}
                   {...field}
@@ -117,7 +107,7 @@ function RequestDemoForm({ onSubmitSuccess }) {
               <Form.Group controlId="phoneNumber">
                 <Form.Control
                   type="text"
-                  placeholder={formatMessage({ id: "Phone Number" })}
+                  placeholder={t("Phone Number")}
                   isInvalid={error && touched}
                   feedback={error}
                   {...field}
@@ -134,7 +124,7 @@ function RequestDemoForm({ onSubmitSuccess }) {
               <Form.Group controlId="businessEmail">
                 <Form.Control
                   type="text"
-                  placeholder={formatMessage({ id: "Business Email" })}
+                  placeholder={t("Business Email")}
                   isInvalid={error && touched}
                   feedback={error}
                   {...field}
@@ -147,15 +137,14 @@ function RequestDemoForm({ onSubmitSuccess }) {
           </Field>
 
           <p className="footer-hint">
-            <T
-              id={
-                "Please note, we are currently experiencing higher than normal contact request volumes. Thanks for your understanding!"
-              }
-            />
+            <Trans>
+              Please note, we are currently experiencing higher than normal
+              contact request volumes. Thanks for your understanding!
+            </Trans>
           </p>
 
           <Button variant="primary" type="submit">
-            <T id={"Get in Touch"} />
+            <Trans>Get in Touch</Trans>
           </Button>
         </Form>
       )}
@@ -181,7 +170,9 @@ const RequestDemoPage = () => {
         <div class="request-demo">
           {success ? (
             <h1 class="request-demo__thanks-title">
-              <T id={"Thank you. We received the contact request from you."} />
+              <Trans>
+                Thank you. We received the contact request from you.
+              </Trans>
             </h1>
           ) : (
             <>
@@ -191,11 +182,11 @@ const RequestDemoPage = () => {
 
               <ReactWOW animation="fadeIn" duration={"1s"} delay={"0.3s"}>
                 <p className="request-demo__desc">
-                  <T
-                    id={
-                      "Request product free tour to see how our comprehensive financial accounting software can help your organization to help automate your accounting processes."
-                    }
-                  />
+                  <Trans>
+                    Request product free tour to see how our comprehensive
+                    financial accounting software can help your organization to
+                    help automate your accounting processes.
+                  </Trans>
                 </p>
               </ReactWOW>
 
@@ -211,3 +202,17 @@ const RequestDemoPage = () => {
 }
 
 export default RequestDemoPage
+
+export const query = graphql`
+  query($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`

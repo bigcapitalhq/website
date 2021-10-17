@@ -1,6 +1,6 @@
 import React from "react"
 import { Dropdown } from "react-bootstrap"
-import {  FormattedMessage as T } from 'react-intl';
+import { Trans, Link, useI18next } from "gatsby-plugin-react-i18next"
 import Logo from "../Logo"
 
 import "./index.scss"
@@ -11,7 +11,9 @@ import "./index.scss"
 function SocialWidget() {
   return (
     <div className="footer__widget">
-      <strong className="footer__widget-title d-block"><T id={'Socials'} /></strong>
+      <strong className="footer__widget-title d-block">
+        <Trans>Socials</Trans>
+      </strong>
       <ul className="footer__widget-list">
         <li>
           <a target="_blank" href="https://www.facebook.com/bigcapitalHQ">
@@ -44,23 +46,19 @@ function CompanyWidget() {
       <strong className="footer__widget-title d-block">Legal</strong>
       <ul className="footer__widget-list">
         <li>
-          <a href="/legal/terms-of-use">
-            Terms & conditions
-          </a>
+          <Link to={"/legal/terms-of-use"}>Terms & conditions</Link>
         </li>
         <li>
-          <a href="/legal/privacy-policy">
-            Privacy policy
+          <Link to={"/legal/privacy-policy"}>Privacy policy</Link>
+        </li>
+        <li>
+          <a target="_blank" href="#">
+            <Trans>About Us</Trans>
           </a>
         </li>
         <li>
           <a target="_blank" href="#">
-            <T id={'About Us'} />
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="#">
-            <T id={'Contact Us'} />
+            <Trans>Contact Us</Trans>
           </a>
         </li>
       </ul>
@@ -71,11 +69,13 @@ function CompanyWidget() {
 function PagesWidget() {
   return (
     <div className="footer__widget">
-      <strong className="footer__widget-title d-block"><T id={'Content'} /></strong>
+      <strong className="footer__widget-title d-block">
+        <Trans>Content</Trans>
+      </strong>
       <ul className="footer__widget-list">
         <li>
           <a target="_blank" href="#">
-            <T id={'Blog'} />
+            <Trans>Blog</Trans>
           </a>
         </li>
         <li>
@@ -85,12 +85,12 @@ function PagesWidget() {
         </li>
         <li>
           <a target="_blank" href="#">
-            <T id={'Technical Support'} />
+            <Trans>Technical Support</Trans>
           </a>
         </li>
         <li>
           <a target="_blank" href="#">
-            <T id={'Learning Center'} />
+            <Trans>Learning Center</Trans>
           </a>
         </li>
       </ul>
@@ -99,18 +99,15 @@ function PagesWidget() {
 }
 
 export default function Footer() {
+  const { changeLanguage } = useI18next()
+
   // Handle language change.
   const onChangeLanguage = React.useCallback(
-    local => () => {
-      window.localStorage.setItem("lang", local)
-
-      setTimeout(() => {
-        window.scrollTo(0, 0)
-      })
-      window.location.reload()
+    language => () => {
+      changeLanguage(language)
     },
     []
-  );
+  )
 
   return (
     <div className="footer">
@@ -123,20 +120,29 @@ export default function Footer() {
               </a>
               <div className="footer-text mb-0 mt-3">
                 <p>
-                  <T id={'Online accounting software, built to automate business financial processes.'} />
+                  <Trans>
+                    Online accounting software, built to automate business
+                    financial processes.
+                  </Trans>
                 </p>
                 <p className="mb-1">
-                  <strong><T id={'Phone number'} /></strong>: +218-927381987
+                  <strong>
+                    <Trans>Phone number</Trans>
+                  </strong>
+                  : +218-927381987
                 </p>
                 <p>
-                  <strong><T id={'Email'} /></strong>: info@bigcapital.com
+                  <strong>
+                    <Trans>Email</Trans>
+                  </strong>
+                  : info@bigcapital.com
                 </p>
               </div>
 
               <div>
-                <Dropdown size="md" className={'dropdown--change-language'}>
+                <Dropdown size="md" className={"dropdown--change-language"}>
                   <Dropdown.Toggle variant="success" id="dropdown-basic">
-                    <T id={'Change language'} />
+                    <Trans>Change language</Trans>
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu>
@@ -170,7 +176,9 @@ export default function Footer() {
       <div class="footer-copyright">
         <div class="container">
           <div class="footer-copyright__inner">
-            <p><T id={'Copyright © 2021 — Made by Bigcapital Technologies.'} /></p>
+            <p>
+              <Trans>Copyright © 2021 — Made by Bigcapital Technologies.</Trans>
+            </p>
           </div>
         </div>
       </div>
