@@ -26,12 +26,12 @@ function SocialWidget() {
           </a>
         </li>
         <li>
-          <a target="_blank" href="#">
+          <a target="_blank" href="https://medium.com/bigcpaitalhq">
             Medium
           </a>
         </li>
         <li>
-          <a target="_blank" href="#">
+          <a target="_blank" href="https://medium.com/linkedin">
             LinkedIn
           </a>
         </li>
@@ -78,23 +78,23 @@ function PagesWidget() {
       </strong>
       <ul className="footer__widget-list">
         <li>
-          <a target="_blank" href="#">
-            <Trans>Blog</Trans>
+          <Link to={"/"}>
+            <Trans>Home</Trans>
+          </Link>
+        </li>
+        <li>
+          <Link to={"/"}>
+            <Trans>Product</Trans>
+          </Link>
+        </li>
+        <li>
+          <a target="_blank" href="https://docs.bigcapital.ly/releases">
+            <Trans>Changelog</Trans>
           </a>
         </li>
         <li>
-          <a target="_blank" href="#">
-            Translations
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="#">
+          <a target="_blank" href="https://app.bigcapital.ly">
             <Trans>Technical Support</Trans>
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="#">
-            <Trans>Learning Center</Trans>
           </a>
         </li>
       </ul>
