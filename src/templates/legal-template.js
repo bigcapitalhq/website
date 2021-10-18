@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { MDXProvider } from "@mdx-js/react"
-import { useTranslation } from "gatsby-plugin-react-i18next"
+import { useTranslation, Trans } from "gatsby-plugin-react-i18next"
 import {
   LegalContainer,
   LegalContent,
@@ -15,19 +15,35 @@ import {
   LegalPager,
   LegalH2,
   LegalH3,
+  LegalSidebarTitle,
 } from "../components/Legal"
 import Layout from "../components/layout"
 
+function useLegalCollectHeadings() {
+  const [headings, setHeadings] = React.useState([])
+
+  React.useEffect(() => {
+    const headingElements = Array.from(
+      document.querySelectorAll("[data-heading]")
+    )
+    setHeadings(headingElements)
+  }, [])
+
+  return { headings, setHeadings }
+}
+
 function LegalSidebarPage() {
+  const { headings } = useLegalCollectHeadings()
+
   return (
     <LegalSidebar>
-      <LegalSidebarItem>What information do we collect?</LegalSidebarItem>
-      <LegalSidebarItem>
-        Do we use cookies and other tracking technologies?
-      </LegalSidebarItem>
-      <LegalSidebarItem>how do we keep your information safe?</LegalSidebarItem>
-      <LegalSidebarItem>Do we make updates to this notice?</LegalSidebarItem>
-      <LegalSidebarItem>How we use information</LegalSidebarItem>
+      <LegalSidebarTitle>
+        <Trans>Content of page</Trans>
+      </LegalSidebarTitle>
+
+      {headings.map(({ id, nodeName, innerText }) => (
+        <LegalSidebarItem href={`#${id}`}>{innerText} </LegalSidebarItem>
+      ))}
     </LegalSidebar>
   )
 }

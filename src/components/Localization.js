@@ -1,5 +1,6 @@
 import React from "react"
 import rtlDetect from "rtl-detect"
+import { ThemeProvider } from "styled-components"
 import { Helmet } from "react-helmet"
 import { useI18next } from "gatsby-plugin-react-i18next"
 
@@ -25,8 +26,10 @@ export default function Localization({ children }) {
 
   return (
     <LocalizationContext.Provider value={provider}>
-      <Helmet bodyAttributes={{ dir }} />
-      {children}
+      <ThemeProvider theme={provider}>
+        <Helmet bodyAttributes={{ dir }} />
+        {children}
+      </ThemeProvider>
     </LocalizationContext.Provider>
   )
 }

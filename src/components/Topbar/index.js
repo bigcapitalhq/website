@@ -33,30 +33,34 @@ export default function TopBar({ beforeNavbar, afterNavbar }) {
                   id="basic-nav-dropdown"
                 >
                   <NavDropdown.Item href="/">
-                    <div class="title">Bigcapital</div>
-                    <small>
-                      <Trans>Accounting software</Trans>
-                    </small>
+                    <Link to="/">
+                      <div class="title">Bigcapital</div>
+                      <small>
+                        <Trans>Accounting software</Trans>
+                      </small>
+                    </Link>
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="/bookkeeping">
-                    <div class="title">
-                      <Trans>Bookkeeping</Trans>
-                    </div>
-                    <small>
-                      <Trans>Bookkeeping & accounting services</Trans>
-                    </small>
+                  <NavDropdown.Item>
+                    <Link to="/bookkeeping">
+                      <div class="title">
+                        <Trans>Bookkeeping</Trans>
+                      </div>
+                      <small>
+                        <Trans>Bookkeeping & accounting services</Trans>
+                      </small>
+                    </Link>
                   </NavDropdown.Item>
                 </NavDropdown>
 
                 <Nav.Item>
-                  <Nav.Link href="/#features">
+                  <Nav.Link to="/#features" as={Link}>
                     <Trans>Features</Trans>
                   </Nav.Link>
                 </Nav.Item>
 
                 <Nav.Item>
-                  <Nav.Link href="/#pricing">
+                  <Nav.Link to="/#pricing" as={Link}>
                     <Trans>Pricing</Trans>
                   </Nav.Link>
                 </Nav.Item>
@@ -82,7 +86,7 @@ export default function TopBar({ beforeNavbar, afterNavbar }) {
                 </Nav.Item>
 
                 <li className="nav-item nav-item-primary d-lg-none">
-                  <Nav.Link>
+                  <Nav.Link as={Link} to={"/request-demo"}>
                     <Trans>Contact us</Trans>
                   </Nav.Link>
                 </li>

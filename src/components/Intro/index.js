@@ -1,7 +1,7 @@
 import React from "react"
 import ReactWOW from "react-wow"
 import className from "classnames"
-import { Trans } from "gatsby-plugin-react-i18next"
+import { Trans, Link } from "gatsby-plugin-react-i18next"
 import * as styles from "./Intro.module.scss"
 
 /**
@@ -28,22 +28,22 @@ export default function Intro() {
           </h2>
 
           <div className={className(styles.intro__buttons)}>
-            <a
+            <Link
               className={className(styles.btn, "btn-primary", "btn-lg")}
-              href="/request-demo"
+              to="/request-demo"
             >
               <Trans>Request demo</Trans>
-            </a>
-            <a
+            </Link>
+            <Link
               className={className(
                 styles.btn,
                 "btn-outline-secondary",
                 "btn-lg"
               )}
-              href="/request-demo"
+              to="/request-demo"
             >
               <Trans>Signup</Trans>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -38,6 +38,7 @@
     "Call me": "اتصل بي",
     "Full Name": "الاسم بالكامل",
     "Business Email": "بريد الاكتروني",
+    "Business Name": "اسم النشاط التجاري",
     "Thank you. We received the contact request from you.": "شكرا لك. لقد تلقينا طلب الاتصال منك.",
     "Request product free tour to see how our comprehensive financial accounting software can help your organization to help automate your accounting processes.": "اطلب فترة تجريبية للمنتج لمعرفة كيف يمكن لنظام المحاسبة الشامل أن يساعد شركتك في أتمتة عمليات المالية الخاصة بك.",
     "Get in Touch": "تواصل معنا",
@@ -134,5 +135,6 @@
     "Privacy policy": "سياسة الخصوصية",
     "Request free trial": "طلب فترة تجريبية",
     "Should be correct.": "يجب ان يكون صحيحاً.",
-    "requestTrial.termsConditionsMsg": "من خلال المتابعة ، فإنك توافق على <1> شروط الخدمة </1> و <3> سياسة الخصوصية</3> لـ Bigcapital"
+    "requestTrial.termsConditionsMsg": "من خلال المتابعة ، فإنك توافق على <1> شروط الخدمة </1> و <3> سياسة الخصوصية</3> لـ Bigcapital",
+    "Content of page": "محتوي الصفحة"
 }
