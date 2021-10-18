@@ -133,5 +133,6 @@
     "Terms & conditions": "الشروط والاحكام",
     "Privacy policy": "سياسة الخصوصية",
     "Request free trial": "طلب فترة تجريبية",
-    "Should be correct.": "يجب ان يكون صحيحاً."
+    "Should be correct.": "يجب ان يكون صحيحاً.",
+    "requestTrial.termsConditionsMsg": "من خلال المتابعة ، فإنك توافق على <1> شروط الخدمة </1> و <3> سياسة الخصوصية</3> لـ Bigcapital"
 }

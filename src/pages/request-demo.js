@@ -7,7 +7,12 @@ import { Formik, Field } from "formik"
 import ReactWOW from "react-wow"
 import * as yup from "yup"
 import axios from "axios"
-import { Trans, useTranslation } from "gatsby-plugin-react-i18next"
+import {
+  Trans,
+  useTranslation,
+  useI18next,
+  Link,
+} from "gatsby-plugin-react-i18next"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -22,6 +27,29 @@ const InitialValues = {
   businessName: "",
   phoneNumber: "",
   businessEmail: "",
+}
+
+const ExternalLink = props => {
+  const { defaultLanguage, language } = useI18next()
+  const toPath =
+    defaultLanguage === language ? props.to : `/${language}${props.to}`
+
+  return (
+    <a href={toPath} target="_blank" rel="noopener noreferrer">
+      {props.children}
+    </a>
+  )
+}
+
+function TermsAndConditionsMessage() {
+  return (
+    <Trans i18nKey={"requestTrial.termsConditionsMsg"}>
+      By continuing, you agree to Bigcapital's
+      <ExternalLink to={"/legal/terms-of-use"}>Terms of Service</ExternalLink>
+      and
+      <ExternalLink to={"/legal/privacy-policy"}>Privacy Policy</ExternalLink>.
+    </Trans>
+  )
 }
 
 function RequestDemoForm({ onSubmitSuccess }) {
@@ -97,7 +125,9 @@ function RequestDemoForm({ onSubmitSuccess }) {
                   {error}
                 </Form.Control.Feedback>
 
-                <Form.Text className="text-muted"><Trans>Should be correct.</Trans></Form.Text>
+                <Form.Text className="text-muted">
+                  <Trans>Should be correct.</Trans>
+                </Form.Text>
               </Form.Group>
             )}
           </Field>
@@ -135,6 +165,10 @@ function RequestDemoForm({ onSubmitSuccess }) {
               </Form.Group>
             )}
           </Field>
+
+          <p className={"terms-conditions"}>
+            <TermsAndConditionsMessage />
+          </p>
 
           <p className="footer-hint">
             <Trans>
@@ -177,7 +211,9 @@ const RequestDemoPage = () => {
           ) : (
             <>
               <ReactWOW animation="fadeIn" duration={"1s"} delay={"0.2s"}>
-                <h1 className="request-demo__title"><Trans>Request free trial</Trans></h1>
+                <h1 className="request-demo__title">
+                  <Trans>Request free trial</Trans>
+                </h1>
               </ReactWOW>
 
               <ReactWOW animation="fadeIn" duration={"1s"} delay={"0.3s"}>

@@ -127,5 +127,6 @@
     "All services in the previous plan Dafter 300.": "All services in the previous plan Dafter 300.",
     "bigcapital_legal_information": "Bigcapital Legal Information",
     "Request free trial": "Request free trial",
-    "Should be correct.": "Should be correct."
+    "Should be correct.": "Should be correct.",
+    "requestTrial.termsConditionsMsg": "By continuing, you agree to Bigcapital's <1>Terms of Service</1> and <3>Privacy Policy</3>."
 }   
