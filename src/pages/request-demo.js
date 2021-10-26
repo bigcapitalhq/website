@@ -11,7 +11,6 @@ import {
   Trans,
   useTranslation,
   useI18next,
-  Link,
 } from "gatsby-plugin-react-i18next"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -193,11 +192,13 @@ const RequestDemoPage = () => {
     setSuccess(true)
   }
 
+  const { t } = useTranslation()
+
   return (
     <Layout>
       <SEO
-        title="Bigcapital"
-        description="Financial Accounting Automation"
+        title={t('request_demo.seo.title')}
+        description={t('request_demo.seo.description')}
         lang="en"
       />
       <div class="container">

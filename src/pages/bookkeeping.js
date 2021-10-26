@@ -1,5 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { useTranslation } from "gatsby-plugin-react-i18next"
+
 import Layout from "../components/layout"
 import HowWorks from "../components/Bookkeeping/HowWorks"
 import PricingPlans from "../components/Bookkeeping/PricingPlans"
@@ -15,9 +17,14 @@ import "../styles/bookkeeping.module.scss"
  * Bookkeeping page.
  */
 export default function BookkeepingPage() {
+  const { t } = useTranslation()
+
   return (
     <Layout name={"bookkeeping"} afterNavbar={<Navbar />}>
-      <SEO description={"Bookkeeping & accounting services"} />
+      <SEO
+        title={t("bookkeeping.seo.title")}
+        description={t("bookkeeping.seo.description")}
+      />
       <Intro />
       <HowWorks />
       <PricingPlans />
