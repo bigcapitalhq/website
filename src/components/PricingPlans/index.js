@@ -70,7 +70,7 @@ const getPricingPlans = () => [
  * Pricing plans.
  */
 export default function PricingPlans() {
-  const [isAnnual, setIsAnnual] = React.useState(true)
+  const [isAnnual, setIsAnnual] = React.useState(false)
   const { t } = useTranslation()
 
   // Handle switch change.
