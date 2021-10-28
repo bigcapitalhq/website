@@ -91,9 +91,9 @@ export default function PricingPlans() {
   return (
     <div className={className(styles.pricingSection)} id="pricing">
       <div class="container">
-        <h1 className={className(styles.pricingSection__title)}>
+        <h2 className={className(styles.pricingSection__title)}>
           <Trans>Choose the right plan for your business</Trans>
-        </h1>
+        </h2>
 
         <p className={className(styles.pricingSection__desc)}>
           <Trans>

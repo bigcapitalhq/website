@@ -24,6 +24,7 @@ export default function BookkeepingPage() {
       <SEO
         title={t("bookkeeping.seo.title")}
         description={t("bookkeeping.seo.description")}
+        keywords={["bookkeeping", "accountant", "accounting"]}
       />
       <Intro />
       <HowWorks />

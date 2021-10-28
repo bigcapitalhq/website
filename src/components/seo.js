@@ -8,8 +8,9 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
+import { isEmpty } from "lodash"
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta, title, keywords }) {
   return (
     <Helmet
       htmlAttributes={{ lang }}
@@ -32,6 +33,14 @@ function SEO({ description, lang, meta, title }) {
           property: `og:type`,
           content: `website`,
         },
+        ...(!isEmpty(keywords)
+          ? [
+              {
+                name: `keywords`,
+                content: keywords.join(`, `),
+              },
+            ]
+          : []),
       ].concat(meta)}
     />
   )

@@ -40,9 +40,9 @@ export default function Features() {
       </div>
 
       <div class="container">
-        <h1 className={className(styles.features__title)}>
+        <h2 className={className(styles.features__title)}>
           <Trans>Discover the features you need</Trans>
-        </h1>
+        </h2>
 
         <div class="row">
           <div class="col-12 col-md-6 col-lg-4">

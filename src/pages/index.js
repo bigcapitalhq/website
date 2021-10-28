@@ -28,7 +28,15 @@ const IndexPage = () => {
       <SEO
         title={t("home_page.seo.title")}
         description={t("home_page.seo.description")}
-        lang="en"
+        keywords={[
+          "bigcapital",
+          "financial",
+          "accounting",
+          "inventory",
+          "sales",
+          "purchases",
+          "automation",
+        ]}
       />
       <BodyClassName className="homepage" />
       <Intro />

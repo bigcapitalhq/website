@@ -7,11 +7,7 @@ import { Formik, Field } from "formik"
 import ReactWOW from "react-wow"
 import * as yup from "yup"
 import axios from "axios"
-import {
-  Trans,
-  useTranslation,
-  useI18next,
-} from "gatsby-plugin-react-i18next"
+import { Trans, useTranslation, useI18next } from "gatsby-plugin-react-i18next"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
@@ -197,9 +193,10 @@ const RequestDemoPage = () => {
   return (
     <Layout>
       <SEO
-        title={t('request_demo.seo.title')}
-        description={t('request_demo.seo.description')}
+        title={t("request_demo.seo.title")}
+        description={t("request_demo.seo.description")}
         lang="en"
+        keywords={["request", "demo", "trial"]}
       />
       <div class="container">
         <div class="request-demo">
