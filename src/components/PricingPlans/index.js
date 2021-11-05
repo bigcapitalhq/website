@@ -13,8 +13,8 @@ const getPricingPlans = () => [
         Suitable for business has no multi-currency invoices and branches.
       </Trans>
     ),
-    monthlyPrice: 100,
-    annuallyPrice: 1200,
+    monthlyPrice: 95,
+    annuallyPrice: 950,
     features: [
       <Trans>Sale and purchase invoices.</Trans>,
       <Trans>Customers/vendors accounts.</Trans>,
@@ -33,8 +33,8 @@ const getPricingPlans = () => [
         multi-warehouses.
       </Trans>
     ),
-    monthlyPrice: 200,
-    annuallyPrice: 2400,
+    monthlyPrice: 185,
+    annuallyPrice: 1900,
     features: [
       <>
         All <strong>Capital Starter</strong> features.
@@ -53,8 +53,8 @@ const getPricingPlans = () => [
         Suitable for business has projects or multi-branches transactions.
       </Trans>
     ),
-    monthlyPrice: 300,
-    annuallyPrice: 3400,
+    monthlyPrice: 275,
+    annuallyPrice: 2000,
     features: [
       <>
         All <strong>Capital Essential</strong> features.

@@ -93,8 +93,8 @@ function PagesWidget() {
           </a>
         </li>
         <li>
-          <a target="_blank" href="https://app.bigcapital.ly">
-            <Trans>Technical Support</Trans>
+          <a target="_blank" href="https://blog.bigcapital.ly">
+            <Trans>Blog</Trans>
           </a>
         </li>
       </ul>
