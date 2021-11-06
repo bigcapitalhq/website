@@ -106,7 +106,6 @@ module.exports = {
         ],
       },
     },
-    "gatsby-plugin-robots-txt",
     {
       resolve: "gatsby-plugin-sitemap",
       options: {
