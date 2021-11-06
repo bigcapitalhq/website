@@ -1,8 +1,11 @@
+const siteUrl = process.env.URL || `https://bigcapital.ly`
+
 module.exports = {
   siteMetadata: {
     title: `Bigcapital`,
     description: `.`,
     author: `@Bigcapital Technologies`,
+    siteUrl,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -101,6 +104,33 @@ module.exports = {
           //   languages: ["en"],
           // },
         ],
+      },
+    },
+    "gatsby-plugin-robots-txt",
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        query: `
+        {
+          allSitePage {
+            nodes {
+              path
+            }
+          }
+        }
+      `,
+        resolveSiteUrl: () => siteUrl,
+        resolvePages: ({ allSitePage: { nodes: allPages } }) => {
+          return allPages.map(page => {
+            return { ...page }
+          })
+        },
+        serialize: ({ path }) => {
+          return {
+            url: path,
+            lastmod: new Date().toISOString(),
+          }
+        },
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
