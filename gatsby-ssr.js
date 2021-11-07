@@ -63,10 +63,23 @@ function HotjarScript() {
   )
 }
 
+function HubspotChatflow() {
+  return (
+    <script
+      type="text/javascript"
+      id="hs-script-loader"
+      async
+      defer
+      src="//js-eu1.hs-scripts.com/25078749.js"
+    ></script>
+  )
+}
+
 const headComponents = [
   process.env.NODE_ENV === "production" ? <GoogleAnalytics /> : null,
   process.env.NODE_ENV === "production" ? <FacebookPixel /> : null,
   process.env.NODE_ENV === "production" ? <HotjarScript /> : null,
+  process.env.NODE_ENV === "production" ? <HubspotChatflow /> : null,
 ].filter(comp => comp)
 
 // Adds a class name to the body element
