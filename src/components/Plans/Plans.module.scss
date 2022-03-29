@@ -14,7 +14,7 @@
     .plan {
         display: flex;
         flex-direction: column;
-        width: 33.3%;
+        width: 25%;
         margin-bottom: 25px;
         position: relative;
 
@@ -83,10 +83,10 @@
             font-weight: 800;
             padding-right: 12px;
             margin: 0;
-            font-size: 30px;
+            font-size: 26px;
 
             @include media-breakpoint-down('md') {
-                font-size: 28px;
+                font-size: 26px;
             }
 
             @include media-breakpoint-down('sm') {
