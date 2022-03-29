@@ -33,7 +33,7 @@ const getPricingPlans = () => [
     monthlyPrice: 75,
     annuallyPrice: 795,
     features: [
-      <>All Capital Basic features</>,
+      <Trans>All Capital Basic features</Trans>,
       <Trans>Predefined User Roles</Trans>,
       <Trans>Custom Tables Views</Trans>,
       <Trans>Transactions Locking</Trans>,
@@ -49,7 +49,7 @@ const getPricingPlans = () => [
     monthlyPrice: 95,
     annuallyPrice: 995,
     features: [
-      <>All Capital Plus features</>,
+      <Trans>All Capital Plus features</Trans>,
       <Trans>Sales & Purchases Order</Trans>,
       <Trans>Purchase Invoices</Trans>,
       <Trans>Inventory Tracking</Trans>,
@@ -70,7 +70,7 @@ const getPricingPlans = () => [
     monthlyPrice: 120,
     annuallyPrice: 1195,
     features: [
-      <>All Capital Essential features</>,
+      <Trans>All Capital Essential features</Trans>,
       <Trans>Multiply Branches</Trans>,
       <Trans>Multiply Warehouses</Trans>,
       <Trans>Accounting Dimensions</Trans>,
