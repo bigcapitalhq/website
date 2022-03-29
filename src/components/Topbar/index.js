@@ -28,31 +28,6 @@ export default function TopBar({ beforeNavbar, afterNavbar }) {
 
             <Navbar.Collapse>
               <Nav className="ml-auto">
-                <NavDropdown
-                  title={<Trans>Products</Trans>}
-                  id="basic-nav-dropdown"
-                >
-                  <NavDropdown.Item href="/">
-                    <Link to="/">
-                      <div class="title">Bigcapital</div>
-                      <small>
-                        <Trans>Accounting software</Trans>
-                      </small>
-                    </Link>
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item>
-                    <Link to="/bookkeeping">
-                      <div class="title">
-                        <Trans>Bookkeeping</Trans>
-                      </div>
-                      <small>
-                        <Trans>Bookkeeping & accounting services</Trans>
-                      </small>
-                    </Link>
-                  </NavDropdown.Item>
-                </NavDropdown>
-
                 <Nav.Item>
                   <Nav.Link to="/#features" as={Link}>
                     <Trans>Features</Trans>

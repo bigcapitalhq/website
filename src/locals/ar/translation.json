@@ -33,7 +33,7 @@
     "Monthly": "شهريا",
     "Annually": "سنويا",
     "With Bigcapital only pay for what services and features you use.": "مع Bigcapital ، ادفع فقط مقابل الخدمات والميزات التي تستخدمها.",
-    "6 Months the minimum period you can subscribe.": "6 أشهر هي أقل فترة يمكنك الاشتراك فيها.",
+    "3 Months the minimum period you can subscribe.": "3 أشهر هي أقل فترة يمكنك الاشتراك فيها.",
     "Phone Number": "رقم الهاتف",
     "Call me": "اتصل بي",
     "Full Name": "الاسم بالكامل",
@@ -177,5 +177,6 @@
     "Multiply Warehouses": "تعدد المخازن.",
     "Accounting Dimensions": "أبعاد المحاسبية.",
     "Branches Reports": "تقارير  الفروع.",
-    "Warehouses Reports": "تقارير  المخازن."
+    "Warehouses Reports": "تقارير  المخازن.",
+    "Learning Central":"محتوي المساعدة"
 }

@@ -147,7 +147,7 @@ export default function PricingPlans() {
             </p>
 
             <p class="period-note">
-              <Trans>6 Months the minimum period you can subscribe.</Trans>
+              <Trans>3 Months the minimum period you can subscribe.</Trans>
             </p>
           </div>
         </div>

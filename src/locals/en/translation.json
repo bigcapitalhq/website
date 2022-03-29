@@ -32,7 +32,7 @@
     "Monthly": "Monthly",
     "Annually": "Annually",
     "With Bigcapital only pay for what services and features you use.": "With Bigcapital only pay for what services and features you use.",
-    "6 Months the minimum period you can subscribe.": "6 Months the minimum period you can subscribe.",
+    "3 Months the minimum period you can subscribe.": "3 Months the minimum period you can subscribe.",
     "Phone Number": "Phone Number",
     "Call me": "Call me",
     "Full Name": "Full Name",
@@ -169,5 +169,6 @@
     "Multiply Warehouses": "Multiply Warehouses.",
     "Accounting Dimensions": "Accounting Dimensions.",
     "Warehouses Reports": "Warehouses Reports.",
-    "Branches Reports": "Branches Reports."
+    "Branches Reports": "Branches Reports.",
+    "Learning Central": "Learning Central"
 }

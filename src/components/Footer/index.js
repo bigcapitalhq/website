@@ -83,13 +83,8 @@ function PagesWidget() {
           </Link>
         </li>
         <li>
-          <Link to={"/"}>
-            <Trans>Product</Trans>
-          </Link>
-        </li>
-        <li>
-          <a target="_blank" href="https://docs.bigcapital.ly/releases">
-            <Trans>Changelog</Trans>
+          <a target="_blank" href="https://docs.bigcapital.ly">
+            <Trans>Learning Central</Trans>
           </a>
         </li>
         <li>
