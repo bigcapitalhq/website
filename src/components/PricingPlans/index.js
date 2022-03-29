@@ -7,21 +7,22 @@ import * as styles from "./PricingPlans.module.scss"
 
 const getPricingPlans = () => [
   {
-    title: "Capital Essentials",
+    title: "Capital Basic",
     description: (
       <Trans>
-        Suitable for business has no multi-currency invoices and branches.
+        Good for service businesses have no inventory or multiply currencies.
       </Trans>
     ),
-    monthlyPrice: 95,
-    annuallyPrice: 950,
+    monthlyPrice: 55,
+    annuallyPrice: 595,
     features: [
-      <Trans>Sale and purchase invoices.</Trans>,
-      <Trans>Customers/vendors accounts.</Trans>,
-      <Trans>Inventory management.</Trans>,
-      <Trans>Manual journals.</Trans>,
-      <Trans>Advanced Financial reports.</Trans>,
-      <Trans>For two users and accountant.</Trans>,
+      <Trans>Sales Invoices.</Trans>,
+      <Trans>Sales Estimates.</Trans>,
+      <Trans>Customers.</Trans>,
+      <Trans>Credit notes.</Trans>,
+      <Trans>Manual Journals.</Trans>,
+      <Trans>Expenses Tracking.</Trans>,
+      <Trans>Basic Financial Reports.</Trans>,
     ],
     mostPopular: true,
   },
@@ -29,39 +30,59 @@ const getPricingPlans = () => [
     title: "Capital Plus",
     description: (
       <Trans>
-        Suitable for business pay in foreign currencies and has
-        multi-warehouses.
+        Good for businesses need more financial reports and control.
       </Trans>
     ),
-    monthlyPrice: 185,
-    annuallyPrice: 1900,
+    monthlyPrice: 75,
+    annuallyPrice: 795,
     features: [
       <>
-        All <strong>Capital Starter</strong> features.
+        All <strong>Capital Basic</strong> features.
       </>,
-      <Trans>Multi-currency</Trans>,
-      <Trans>Purchase and sell orders.</Trans>,
-      <Trans>Multi-stocks management.</Trans>,
-      <Trans>Four users with your accountant.</Trans>,
-      <Trans>Custom roles and permissions.</Trans>,
+      <Trans>Predefined User Roles.</Trans>,
+      <Trans>Custom Tables Views.</Trans>,
+      <Trans>Transactions Locking.</Trans>,
+      <Trans>Plus Financial Reports.</Trans>,
+      <Trans>Custom Fields & Resources.</Trans>,
+    ],
+  },
+  {
+    title: "Capital Essential",
+    description: (
+      <Trans>Good for businesses have inventory and multiply currencies.</Trans>
+    ),
+    monthlyPrice: 95,
+    annuallyPrice: 995,
+    features: [
+      <>
+        All <strong>Capital Plus</strong> features.
+      </>,
+      <Trans>Sales & Purchases Order</Trans>,
+      <Trans>Purchase Invoices</Trans>,
+      <Trans>Inventory Tracking</Trans>,
+      <Trans>Custom Roles</Trans>,
+      <Trans>Multiply Currency Transcations</Trans>,
+      <Trans>Inventory Reports</Trans>,
+      <Trans>Landed cost</Trans>,
     ],
   },
   {
     title: "Capital Enterprise",
     description: (
       <Trans>
-        Suitable for business has projects or multi-branches transactions.
+        Good for growing businesses have multiply branches and warehouses.
       </Trans>
     ),
-    monthlyPrice: 275,
-    annuallyPrice: 2000,
+    monthlyPrice: 120,
+    annuallyPrice: 1195,
     features: [
       <>
         All <strong>Capital Essential</strong> features.
       </>,
-      <Trans>Track multi-branches and locations.</Trans>,
-      <Trans>Projects accounting and timesheets.</Trans>,
-      <Trans>Accounting dimensions.</Trans>,
+      <Trans>Multiply Branches.</Trans>,
+      <Trans>Multiply Warehouses.</Trans>,
+      <Trans>Accounting Dimensions.</Trans>,
+      <Trans>Warehouses Reports.</Trans>,
     ],
   },
 ]
@@ -90,7 +111,9 @@ export default function PricingPlans() {
 
             <div className={className(styles.pricingSection__billingCycle)}>
               <Form.Label for={"billing-cycle-switch"}>
-                <span><Trans>Billing cycle:</Trans> </span>
+                <span>
+                  <Trans>Billing cycle:</Trans>{" "}
+                </span>
                 <span
                   className={className(
                     "billing-cycle__item",
