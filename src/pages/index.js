@@ -12,7 +12,6 @@ import Intro from "../components/Intro"
 // import Customers from "../components/Customers"
 import Showcase from "../components/Showcase"
 import Features from "../components/Features"
-import PricingPlans from "../components/PricingPlans"
 import CTASection from "../components/CTA"
 
 import "../styles/index.scss"
@@ -22,9 +21,6 @@ const IndexPage = () => {
 
   return (
     <Layout name={"homepage"}>
-      <div className={className("bg-grad")}>
-        <Img src={"/blur/blur-1.jpeg"} class="rotating" />
-      </div>
       <SEO
         title={t("home_page.seo.title")}
         description={t("home_page.seo.description")}
@@ -42,7 +38,6 @@ const IndexPage = () => {
       <Intro />
       <Showcase />
       <Features />
-      <PricingPlans />
       <CTASection />
     </Layout>
   )

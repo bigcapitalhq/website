@@ -32,7 +32,7 @@ export default function Intro() {
               className={className(styles.btn, "btn-primary", "btn-lg")}
               to="/request-demo"
             >
-              <Trans>Request demo</Trans>
+              <Trans>Request Bigcapital Cloud</Trans>
             </Link>
             <Link
               className={className(
@@ -42,7 +42,7 @@ export default function Intro() {
               )}
               to="/request-demo"
             >
-              <Trans>Signup</Trans>
+              <Trans>Self Host</Trans>
             </Link>
           </div>
         </div>

@@ -19,13 +19,13 @@ export default function CTASection() {
         <div class="row">
           <div class="col-8">
             <Form.Group>
-              <Form.Control type="text" placeholder={t("Phone number")} />
+              <Form.Control type="text" placeholder={t("Email address")} />
             </Form.Group>
           </div>
 
           <div class="col-4">
             <Button block={true} variant="primary">
-              <Trans>Call me</Trans>
+              <Trans>Subscribe</Trans>
             </Button>
           </div>
         </div>

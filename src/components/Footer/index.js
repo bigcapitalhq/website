@@ -35,6 +35,12 @@ function SocialWidget() {
             LinkedIn
           </a>
         </li>
+
+        <li>
+          <a target="_blank" href="https://discord.gg/c8nPBJafeb">
+            Discord
+          </a>
+        </li>
       </ul>
     </div>
   )
@@ -61,7 +67,7 @@ function CompanyWidget() {
           </a>
         </li>
         <li>
-          <a target="_blank" href="#">
+          <a target="_blank" href="https://discord.gg/c8nPBJafeb">
             <Trans>Contact Us</Trans>
           </a>
         </li>
@@ -144,7 +150,7 @@ export default function Footer() {
               </div>
 
               <div>
-                <Dropdown size="md" className={"dropdown--change-language"}>
+                {/* <Dropdown size="md" className={"dropdown--change-language"}>
                   <Dropdown.Toggle variant="success" id="dropdown-basic">
                     <Trans>Change language</Trans>
                   </Dropdown.Toggle>
@@ -157,7 +163,7 @@ export default function Footer() {
                       عربية
                     </Dropdown.Item>
                   </Dropdown.Menu>
-                </Dropdown>
+                </Dropdown> */}
               </div>
             </div>
           </div>

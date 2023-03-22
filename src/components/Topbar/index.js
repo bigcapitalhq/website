@@ -28,30 +28,16 @@ export default function TopBar({ beforeNavbar, afterNavbar }) {
 
             <Navbar.Collapse>
               <Nav className="ml-auto">
-                <NavDropdown
-                  title={<Trans>Products</Trans>}
-                  id="basic-nav-dropdown"
-                >
-                  <NavDropdown.Item href="/">
-                    <Link to="/">
-                      <div class="title">Bigcapital</div>
-                      <small>
-                        <Trans>Accounting software</Trans>
-                      </small>
-                    </Link>
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item>
-                    <Link to="/bookkeeping">
-                      <div class="title">
-                        <Trans>Bookkeeping</Trans>
-                      </div>
-                      <small>
-                        <Trans>Bookkeeping & accounting services</Trans>
-                      </small>
-                    </Link>
-                  </NavDropdown.Item>
-                </NavDropdown>
+                <Nav.Item className={"topbar__start-item"}>
+                  <iframe
+                    src="https://ghbtns.com/github-btn.html?user=bigcapitalhq&repo=bigcapital&type=star&size=large"
+                    frameborder="0"
+                    scrolling="0"
+                    width="80"
+                    height="30"
+                    title="Bigcapital Github Repository"
+                  ></iframe>
+                </Nav.Item>
 
                 <Nav.Item>
                   <Nav.Link to="/#features" as={Link}>
@@ -60,34 +46,22 @@ export default function TopBar({ beforeNavbar, afterNavbar }) {
                 </Nav.Item>
 
                 <Nav.Item>
-                  <Nav.Link to="/#pricing" as={Link}>
-                    <Trans>Pricing</Trans>
-                  </Nav.Link>
-                </Nav.Item>
-
-                <Nav.Item>
-                  <Nav.Link>
+                  <Nav.Link href={'https://discord.gg/c8nPBJafeb'} target="_blank">
                     <Trans>Support</Trans>
                   </Nav.Link>
                 </Nav.Item>
 
                 <li className="nav-divider mr-1 ml-1"></li>
 
-                <Nav.Item>
-                  <Nav.Link href={"https://app.bigcapital.ly"}>
-                    <Trans>Login</Trans>
-                  </Nav.Link>
-                </Nav.Item>
-
                 <Nav.Item className={"d-none d-lg-block"}>
-                  <a class="btn btn-primary" href={"/request-demo"}>
-                    <Trans>Contact us</Trans>
+                  <a class="btn btn-primary" href={"https://app.bigcapital.ly"}>
+                    <Trans>Sign In</Trans>
                   </a>
                 </Nav.Item>
 
                 <li className="nav-item nav-item-primary d-lg-none">
-                  <Nav.Link as={Link} to={"/request-demo"}>
-                    <Trans>Contact us</Trans>
+                  <Nav.Link as={Link} to={"https://app.bigcapital.ly"}>
+                    <Trans>Sign In</Trans>
                   </Nav.Link>
                 </li>
               </Nav>
