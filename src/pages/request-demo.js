@@ -14,13 +14,12 @@ import SEO from "../components/seo"
 import "../styles/request-demo-page.scss"
 
 const ApiService = axios.create({
-  baseURL: "http://localhost:1337",
+  baseURL: "/",
 })
 
 const InitialValues = {
   fullName: "",
   businessName: "",
-  phoneNumber: "",
   businessEmail: "",
 }
 
@@ -53,15 +52,12 @@ function RequestDemoForm({ onSubmitSuccess }) {
   const ValidationSchema = yup.object({
     fullName: yup.string().required().label(t("Full name")),
     businessName: yup.string().required().label(t("Business name")),
-    phoneNumber: yup.string().required().label(t("Phone number")),
-    businessEmail: yup.string().required().label(t("Business email")),
+    businessEmail: yup.string().email().required().label(t("Business email")),
   })
 
   const handleSubmit = (values, { setSubmitting }) => {
-    const formattedValues = mapKeys(values, (value, key) => snakeCase(key))
-
     setSubmitting(true)
-    ApiService.post("/free-demo-requests", formattedValues)
+    ApiService.post("/api/request-bigcapital-cloud", values)
       .then(() => {
         onSubmitSuccess()
         setSubmitting(false)
@@ -127,22 +123,6 @@ function RequestDemoForm({ onSubmitSuccess }) {
             )}
           </Field>
 
-          <Field name={"phoneNumber"}>
-            {({ field, meta: { error, touched } }) => (
-              <Form.Group controlId="phoneNumber">
-                <Form.Control
-                  type="text"
-                  placeholder={t("Phone Number")}
-                  isInvalid={error && touched}
-                  feedback={error}
-                  {...field}
-                />
-                <Form.Control.Feedback type="invalid">
-                  {error}
-                </Form.Control.Feedback>
-              </Form.Group>
-            )}
-          </Field>
 
           <Field name={"businessEmail"}>
             {({ field, meta: { error, touched } }) => (
