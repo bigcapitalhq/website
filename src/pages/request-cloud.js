@@ -73,7 +73,7 @@ function RequestDemoForm({ onSubmitSuccess }) {
       onSubmit={handleSubmit}
       validationSchema={ValidationSchema}
     >
-      {({ handleSubmit }) => (
+      {({ handleSubmit, isSubmitting }) => (
         <Form
           noValidate
           onSubmit={handleSubmit}
@@ -148,12 +148,12 @@ function RequestDemoForm({ onSubmitSuccess }) {
           <p className="footer-hint">
             <Trans>
               Please note, we are currently experiencing higher than normal
-              contact request volumes. Thanks for your understanding!
+              request volumes. Thanks for your understanding!
             </Trans>
           </p>
 
-          <Button variant="primary" type="submit">
-            <Trans>Get in Touch</Trans>
+          <Button variant="primary" type="submit" disabled={isSubmitting}>
+            {isSubmitting ? 'Submitting...' : (<Trans>Get in Touch</Trans>)}
           </Button>
         </Form>
       )}
@@ -183,23 +183,21 @@ const RequestDemoPage = () => {
           {success ? (
             <h1 class="request-demo__thanks-title">
               <Trans>
-                Thank you. We received the contact request from you.
+                Thank you. We received the request from you, we'll get back to you soon.
               </Trans>
             </h1>
           ) : (
             <>
               <ReactWOW animation="fadeIn" duration={"1s"} delay={"0.2s"}>
                 <h1 className="request-demo__title">
-                  <Trans>Request free trial</Trans>
+                  <Trans>Request Bigcapital cloud</Trans>
                 </h1>
               </ReactWOW>
 
               <ReactWOW animation="fadeIn" duration={"1s"} delay={"0.3s"}>
                 <p className="request-demo__desc">
                   <Trans>
-                    Request product free tour to see how our comprehensive
-                    financial accounting software can help your organization to
-                    help automate your accounting processes.
+                    We work hard to make Bigcapital cloud open to everyone, at meantime please submit the following details and we will get back to you soon.
                   </Trans>
                 </p>
               </ReactWOW>

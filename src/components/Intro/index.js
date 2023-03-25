@@ -30,7 +30,7 @@ export default function Intro() {
           <div className={className(styles.intro__buttons)}>
             <Link
               className={className(styles.btn, "btn-primary", "btn-lg")}
-              to="/request-demo"
+              to="/request-cloud"
             >
               <Trans>Request Bigcapital Cloud</Trans>
             </Link>
@@ -40,7 +40,8 @@ export default function Intro() {
                 "btn-outline-secondary",
                 "btn-lg"
               )}
-              to="/request-demo"
+              to="https://github.com/bigcapitalhq/bigcapital"
+              target="_blank"
             >
               <Trans>Self Host</Trans>
             </Link>
