@@ -21,9 +21,8 @@ export default function Intro() {
 
           <h2 className={className(styles.intro__subtitle)}>
             <Trans>
-              Control your business bookkeeping with automated and manual
-              accounting, to create smarter reports for making the right
-              decisions.
+              Control your business bookkeeping with automated accounting, to
+              run intelligent reports for faster decision-making.
             </Trans>
           </h2>
 

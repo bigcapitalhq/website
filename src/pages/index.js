@@ -9,7 +9,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 import Intro from "../components/Intro"
-// import Customers from "../components/Customers"
 import Showcase from "../components/Showcase"
 import Features from "../components/Features"
 import CTASection from "../components/CTA"

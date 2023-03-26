@@ -52,7 +52,7 @@ export default function Features() {
               desc={
                 <Trans>
                   Create your sell invoices with your customers or purchase
-                  invoices with your vendors, manage recurring invoices and
+                  invoices with the vendors, manage recurring invoices and
                   easily track customers/vendors payments.
                 </Trans>
               }
@@ -79,7 +79,7 @@ export default function Features() {
               title={<Trans>Inventory</Trans>}
               desc={
                 <Trans>
-                  Easily track your inventory items, and when you purchase or
+                  Easily track your inventory items, and when you buy or
                   sell for an item the stock amount will be automatically
                   incremented or decremented with smart inventory reports.
                 </Trans>
@@ -109,7 +109,7 @@ export default function Features() {
                 <Trans>
                   The software gives you a single place to track all business
                   expenses from employee payroll to office renting and
-                  categorize them on accounts and bill them to your customers.
+                  categorize them into accounts and bill them to your customers.
                 </Trans>
               }
             />
@@ -135,7 +135,7 @@ export default function Features() {
               desc={
                 <Trans>
                   Bigcapital provides free online support, 12 hours a day seven
-                  days a week, as part of your subscription plan.
+                  days a week, even if you were using a free subscription plan.
                 </Trans>
               }
             />
