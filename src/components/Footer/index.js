@@ -182,7 +182,7 @@ export default function Footer() {
         <div class="container">
           <div class="footer-copyright__inner">
             <p>
-              <Trans>Copyright © 2021 — Made by Bigcapital Technologies.</Trans>
+              <Trans>Copyright © 2023 — Made by Bigcapital Technologies.</Trans>
             </p>
           </div>
         </div>
