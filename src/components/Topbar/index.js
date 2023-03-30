@@ -30,10 +30,10 @@ export default function TopBar({ beforeNavbar, afterNavbar }) {
               <Nav className="ml-auto">
                 <Nav.Item className={"topbar__start-item"}>
                   <iframe
-                    src="https://ghbtns.com/github-btn.html?user=bigcapitalhq&repo=bigcapital&type=star&size=large"
+                    src="https://ghbtns.com/github-btn.html?user=bigcapitalhq&repo=bigcapital&type=star&size=large&count=true"
                     frameborder="0"
                     scrolling="0"
-                    width="80"
+                    width="140"
                     height="30"
                     title="Bigcapital Github Repository"
                   ></iframe>
