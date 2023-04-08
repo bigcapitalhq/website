@@ -130,17 +130,11 @@ export default function Footer() {
                     financial processes.
                   </Trans>
                 </p>
-                <p className="mb-1">
-                  <strong>
-                    <Trans>Phone number</Trans>
-                  </strong>
-                  : +218-927381987
-                </p>
                 <p>
                   <strong>
                     <Trans>Email</Trans>
                   </strong>
-                  : info@bigcapital.com
+                  : ahmed@bigcapital.ly
                 </p>
               </div>
 
