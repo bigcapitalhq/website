@@ -54,13 +54,13 @@ export default function TopBar({ beforeNavbar, afterNavbar }) {
                 <li className="nav-divider mr-1 ml-1"></li>
 
                 <Nav.Item className={"d-none d-lg-block"}>
-                  <a class="btn btn-primary" href={"https://app.bigcapital.ly"}>
+                  <a class="btn btn-primary" href={"https://bigcapital.ly/request-cloud"}>
                     <Trans>Sign In</Trans>
                   </a>
                 </Nav.Item>
 
                 <li className="nav-item nav-item-primary d-lg-none">
-                  <Nav.Link as={Link} to={"https://app.bigcapital.ly"}>
+                  <Nav.Link as={Link} to={"https://bigcapital.ly/request-cloud"}>
                     <Trans>Sign In</Trans>
                   </Nav.Link>
                 </li>
