@@ -16,11 +16,6 @@ function SocialWidget() {
       </strong>
       <ul className="footer__widget-list">
         <li>
-          <a target="_blank" href="https://www.facebook.com/bigcapitalHQ">
-            Facebook
-          </a>
-        </li>
-        <li>
           <a target="_blank" href="https://twitter.com/BigcapitalHQ">
             Twitter
           </a>
@@ -35,10 +30,14 @@ function SocialWidget() {
             LinkedIn
           </a>
         </li>
-
         <li>
           <a target="_blank" href="https://discord.gg/c8nPBJafeb">
             Discord
+          </a>
+        </li>
+        <li>
+          <a target="_blank" href="https://www.reddit.com/r/bigcapital/">
+            Reddit
           </a>
         </li>
       </ul>
