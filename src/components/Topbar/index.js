@@ -46,8 +46,14 @@ export default function TopBar({ beforeNavbar, afterNavbar }) {
                 </Nav.Item>
 
                 <Nav.Item>
+                  <Nav.Link href={'https://docs.bigcapital.ly'} target="_blank">
+                    <Trans>Docs</Trans>
+                  </Nav.Link>
+                </Nav.Item>
+
+                <Nav.Item>
                   <Nav.Link href={'https://discord.gg/c8nPBJafeb'} target="_blank">
-                    <Trans>Support</Trans>
+                    <Trans>Community</Trans>
                   </Nav.Link>
                 </Nav.Item>
 
