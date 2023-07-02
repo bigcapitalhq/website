@@ -16,6 +16,11 @@ function SocialWidget() {
       </strong>
       <ul className="footer__widget-list">
         <li>
+          <a target="_blank" href="https://discord.gg/c8nPBJafeb">
+            Discord
+          </a>
+        </li>
+        <li>
           <a target="_blank" href="https://twitter.com/BigcapitalHQ">
             Twitter
           </a>
@@ -28,16 +33,6 @@ function SocialWidget() {
         <li>
           <a target="_blank" href="https://medium.com/linkedin">
             LinkedIn
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://discord.gg/c8nPBJafeb">
-            Discord
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://www.reddit.com/r/bigcapital/">
-            Reddit
           </a>
         </li>
       </ul>
@@ -59,11 +54,6 @@ function CompanyWidget() {
           <Link to={"/legal/privacy-policy"}>
             <Trans>Privacy policy</Trans>
           </Link>
-        </li>
-        <li>
-          <a target="_blank" href="#">
-            <Trans>About Us</Trans>
-          </a>
         </li>
         <li>
           <a target="_blank" href="https://discord.gg/c8nPBJafeb">
@@ -89,12 +79,7 @@ function PagesWidget() {
         </li>
         <li>
           <a target="_blank" href="https://docs.bigcapital.ly">
-            <Trans>Learning Central</Trans>
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://blog.bigcapital.ly">
-            <Trans>Blog</Trans>
+            <Trans>Documentation</Trans>
           </a>
         </li>
       </ul>
