@@ -29,17 +29,17 @@ export default function Intro() {
           <div className={className(styles.intro__buttons)}>
             <Link
               className={className(styles.btn, "btn-primary", "btn-lg")}
-              to="/request-cloud"
+              to="https://app.bigcapital.ly/auth/register"
             >
-              <Trans>Request Bigcapital Cloud</Trans>
+              <Trans>Start Accounting</Trans>
             </Link>
-            <Link
+          <Link
               className={className(
                 styles.btn,
                 "btn-outline-secondary",
                 "btn-lg"
               )}
-              to="https://github.com/bigcapitalhq/bigcapital"
+              to="https://docs.bigcapital.ly/deployment/docker"
               target="_blank"
             >
               <Trans>Self Host</Trans>

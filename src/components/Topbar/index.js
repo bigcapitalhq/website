@@ -46,13 +46,16 @@ export default function TopBar({ beforeNavbar, afterNavbar }) {
                 </Nav.Item>
 
                 <Nav.Item>
-                  <Nav.Link href={'https://docs.bigcapital.ly'} target="_blank">
+                  <Nav.Link href={"https://docs.bigcapital.ly"} target="_blank">
                     <Trans>Docs</Trans>
                   </Nav.Link>
                 </Nav.Item>
 
                 <Nav.Item>
-                  <Nav.Link href={'https://discord.gg/c8nPBJafeb'} target="_blank">
+                  <Nav.Link
+                    href={"https://discord.gg/c8nPBJafeb"}
+                    target="_blank"
+                  >
                     <Trans>Community</Trans>
                   </Nav.Link>
                 </Nav.Item>
@@ -60,13 +63,25 @@ export default function TopBar({ beforeNavbar, afterNavbar }) {
                 <li className="nav-divider mr-1 ml-1"></li>
 
                 <Nav.Item className={"d-none d-lg-block"}>
-                  <a class="btn btn-primary" href={"https://bigcapital.ly/request-cloud"}>
+                  <a
+                    class="btn btn-outline-secondary"
+                    href={"https://app.bigcapital.ly/"}
+                  >
                     <Trans>Sign In</Trans>
                   </a>
                 </Nav.Item>
 
+                <Nav.Item className={"d-none d-lg-block"}>
+                  <a
+                    class="btn btn-primary"
+                    href={"https://app.bigcapital.ly/auth/register"}
+                  >
+                    <Trans>Sign Up</Trans>
+                  </a>
+                </Nav.Item>
+
                 <li className="nav-item nav-item-primary d-lg-none">
-                  <Nav.Link as={Link} to={"https://bigcapital.ly/request-cloud"}>
+                  <Nav.Link as={Link} to={"https://app.bigcapital.ly/"}>
                     <Trans>Sign In</Trans>
                   </Nav.Link>
                 </li>
