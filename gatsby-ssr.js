@@ -70,7 +70,7 @@ function HubspotChatflow() {
       id="hs-script-loader"
       async
       defer
-      src="//js-eu1.hs-scripts.com/25078749.js"
+      src="//js-eu1.hs-scripts.com/144560187.js"
     ></script>
   )
 }
