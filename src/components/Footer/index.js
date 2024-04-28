@@ -82,6 +82,11 @@ function PagesWidget() {
             <Trans>Documentation</Trans>
           </a>
         </li>
+        <li>
+          <a target="_blank" href="https://bigcapital.statuspage.io">
+            Status
+          </a>
+        </li>
       </ul>
     </div>
   )
