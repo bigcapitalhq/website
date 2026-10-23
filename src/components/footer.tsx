@@ -149,7 +149,7 @@ function FooterAnchor({ link }: { link: FooterLink }) {
   }
 
   return (
-    <Link href={link.href} className={className}>
+    <Link href={link.href} prefetch={false} className={className}>
       {content}
     </Link>
   );

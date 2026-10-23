@@ -3,7 +3,6 @@
 import {
   createContext,
   useContext,
-  useEffect,
   useState,
   type ReactNode,
 } from "react";
@@ -11,8 +10,6 @@ import {
 interface CarouselProps {
   items: ReactNode[];
   label: string;
-  /* Time in milliseconds between automatic slide changes. Disabled by default. */
-  interval?: number | null;
   children: ReactNode;
 }
 
@@ -34,18 +31,8 @@ function useCarousel() {
   return context;
 }
 
-export function Carousel({ items, label, interval, children }: CarouselProps) {
+export function Carousel({ items, label, children }: CarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    if (!interval || items.length < 2) return;
-
-    const intervalId = window.setInterval(() => {
-      setActiveIndex((index) => (index + 1) % items.length);
-    }, interval);
-
-    return () => window.clearInterval(intervalId);
-  }, [interval, items.length]);
 
   return (
     <CarouselContext.Provider

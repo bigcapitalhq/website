@@ -24,6 +24,7 @@ export function Intro() {
         <div className="mt-5 flex w-full flex-col items-start justify-start gap-3 sm:w-auto sm:flex-row">
           <Link
             href="/sign-up"
+            prefetch={false}
             className="inline-flex h-11 w-full items-center justify-center rounded-full bg-white px-7 text-base font-normal text-background transition-colors hover:bg-white/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto"
           >
             Start Bookkeeping
@@ -31,6 +32,7 @@ export function Intro() {
 
           <Link
             href="/self-hosted"
+            prefetch={false}
             className="inline-flex h-11 w-full items-center justify-center rounded-full border border-white/15 bg-white/[0.03] px-7 text-base font-normal text-white transition-colors hover:bg-white/[0.08] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto"
           >
             Self-Hosted
