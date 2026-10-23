@@ -16,6 +16,7 @@ export function FooterCta() {
 
         <Link
           href="/sign-up"
+          prefetch={false}
           className="mt-6 inline-flex h-11 w-full items-center justify-center rounded-full bg-white px-7 text-base font-normal text-background transition-colors hover:bg-white/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto"
         >
           Start Bookkeeping

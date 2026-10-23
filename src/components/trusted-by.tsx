@@ -1,4 +1,4 @@
-import { PlaidLogo } from "@/components/plaid-logo";
+import { PlaidLogo, PlaidLogoSprite } from "@/components/plaid-logo";
 
 export function TrustedBy() {
   return (
@@ -6,6 +6,8 @@ export function TrustedBy() {
       aria-labelledby="trusted-by-title"
       className="relative pb-12 md:pb-16"
     >
+      <PlaidLogoSprite />
+
       <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
         <h2
           id="trusted-by-title"
