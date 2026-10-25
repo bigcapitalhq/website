@@ -1,11 +1,16 @@
 import { externalLinks, routes, socialLinks } from "@/constants/links";
 import { accountActions } from "@/constants/navigation";
+import {
+  bigcapitalCloudPopover,
+  type PopoverContent,
+} from "@/constants/popover";
 
 export type FooterLink = {
   label: string;
   href: string;
   badge?: string;
   disabled?: boolean;
+  popover?: PopoverContent;
 };
 
 export type FooterGroup = {
@@ -26,6 +31,7 @@ export const footerContent = {
           href: routes.signUp,
           badge: "Soon",
           disabled: true,
+          popover: bigcapitalCloudPopover,
         },
       ],
     },
@@ -44,7 +50,7 @@ export const footerContent = {
         { label: "GitHub", href: externalLinks.github },
         { label: "Docker Deployment", href: externalLinks.dockerDeployment },
         { label: "AGPL-3.0 License", href: externalLinks.license },
-        { label: "OSS Friends", href: externalLinks.ossFriends },
+        // { label: "OSS Friends", href: externalLinks.ossFriends },
       ],
     },
     {
@@ -52,8 +58,16 @@ export const footerContent = {
       links: [
         { label: "About", href: routes.about },
         { label: "Contact", href: externalLinks.discord },
-        { label: "Sign In", href: accountActions.signIn.href },
-        { label: "Sign Up", href: accountActions.signUp.href },
+        {
+          label: "Sign In",
+          href: accountActions.signIn.href,
+          disabled: accountActions.signIn.disabled,
+        },
+        {
+          label: "Sign Up",
+          href: accountActions.signUp.href,
+          disabled: accountActions.signUp.disabled,
+        },
       ],
     },
     {

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { AccountAction } from "@/components/account-action";
 import {
   accountActions,
   navigationLabels,
@@ -104,22 +105,16 @@ export function MobileMenu({ navigation }: MobileMenuProps) {
           </nav>
 
           <div className="mt-4 flex flex-col gap-2 border-t border-white/10 pt-4">
-            <Link
-              href={accountActions.signIn.href}
-              prefetch={false}
+            <AccountAction
+              action={accountActions.signIn}
               onClick={() => setMenuOpen(false)}
               className="flex h-11 items-center justify-center rounded-full border border-white/15 px-5 text-base font-medium text-white/70 transition-colors hover:bg-white/[0.06] hover:text-white"
-            >
-              {accountActions.signIn.label}
-            </Link>
-            <Link
-              href={accountActions.signUp.href}
-              prefetch={false}
+            />
+            <AccountAction
+              action={accountActions.signUp}
               onClick={() => setMenuOpen(false)}
               className="flex h-11 items-center justify-center rounded-full bg-white px-5 text-base font-semibold text-background transition-colors hover:bg-white/85"
-            >
-              {accountActions.signUp.label}
-            </Link>
+            />
           </div>
         </div>
       )}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Popover } from "@/components/popover";
 import {
   footerContent,
   type FooterLink,
@@ -37,6 +38,9 @@ export function Footer() {
 function FooterAnchor({ link }: { link: FooterLink }) {
   const className =
     "flex w-fit items-center gap-1.5 rounded-sm p-0.5 -ml-0.5 transition-colors duration-100";
+  const popoverId = link.popover
+    ? `footer-${link.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-popover`
+    : undefined;
 
   const content = (
     <>
@@ -49,18 +53,32 @@ function FooterAnchor({ link }: { link: FooterLink }) {
     </>
   );
 
+  const popover =
+    link.popover && popoverId ? (
+      <Popover id={popoverId} content={link.popover} />
+    ) : null;
+
+  const anchorContent = (
+    <>
+      {content}
+      {popover}
+    </>
+  );
+
   if (link.disabled) {
     return (
       <span
         aria-disabled="true"
-        className={`${className} cursor-not-allowed text-[#6f6f6f]`}
+        aria-describedby={popoverId}
+        tabIndex={link.popover ? 0 : undefined}
+        className={`${className} group relative cursor-not-allowed text-[#6f6f6f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`}
       >
-        {content}
+        {anchorContent}
       </span>
     );
   }
 
-  const linkClassName = `${className} text-[#a1a1a1] hover:text-[#ededed] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`;
+  const linkClassName = `${className} group relative text-[#a1a1a1] hover:text-[#ededed] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`;
 
   if (link.href.startsWith("http")) {
     return (
@@ -68,16 +86,22 @@ function FooterAnchor({ link }: { link: FooterLink }) {
         href={link.href}
         target="_blank"
         rel="noopener noreferrer"
+        aria-describedby={popoverId}
         className={linkClassName}
       >
-        {content}
+        {anchorContent}
       </a>
     );
   }
 
   return (
-    <Link href={link.href} prefetch={false} className={linkClassName}>
-      {content}
+    <Link
+      href={link.href}
+      prefetch={false}
+      aria-describedby={popoverId}
+      className={linkClassName}
+    >
+      {anchorContent}
     </Link>
   );
 }
