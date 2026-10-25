@@ -13,7 +13,7 @@ export function FooterCta() {
       <ScrollReveal className="relative mx-auto flex w-full max-w-7xl flex-col items-center container-px py-[80px] text-center md:p-[80px]">
         <h2
           id="footer-cta-title"
-          className="max-w-5xl text-balance text-[36px] font-semibold leading-[42px] tracking-tighter text-white/50 md:text-[48px] md:leading-[56px]"
+          className="max-w-4xl text-balance text-[36px] font-medium leading-[42px] tracking-tighter text-white/50 md:text-[48px] md:leading-[56px]"
         >
           {footerCta.title}
         </h2>

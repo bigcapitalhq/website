@@ -116,7 +116,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <StructuredData data={siteStructuredData} />
         <Header />
 
-        <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col border-x border-white/10">
+        <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col xl:border-x xl:border-white/10">
           {children}
           <Footer />
         </div>

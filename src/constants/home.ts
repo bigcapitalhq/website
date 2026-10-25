@@ -5,6 +5,12 @@ export type Pillar = {
   description: string;
 };
 
+// Temporary home page section visibility. Flip to `true` when content is ready.
+export const homeSections: { builtForScale: boolean; trustedBy: boolean } = {
+  builtForScale: false,
+  trustedBy: false,
+};
+
 export const homeContent = {
   intro: {
     title: "AI-native open-source core accounting infrastructure",
@@ -25,7 +31,7 @@ export const homeContent = {
   features: {
     title: "Discover the features you need",
     description:
-      "Nine connected modules that keep your books accurate, your reports current, and your team in sync.",
+      "Connected accounting modules that keep your books accurate, your reports current, and your team in sync.",
     items: [
       "Sales Invoicing",
       "Customizable Invoices",

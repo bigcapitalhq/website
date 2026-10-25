@@ -2,6 +2,12 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  /*
+   * Allow phones and other devices on the LAN to load dev-only resources
+   * (HMR, fonts). Next.js blocks these by default, which prevents the client
+   * from hydrating when the dev server is opened via a non-localhost host.
+   */
+  allowedDevOrigins: ["192.168.1.2"],
   cacheComponents: true,
   partialPrefetching: true,
   poweredByHeader: false,

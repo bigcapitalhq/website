@@ -7,6 +7,7 @@ import { Intro } from "@/components/intro";
 import { Showcase } from "@/components/showcase";
 import { StructuredData } from "@/components/structured-data";
 import { TrustedBy } from "@/components/trusted-by";
+import { homeSections } from "@/constants/home";
 import { createPageMetadata } from "@/lib/metadata";
 import { homeStructuredData } from "@/lib/structured-data";
 
@@ -22,9 +23,9 @@ export default function Home() {
       <StructuredData data={homeStructuredData} />
       <Intro />
       <Showcase />
-      <TrustedBy />
+      {homeSections.trustedBy ? <TrustedBy /> : null}
       <Features />
-      <BuiltForScale />
+      {homeSections.builtForScale ? <BuiltForScale /> : null}
       <Faq />
       <FooterCta />
     </main>

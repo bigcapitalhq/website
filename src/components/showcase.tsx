@@ -47,6 +47,11 @@ export function Showcase() {
           </Carousel>
         </ScrollReveal>
       </div>
+
+      <div
+        aria-hidden="true"
+        className="absolute bottom-0 left-1/2 h-px w-screen -translate-x-1/2 bg-white/10"
+      />
     </section>
   );
 }
