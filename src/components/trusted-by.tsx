@@ -1,5 +1,6 @@
 import { PlaidLogo, PlaidLogoSprite } from "@/components/plaid-logo";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { homeContent } from "@/constants/home";
 
 export function TrustedBy() {
   return (
@@ -14,7 +15,7 @@ export function TrustedBy() {
           id="trusted-by-title"
           className="text-center text-[13px] font-medium uppercase tracking-[0.2em] text-white/40"
         >
-          Trusted by growing finance teams
+          {homeContent.trustedBy.title}
         </h2>
 
         {/* Placeholder logos: decorative until real customer marks are available. */}

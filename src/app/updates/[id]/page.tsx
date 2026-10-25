@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import { routes } from "@/constants/links";
+import { updatesContent } from "@/constants/updates";
 import { createPageMetadata } from "@/lib/metadata";
 import { getUpdate, getUpdates } from "@/lib/updates";
 
@@ -27,8 +29,11 @@ export async function generateMetadata({
 
   return createPageMetadata({
     title: update.title,
-    description: `A Bigcapital product update from ${update.formattedDate}: ${update.title}`,
-    path: `/updates/${update.id}`,
+    description: updatesContent.detail.metadataDescription(
+      update.formattedDate,
+      update.title,
+    ),
+    path: `${routes.updates}/${update.id}`,
     type: "article",
   });
 }
@@ -59,17 +64,17 @@ async function UpdateArticle({ params }: UpdatePageProps) {
 
         <p className="mt-4">
           <Link
-            href="/updates"
+            href={routes.updates}
             prefetch={false}
             className="text-white/50 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
-            ← Back to Updates
+            {updatesContent.detail.backLabel}
           </Link>
         </p>
       </div>
 
       <div className="w-full max-w-[588px]">
-        <h2 className="mb-4 text-[22px] font-semibold leading-snug tracking-[-0.5px] text-white md:mb-5 md:text-2xl">
+        <h2 className="mb-[2.65rem] text-[22px] font-semibold leading-snug tracking-[-0.5px] text-white md:text-2xl">
           {update.title}
         </h2>
 

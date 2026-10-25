@@ -1,5 +1,6 @@
 import { ScrollReveal } from "@/components/scroll-reveal";
-import { faqs, type FaqEntry } from "@/lib/faqs";
+import { faqs, type FaqEntry } from "@/constants/faqs";
+import { homeContent } from "@/constants/home";
 
 export function Faq() {
   return (
@@ -14,7 +15,7 @@ export function Faq() {
             id="faq-title"
             className="text-balance text-2xl font-[470] leading-snug tracking-tight text-white md:text-3xl"
           >
-            Frequently asked questions
+            {homeContent.faq.title}
           </h2>
         </ScrollReveal>
 

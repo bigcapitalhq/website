@@ -2,15 +2,16 @@ import type { Metadata } from "next";
 import { BlogCta } from "@/components/blog/blog-cta";
 import { BlogPostList } from "@/components/blog/blog-post-list";
 import { StructuredData } from "@/components/structured-data";
+import { blogContent } from "@/constants/blog";
+import { routes } from "@/constants/links";
 import { getPosts } from "@/lib/blog";
 import { createPageMetadata } from "@/lib/metadata";
 import { createBlogStructuredData } from "@/lib/structured-data";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Blog",
-  description:
-    "Product announcements, engineering notes, and practical guidance on open-source accounting from the Bigcapital team.",
-  path: "/blog",
+  title: blogContent.metadata.title,
+  description: blogContent.metadata.description,
+  path: routes.blog,
 });
 
 export default async function BlogPage() {
@@ -32,12 +33,11 @@ export default async function BlogPage() {
                 id="blog-title"
                 className="max-w-4xl text-balance text-[32px] font-normal leading-[1.05] tracking-tighter text-white/50 md:text-[44px]"
               >
-                Blog
+                {blogContent.index.title}
               </h1>
 
               <p className="mt-5 max-w-xl text-pretty text-[17px] leading-7 text-white/50 md:text-[18px]">
-                Product announcements, engineering notes, and practical guidance
-                on open-source accounting.
+                {blogContent.index.description}
               </p>
             </div>
 
@@ -46,21 +46,21 @@ export default async function BlogPage() {
                 {String(posts.length).padStart(2, "0")}
               </p>
               <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.2em] text-white/40">
-                Posts
+                {blogContent.index.countLabel}
               </p>
             </div>
           </div>
 
           <div className="mt-14 flex items-center justify-between border-b border-white/10 pb-3 text-[11px] font-medium uppercase tracking-[0.2em] text-white/50 md:mt-16">
-            <span>All posts</span>
-            <span>Latest first</span>
+            <span>{blogContent.index.allPostsLabel}</span>
+            <span>{blogContent.index.sortLabel}</span>
           </div>
 
           {posts.length > 0 ? (
             <BlogPostList posts={posts} />
           ) : (
             <p className="py-10 text-[15px] text-white/50">
-              No posts have been published yet.
+              {blogContent.index.empty}
             </p>
           )}
         </div>

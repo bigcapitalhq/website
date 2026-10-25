@@ -1,6 +1,7 @@
+import { ogImageContent } from "@/constants/og";
 import { renderOgImage } from "@/lib/og-image";
 
-export const alt = "Bigcapital — AI-native accounting infrastructure";
+export const alt = ogImageContent.alt;
 export const size = {
   width: 1200,
   height: 630,

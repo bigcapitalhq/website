@@ -6,6 +6,8 @@ import { Suspense } from "react";
 import { AuthorMark } from "@/components/blog/author-mark";
 import { BlogCta } from "@/components/blog/blog-cta";
 import { StructuredData } from "@/components/structured-data";
+import { blogContent } from "@/constants/blog";
+import { routes } from "@/constants/links";
 import { getNextPost, getPost, getPosts, type BlogPost } from "@/lib/blog";
 import { createPageMetadata } from "@/lib/metadata";
 import { createPostStructuredData } from "@/lib/structured-data";
@@ -33,7 +35,7 @@ export async function generateMetadata({
   return createPageMetadata({
     title: post.title,
     description: post.description,
-    path: `/blog/${post.slug}`,
+    path: `${routes.blog}/${post.slug}`,
     type: "article",
     publishedTime: `${post.date}T00:00:00.000Z`,
     authors: [post.author.name],
@@ -70,7 +72,7 @@ async function BlogPostArticle({ params }: BlogPostPageProps) {
         <article aria-labelledby="post-title">
           <header>
             <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/50">
-              Blog
+              {blogContent.post.eyebrow}
             </p>
 
             <h1
@@ -88,7 +90,9 @@ async function BlogPostArticle({ params }: BlogPostPageProps) {
               <div className="flex items-center gap-2.5 text-[11px] font-medium uppercase tracking-[0.14em] text-white/50 tabular-nums">
                 <time dateTime={post.date}>{post.formattedDate}</time>
                 <span aria-hidden="true">·</span>
-                <span>{post.readingTime} min read</span>
+                <span>
+                  {post.readingTime} {blogContent.post.readingTimeSuffix}
+                </span>
               </div>
 
               <div className="flex items-center gap-2.5">
@@ -160,24 +164,24 @@ function ReadNext({ post }: { post: BlogPost }) {
           id="read-next-title"
           className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/50"
         >
-          Read next
+          {blogContent.post.readNextLabel}
         </h2>
 
         <Link
-          href="/blog"
+          href={routes.blog}
           className="rounded-sm text-[12px] font-medium text-white/50 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
         >
-          All posts →
+          {blogContent.post.allPostsLabel}
         </Link>
       </div>
 
       <Link
-        href={`/blog/${post.slug}`}
+        href={`${routes.blog}/${post.slug}`}
         className="group mt-6 flex items-start justify-between gap-6 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
       >
         <div>
           <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-white/40">
-            Next post
+            {blogContent.post.nextPostLabel}
           </p>
 
           <h3 className="mt-2 max-w-xl text-[24px] font-medium leading-tight tracking-tight text-white decoration-white/25 underline-offset-4 group-hover:underline">
@@ -188,25 +192,6 @@ function ReadNext({ post }: { post: BlogPost }) {
             {post.description}
           </p>
         </div>
-
-        <span
-          aria-hidden="true"
-          className="mt-1 hidden text-white/30 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-white motion-reduce:transform-none motion-reduce:transition-none md:block"
-        >
-          <svg
-            viewBox="0 0 16 16"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            className="size-4"
-          >
-            <path
-              d="M2.5 8h10M9 4.5 12.5 8 9 11.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </span>
       </Link>
     </section>
   );

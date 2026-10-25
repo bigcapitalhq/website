@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { ogImageContent } from "@/constants/og";
 import { siteConfig } from "@/lib/site";
 
 type OgImageOptions = {
@@ -10,9 +11,9 @@ type OgImageOptions = {
 
 export function renderOgImage({
   eyebrow,
-  title = "AI-native accounting infrastructure",
-  description = "Automated bookkeeping, invoicing, expenses, inventory, and real-time financial reporting.",
-  footer = "Open source · Cloud or self-hosted",
+  title = ogImageContent.title,
+  description = ogImageContent.description,
+  footer = ogImageContent.footer,
 }: OgImageOptions = {}) {
   const siteHost = new URL(siteConfig.url).host;
   const safeTitle = title.replace(/[—–]/g, "-");

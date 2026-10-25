@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { routes } from "@/constants/links";
+import { updatesContent } from "@/constants/updates";
 import { createPageMetadata } from "@/lib/metadata";
 import { getUpdates } from "@/lib/updates";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Updates",
-  description: "A changelog of the latest updates for Bigcapital",
-  path: "/updates",
+  title: updatesContent.metadata.title,
+  description: updatesContent.metadata.description,
+  path: routes.updates,
 });
 
 export default async function UpdatesPage() {
@@ -29,9 +31,9 @@ export default async function UpdatesPage() {
           </div>
 
           <div className="w-full max-w-[588px]">
-            <h2 className="mb-4 text-[22px] font-semibold leading-snug tracking-[-0.5px] text-white md:mb-5 md:text-2xl">
+            <h2 className="mb-[2.65rem] text-[22px] font-semibold leading-snug tracking-[-0.5px] text-white md:text-2xl">
               <Link
-                href={`/updates/${update.id}`}
+                href={`${routes.updates}/${update.id}`}
                 prefetch={false}
                 className="transition-colors hover:text-white/70 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
