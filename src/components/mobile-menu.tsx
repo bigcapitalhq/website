@@ -1,16 +1,24 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import {
+  accountActions,
+  navigationLabels,
+  type NavItem,
+} from "@/constants/navigation";
+import { isActiveNavPath } from "@/lib/navigation";
 
 interface MobileMenuProps {
-  navigation: readonly {
-    label: string;
-    href: string;
-  }[];
+  navigation: readonly NavItem[];
 }
 
+const linkClassName =
+  "rounded-xl px-3 py-3 text-base font-normal transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
+
 export function MobileMenu({ navigation }: MobileMenuProps) {
+  const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -31,7 +39,9 @@ export function MobileMenu({ navigation }: MobileMenuProps) {
         onClick={() => setMenuOpen((open) => !open)}
         aria-expanded={menuOpen}
         aria-controls="mobile-navigation"
-        aria-label={menuOpen ? "Close menu" : "Open menu"}
+        aria-label={
+          menuOpen ? navigationLabels.closeMenu : navigationLabels.openMenu
+        }
         className="flex h-10 w-10 items-center justify-center justify-self-end rounded-full text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:hidden"
       >
         <svg
@@ -56,36 +66,45 @@ export function MobileMenu({ navigation }: MobileMenuProps) {
           id="mobile-navigation"
           className="absolute inset-x-0 top-full border-y border-white/10 bg-background px-6 py-4 lg:hidden"
         >
-          <nav aria-label="Mobile navigation" className="flex flex-col">
-            {navigation.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                prefetch={false}
-                onClick={() => setMenuOpen(false)}
-                className="rounded-xl px-3 py-3 text-base font-normal text-white/40 transition-colors hover:bg-white/[0.06] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-              >
-                {item.label}
-              </Link>
-            ))}
+          <nav aria-label={navigationLabels.mobile} className="flex flex-col">
+            {navigation.map((item) => {
+              const isActive = isActiveNavPath(pathname, item.href);
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  prefetch={false}
+                  onClick={() => setMenuOpen(false)}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`${linkClassName} ${
+                    isActive
+                      ? "bg-white/[0.06] text-white"
+                      : "text-white/40 hover:bg-white/[0.06] hover:text-white"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="mt-4 flex flex-col gap-2 border-t border-white/10 pt-4">
             <Link
-              href="/sign-in"
+              href={accountActions.signIn.href}
               prefetch={false}
               onClick={() => setMenuOpen(false)}
               className="flex h-11 items-center justify-center rounded-full border border-white/15 px-5 text-base font-medium text-white/70 transition-colors hover:bg-white/[0.06] hover:text-white"
             >
-              Sign In
+              {accountActions.signIn.label}
             </Link>
             <Link
-              href="/sign-up"
+              href={accountActions.signUp.href}
               prefetch={false}
               onClick={() => setMenuOpen(false)}
               className="flex h-11 items-center justify-center rounded-full bg-white px-5 text-base font-semibold text-background transition-colors hover:bg-white/85"
             >
-              Sign Up
+              {accountActions.signUp.label}
             </Link>
           </div>
         </div>

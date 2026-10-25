@@ -1,24 +1,9 @@
 import { ScrollReveal } from "@/components/scroll-reveal";
-
-const pillars = [
-  {
-    title: "Multi-entity, multi-currency",
-    description:
-      "Track branches, warehouses, and currencies in a single ledger, with consolidated reports that stay accurate as you expand.",
-  },
-  {
-    title: "Real-time reporting",
-    description:
-      "Balance sheets, P&L, and cash flow statements update as transactions land, so you never wait for month-end to see where you stand.",
-  },
-  {
-    title: "Automation that grows with you",
-    description:
-      "Recurring invoices, bank feeds, and approval workflows remove repetitive work without adding headcount.",
-  },
-] as const;
+import { homeContent } from "@/constants/home";
 
 export function BuiltForScale() {
+  const { builtForScale } = homeContent;
+
   return (
     <section
       aria-labelledby="built-for-scale-title"
@@ -30,12 +15,12 @@ export function BuiltForScale() {
             id="built-for-scale-title"
             className="text-balance text-center text-[47px] font-normal leading-[1.1] tracking-tighter text-[#ffffff42]"
           >
-            Built for complexity. Ready for scale.
+            {builtForScale.title}
           </h2>
         </ScrollReveal>
 
         <div className="mt-16 flex flex-col gap-10 md:mt-20">
-          {pillars.map((pillar, index) => {
+          {builtForScale.pillars.map((pillar, index) => {
             const imageOnLeft = index % 2 === 1;
 
             return (

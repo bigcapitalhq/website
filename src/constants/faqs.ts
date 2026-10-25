@@ -1,3 +1,5 @@
+import { externalLinks } from "@/constants/links";
+
 export type FaqEntry = {
   question: string;
   answer: string;
@@ -45,7 +47,7 @@ export const faqs = [
       "You can use the cloud version in any modern browser. If you want full control, self-host Bigcapital with Docker by following the",
     link: {
       label: "deployment guide",
-      href: "https://docs.bigcapital.app/deployment/docker",
+      href: externalLinks.dockerDeployment,
       after: ".",
     },
     secondaryAnswer:
@@ -57,7 +59,7 @@ export const faqs = [
       "Yes. Bigcapital is open source under AGPL-3.0. Explore the source, self-host it, or contribute on",
     link: {
       label: "GitHub",
-      href: "https://github.com/bigcapitalhq/bigcapital",
+      href: externalLinks.github,
       after: ".",
     },
   },
@@ -67,13 +69,3 @@ export const faqs = [
       "Self-hosting Bigcapital is free under the AGPL-3.0 license. You can also use the managed cloud version if you would rather not run your own infrastructure.",
   },
 ] as const satisfies readonly FaqEntry[];
-
-export function faqAnswerText(faq: FaqEntry): string {
-  const primary = faq.link
-    ? `${faq.answer} ${faq.link.label}${faq.link.after ?? ""}`
-    : faq.answer;
-
-  return faq.secondaryAnswer
-    ? `${primary} ${faq.secondaryAnswer}`
-    : primary;
-}

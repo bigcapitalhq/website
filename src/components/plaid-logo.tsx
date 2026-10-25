@@ -1,3 +1,5 @@
+import { uiLabels } from "@/constants/ui";
+
 interface PlaidLogoProps {
   className?: string;
 }
@@ -34,7 +36,7 @@ export function PlaidLogo({ className = "" }: PlaidLogoProps) {
     <svg
       viewBox="0 0 126 48"
       role="img"
-      aria-label="Plaid"
+      aria-label={uiLabels.plaidLogo}
       className={className}
     >
       <use href="#plaid-logo" />

@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { blogContent } from "@/constants/blog";
+import { routes } from "@/constants/links";
 import type { BlogPost } from "@/lib/blog";
 
 type BlogPostListProps = {
@@ -7,7 +9,7 @@ type BlogPostListProps = {
 
 export function BlogPostList({ posts }: BlogPostListProps) {
   return (
-    <ol aria-label="Blog posts">
+    <ol aria-label={blogContent.list.ariaLabel}>
       {posts.map((post, index) => {
         const entryNumber = String(index + 1).padStart(2, "0");
         const isLatest = index === 0;
@@ -15,7 +17,7 @@ export function BlogPostList({ posts }: BlogPostListProps) {
         return (
           <li key={post.slug} className="border-b border-white/10 last:border-b-0">
             <Link
-              href={`/blog/${post.slug}`}
+              href={`${routes.blog}/${post.slug}`}
               className="group grid gap-4 py-7 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white md:grid-cols-[8.5rem_minmax(0,1fr)] md:gap-8 md:py-9"
             >
               <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[12px] uppercase tracking-[0.14em] text-white/50 md:block md:pt-1.5">
@@ -45,10 +47,12 @@ export function BlogPostList({ posts }: BlogPostListProps) {
                 <div className="mt-4 flex flex-wrap items-center gap-x-2.5 gap-y-1.5 text-[11px] uppercase tracking-[0.14em] text-white/50">
                   <span>{post.author.name}</span>
                   <span aria-hidden="true">·</span>
-                  <span>{post.readingTime} min read</span>
+                  <span>
+                    {post.readingTime} {blogContent.list.readingTimeSuffix}
+                  </span>
                   {isLatest ? (
                     <span className="ml-0.5 rounded-full border border-white/15 px-2 py-0.5 text-[10px] tracking-[0.12em] text-white/60">
-                      Latest
+                      {blogContent.list.latestLabel}
                     </span>
                   ) : null}
                 </div>

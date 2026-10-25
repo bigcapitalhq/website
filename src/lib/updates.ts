@@ -1,4 +1,4 @@
-import fs from "node:fs";
+import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import matter from "gray-matter";
 import { remark } from "remark";
@@ -67,17 +67,19 @@ function toIsoDate(date: Date) {
  * the source is a local PNG so the changelog can reserve space while images
  * lazy-load, then opt them into native lazy loading.
  */
-function enhanceImages(contentHtml: string) {
+async function enhanceImages(contentHtml: string) {
   const sources = Array.from(
     contentHtml.matchAll(/<img\s[^>]*src="([^"]+)"/g),
     (match) => match[1],
   );
   const sizes = new Map<string, { width: number; height: number }>();
 
-  sources.forEach((src) => {
-    const size = readPngSize(src);
-    if (size) sizes.set(src, size);
-  });
+  await Promise.all(
+    sources.map(async (src) => {
+      const size = await readPngSize(src);
+      if (size) sizes.set(src, size);
+    }),
+  );
 
   return contentHtml.replace(/<img\s[^>]*>/g, (tag) => {
     const src = /src="([^"]+)"/.exec(tag)?.[1];
@@ -93,7 +95,7 @@ function enhanceImages(contentHtml: string) {
   });
 }
 
-function readPngSize(src: string) {
+async function readPngSize(src: string) {
   if (!src.startsWith("/")) return undefined;
 
   const publicDirectory = path.join(process.cwd(), "public");
@@ -102,7 +104,7 @@ function readPngSize(src: string) {
   if (!filePath.startsWith(publicDirectory)) return undefined;
 
   try {
-    const buffer = fs.readFileSync(filePath);
+    const buffer = await readFile(filePath);
 
     // PNG stores width and height in the IHDR chunk, starting at byte 16.
     if (buffer.length < 24 || buffer.toString("ascii", 1, 4) !== "PNG") {
@@ -121,7 +123,7 @@ function readPngSize(src: string) {
 async function renderUpdate(filename: string): Promise<Update> {
   const id = filename.replace(/\.md$/, "");
   const filePath = path.join(updatesDirectory, filename);
-  const fileContents = fs.readFileSync(filePath, "utf8");
+  const fileContents = await readFile(filePath, "utf8");
   const { data, content } = matter(fileContents);
   const frontmatter = data as Partial<UpdateFrontmatter>;
 
@@ -149,14 +151,16 @@ async function renderUpdate(filename: string): Promise<Update> {
     date: toIsoDate(publishedAt),
     publishedAt,
     formattedDate: formatDate(publishedAt),
-    contentHtml: enhanceImages(processedContent.toString()),
+    contentHtml: await enhanceImages(processedContent.toString()),
   };
 }
 
 export async function getUpdates(): Promise<Update[]> {
-  const filenames = fs
-    .readdirSync(updatesDirectory)
-    .filter((filename) => filename.endsWith(".md"));
+  "use cache";
+
+  const filenames = (await readdir(updatesDirectory)).filter((filename) =>
+    filename.endsWith(".md"),
+  );
   const updates = await Promise.all(filenames.map(renderUpdate));
 
   return updates.sort(

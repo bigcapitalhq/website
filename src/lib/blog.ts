@@ -3,6 +3,7 @@ import path from "node:path";
 import matter from "gray-matter";
 import { remark } from "remark";
 import html from "remark-html";
+import { blogAuthor } from "@/constants/blog";
 
 export type BlogAuthor = {
   name: string;
@@ -44,12 +45,6 @@ type BlogFrontmatter = {
 
 const blogDirectory = path.join(process.cwd(), "content/blog");
 const publicDirectory = path.resolve(process.cwd(), "public");
-
-const author: BlogAuthor = {
-  name: "Ahmed Bouhuolia",
-  role: "Founder & CEO",
-  bio: "Founder & CEO at Bigcapital. Writing about open-source accounting, product, and company updates.",
-};
 
 const dateFormatter = new Intl.DateTimeFormat("en-US", {
   month: "long",
@@ -235,7 +230,7 @@ async function renderPost(filename: string): Promise<BlogPost> {
     formattedDate: dateFormatter.format(publishedAt),
     readingTime: estimateReadingTime(content),
     order: requireNumber(frontmatter.order, "order", filename),
-    author,
+    author: blogAuthor,
     cover: parseCover(frontmatter, filename),
     contentHtml: enhanceImages(processedContent.toString()),
   };

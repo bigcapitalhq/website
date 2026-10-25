@@ -37,7 +37,7 @@ export function createPageMetadata({
     alternates: { canonical: path },
     openGraph: {
       type,
-      locale: "en_US",
+      locale: siteConfig.ogLocale,
       url: path,
       siteName: siteConfig.name,
       title: socialTitle,

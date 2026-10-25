@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { homeContent } from "@/constants/home";
 
 export function FooterCta() {
+  const { footerCta } = homeContent;
+
   return (
     <section
       aria-labelledby="footer-cta-title"
@@ -12,15 +15,15 @@ export function FooterCta() {
           id="footer-cta-title"
           className="max-w-5xl text-balance text-[48px] font-semibold leading-[56px] tracking-tighter text-white/50"
         >
-          Let&apos;s see what Bigcapital can do for your business.
+          {footerCta.title}
         </h2>
 
         <Link
-          href="/sign-up"
+          href={footerCta.cta.href}
           prefetch={false}
           className="mt-6 inline-flex h-11 w-full items-center justify-center rounded-full bg-white px-7 text-base font-normal text-background transition-colors hover:bg-white/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:w-auto"
         >
-          Start Bookkeeping
+          {footerCta.cta.label}
         </Link>
       </ScrollReveal>
     </section>

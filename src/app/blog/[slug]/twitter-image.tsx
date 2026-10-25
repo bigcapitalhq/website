@@ -1,7 +1,8 @@
+import { blogContent } from "@/constants/blog";
 import { getPost, getPosts } from "@/lib/blog";
 import { renderOgImage } from "@/lib/og-image";
 
-export const alt = "Bigcapital Blog";
+export const alt = blogContent.og.alt;
 export const size = {
   width: 1200,
   height: 630,
@@ -23,10 +24,8 @@ export default async function Image({
   const post = await getPost(slug);
 
   return renderOgImage({
-    eyebrow: "BLOG",
-    title: post?.title ?? "Bigcapital Blog",
-    description:
-      post?.description ??
-      "Product announcements and engineering notes from the Bigcapital team.",
+    eyebrow: blogContent.og.eyebrow,
+    title: post?.title ?? blogContent.og.fallbackTitle,
+    description: post?.description ?? blogContent.og.fallbackDescription,
   });
 }

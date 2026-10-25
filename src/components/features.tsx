@@ -1,19 +1,10 @@
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { VerticalFeatureTicker } from "@/components/vertical-feature-ticker";
-
-const features = [
-  "Sales & Purchases Invoicing",
-  "Financial Reports",
-  "Inventory",
-  "Accountants & Bookkeepers",
-  "Expense Accounting",
-  "Multi-currency Accounting",
-  "Customer Success",
-  "Cloud Accounting",
-  "Easy-to-use Software",
-] as const;
+import { homeContent } from "@/constants/home";
 
 export function Features() {
+  const { features } = homeContent;
+
   return (
     <section
       aria-labelledby="features-title"
@@ -25,23 +16,22 @@ export function Features() {
             id="features-title"
             className="max-w-xl text-balance text-[22px] font-medium leading-[1.05] tracking-tight text-white"
           >
-            Discover the features you need
+            {features.title}
           </h2>
 
           <p className="mt-5 max-w-md text-pretty text-[18px] leading-7 text-white/50">
-            Nine connected modules that keep your books accurate, your reports
-            current, and your team in sync.
+            {features.description}
           </p>
 
           <ul className="sr-only">
-            {features.map((feature) => (
+            {features.items.map((feature) => (
               <li key={feature}>{feature}</li>
             ))}
           </ul>
         </ScrollReveal>
 
         <ScrollReveal delay={120}>
-          <VerticalFeatureTicker features={features} />
+          <VerticalFeatureTicker features={features.items} />
         </ScrollReveal>
       </div>
     </section>

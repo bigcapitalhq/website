@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { StructuredData } from "@/components/structured-data";
+import { uiLabels } from "@/constants/ui";
 import { siteConfig, isProductionDeployment } from "@/lib/site";
 import { siteStructuredData } from "@/lib/structured-data";
 import "./globals.css";
@@ -34,7 +35,7 @@ export const metadata: Metadata = {
   authors: [{ name: siteConfig.legalName, url: siteConfig.url }],
   creator: siteConfig.legalName,
   publisher: siteConfig.legalName,
-  category: "finance",
+  category: siteConfig.category,
   keywords: [...siteConfig.keywords],
   referrer: "origin-when-cross-origin",
   formatDetection: {
@@ -55,7 +56,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: siteConfig.ogLocale,
     siteName: siteConfig.name,
     title: siteConfig.title,
     description: siteConfig.description,
@@ -101,7 +102,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="en"
+      lang={siteConfig.locale}
       className={`${geistSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
@@ -109,7 +110,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           href="#main-content"
           className="fixed left-4 top-4 z-[100] -translate-y-24 rounded-full bg-white px-5 py-2 text-sm font-medium text-background opacity-0 transition-transform focus:translate-y-0 focus:opacity-100 focus:outline-2 focus:outline-offset-2 focus:outline-white motion-reduce:transition-none"
         >
-          Skip to content
+          {uiLabels.skipToContent}
         </a>
 
         <StructuredData data={siteStructuredData} />
