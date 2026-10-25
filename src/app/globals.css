@@ -59,7 +59,7 @@ h6 {
 }
 
 .faq-answer {
-  color: oklch(66% 0 0);
+  color: #fff;
   font-size: 0.875rem;
   line-height: 1.625;
   text-wrap: pretty;
@@ -70,13 +70,9 @@ h6 {
 }
 
 .faq-answer a {
-  color: oklch(65% 0.224 25.72);
+  color: #fff;
   text-decoration-line: underline;
-  text-decoration-color: color-mix(
-    in oklab,
-    oklch(65% 0.224 25.72) 60%,
-    transparent
-  );
+  text-decoration-color: color-mix(in oklab, #fff 60%, transparent);
   text-underline-offset: 2px;
   transition: text-decoration-color 150ms;
 }
@@ -101,7 +97,7 @@ h6 {
   width: 0.25rem;
   height: 0.25rem;
   border-radius: 9999px;
-  background-color: color-mix(in oklab, oklch(66% 0 0) 60%, transparent);
+  background-color: color-mix(in oklab, #fff 60%, transparent);
   content: "";
 }
 

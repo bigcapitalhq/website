@@ -13,7 +13,7 @@ export function BuiltForScale() {
         <ScrollReveal>
           <h2
             id="built-for-scale-title"
-            className="text-balance text-center text-[47px] font-normal leading-[1.1] tracking-tighter text-[#ffffff42]"
+            className="text-balance text-center text-[36px] font-normal leading-[1.1] tracking-tighter text-[#ffffff42] md:text-[47px]"
           >
             {builtForScale.title}
           </h2>

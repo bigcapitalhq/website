@@ -8,7 +8,7 @@ export function Features() {
   return (
     <section
       aria-labelledby="features-title"
-      className="relative isolate pb-24 pt-20 md:pb-32 md:pt-28"
+      className="relative isolate pb-24 pt-20 md:pb-28 md:pt-28"
     >
       <div className="mx-auto grid w-full max-w-7xl gap-14 container-px md:px-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-20 lg:px-8">
         <ScrollReveal>

@@ -1,4 +1,4 @@
-import fs from "node:fs";
+import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import matter from "gray-matter";
 import { remark } from "remark";
@@ -14,6 +14,11 @@ export type BlogAuthor = {
 export type BlogCover = {
   src: string;
   alt: string;
+  width: number;
+  height: number;
+};
+
+type PngSize = {
   width: number;
   height: number;
 };
@@ -113,27 +118,46 @@ function requireNumber(
  * browser can reserve space while images lazy-load, and wrap standalone images
  * in a figure so their title can be shown as a caption.
  */
-function enhanceImages(contentHtml: string) {
-  const withFigures = contentHtml.replace(
-    /<p>\s*(<img\s[^>]*>)\s*<\/p>/g,
-    (_match: string, tag: string) => renderFigure(tag),
+async function enhanceImages(contentHtml: string) {
+  const sources = Array.from(
+    contentHtml.matchAll(/<img\s[^>]*src="([^"]+)"/g),
+    (match) => match[1],
+  );
+  const sizes = new Map<string, PngSize>();
+
+  await Promise.all(
+    sources.map(async (src) => {
+      const size = await readPngSize(src);
+      if (size) sizes.set(src, size);
+    }),
   );
 
-  return withFigures.replace(/<img\s[^>]*>/g, (tag) => enhanceImageTag(tag));
+  const withFigures = contentHtml.replace(
+    /<p>\s*(<img\s[^>]*>)\s*<\/p>/g,
+    (_match: string, tag: string) => renderFigure(tag, sizes),
+  );
+
+  return withFigures.replace(/<img\s[^>]*>/g, (tag) =>
+    enhanceImageTag(tag, sizes),
+  );
 }
 
-function renderFigure(tag: string) {
+function renderFigure(tag: string, sizes: Map<string, PngSize>) {
   const caption = readAttribute(tag, "title");
-  const image = enhanceImageTag(tag, true);
+  const image = enhanceImageTag(tag, sizes, true);
 
   return `<figure>${image}${caption ? `<figcaption>${caption}</figcaption>` : ""}</figure>`;
 }
 
-function enhanceImageTag(tag: string, stripTitle = false) {
+function enhanceImageTag(
+  tag: string,
+  sizes: Map<string, PngSize>,
+  stripTitle = false,
+) {
   if (tag.includes(' loading="')) return tag;
 
   const src = readAttribute(tag, "src");
-  const size = src ? readPngSize(src) : undefined;
+  const size = src ? sizes.get(src) : undefined;
   const dimensions = size
     ? ` width="${size.width}" height="${size.height}"`
     : "";
@@ -149,7 +173,7 @@ function readAttribute(tag: string, name: string) {
   return new RegExp(`\\s${name}="([^"]*)"`).exec(tag)?.[1];
 }
 
-function readPngSize(src: string) {
+async function readPngSize(src: string) {
   if (!src.startsWith("/")) return undefined;
 
   const filePath = path.resolve(publicDirectory, `.${src}`);
@@ -157,7 +181,7 @@ function readPngSize(src: string) {
   if (!filePath.startsWith(`${publicDirectory}${path.sep}`)) return undefined;
 
   try {
-    const buffer = fs.readFileSync(filePath);
+    const buffer = await readFile(filePath);
 
     // PNG stores width and height in the IHDR chunk, starting at byte 16.
     if (buffer.length < 24 || buffer.toString("ascii", 1, 4) !== "PNG") {
@@ -206,7 +230,7 @@ function parseCover(
 async function renderPost(filename: string): Promise<BlogPost> {
   const slug = filename.replace(/\.md$/, "");
   const filePath = path.join(blogDirectory, filename);
-  const fileContents = fs.readFileSync(filePath, "utf8");
+  const fileContents = await readFile(filePath, "utf8");
   const { data, content } = matter(fileContents);
   const frontmatter = data as BlogFrontmatter;
 
@@ -232,14 +256,16 @@ async function renderPost(filename: string): Promise<BlogPost> {
     order: requireNumber(frontmatter.order, "order", filename),
     author: blogAuthor,
     cover: parseCover(frontmatter, filename),
-    contentHtml: enhanceImages(processedContent.toString()),
+    contentHtml: await enhanceImages(processedContent.toString()),
   };
 }
 
 export async function getPosts(): Promise<BlogPost[]> {
-  const filenames = fs
-    .readdirSync(blogDirectory)
-    .filter((filename) => filename.endsWith(".md"));
+  "use cache";
+
+  const filenames = (await readdir(blogDirectory)).filter((filename) =>
+    filename.endsWith(".md"),
+  );
   const posts = await Promise.all(filenames.map(renderPost));
 
   /*
