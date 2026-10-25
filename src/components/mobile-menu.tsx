@@ -32,7 +32,7 @@ export function MobileMenu({ navigation }: MobileMenuProps) {
         aria-expanded={menuOpen}
         aria-controls="mobile-navigation"
         aria-label={menuOpen ? "Close menu" : "Open menu"}
-        className="flex h-10 w-10 items-center justify-center justify-self-end rounded-full text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:hidden"
+        className="flex h-10 w-10 items-center justify-center justify-self-end rounded-full text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:hidden"
       >
         <svg
           viewBox="0 0 24 24"
@@ -54,7 +54,7 @@ export function MobileMenu({ navigation }: MobileMenuProps) {
       {menuOpen && (
         <div
           id="mobile-navigation"
-          className="absolute inset-x-0 top-full border-y border-white/10 bg-background px-6 py-4 md:hidden"
+          className="absolute inset-x-0 top-full border-y border-white/10 bg-background px-6 py-4 lg:hidden"
         >
           <nav aria-label="Mobile navigation" className="flex flex-col">
             {navigation.map((item) => (

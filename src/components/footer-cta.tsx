@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 export function FooterCta() {
   return (
@@ -6,7 +7,7 @@ export function FooterCta() {
       aria-labelledby="footer-cta-title"
       className="relative isolate overflow-hidden"
     >
-      <div className="relative mx-auto flex w-full max-w-7xl flex-col items-center p-[80px] text-center">
+      <ScrollReveal className="relative mx-auto flex w-full max-w-7xl flex-col items-center p-[80px] text-center">
         <h2
           id="footer-cta-title"
           className="max-w-5xl text-balance text-[48px] font-semibold leading-[56px] tracking-tighter text-white/50"
@@ -21,7 +22,7 @@ export function FooterCta() {
         >
           Start Bookkeeping
         </Link>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

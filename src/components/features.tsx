@@ -1,3 +1,4 @@
+import { ScrollReveal } from "@/components/scroll-reveal";
 import { VerticalFeatureTicker } from "@/components/vertical-feature-ticker";
 
 const features = [
@@ -19,7 +20,7 @@ export function Features() {
       className="relative isolate pb-24 pt-20 md:pb-32 md:pt-28"
     >
       <div className="mx-auto grid w-full max-w-7xl gap-14 px-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-20 lg:px-8">
-        <div>
+        <ScrollReveal>
           <h2
             id="features-title"
             className="max-w-xl text-balance text-[22px] font-medium leading-[1.05] tracking-tight text-white"
@@ -37,9 +38,11 @@ export function Features() {
               <li key={feature}>{feature}</li>
             ))}
           </ul>
-        </div>
+        </ScrollReveal>
 
-        <VerticalFeatureTicker features={features} />
+        <ScrollReveal delay={120}>
+          <VerticalFeatureTicker features={features} />
+        </ScrollReveal>
       </div>
     </section>
   );

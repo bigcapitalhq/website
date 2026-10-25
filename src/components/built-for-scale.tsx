@@ -1,3 +1,5 @@
+import { ScrollReveal } from "@/components/scroll-reveal";
+
 const pillars = [
   {
     title: "Multi-entity, multi-currency",
@@ -23,20 +25,23 @@ export function BuiltForScale() {
       className="relative isolate pb-24 md:pb-[100px]"
     >
       <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
-        <h2
-          id="built-for-scale-title"
-          className="text-balance text-center text-[47px] font-normal leading-[1.1] tracking-tighter text-[#ffffff42]"
-        >
-          Built for complexity. Ready for scale.
-        </h2>
+        <ScrollReveal>
+          <h2
+            id="built-for-scale-title"
+            className="text-balance text-center text-[47px] font-normal leading-[1.1] tracking-tighter text-[#ffffff42]"
+          >
+            Built for complexity. Ready for scale.
+          </h2>
+        </ScrollReveal>
 
         <div className="mt-16 flex flex-col gap-10 md:mt-20">
           {pillars.map((pillar, index) => {
             const imageOnLeft = index % 2 === 1;
 
             return (
-              <div
+              <ScrollReveal
                 key={pillar.title}
+                delay={index * 90}
                 className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-10"
               >
                 <div
@@ -55,7 +60,7 @@ export function BuiltForScale() {
                     {pillar.description}
                   </p>
                 </div>
-              </div>
+              </ScrollReveal>
             );
           })}
         </div>

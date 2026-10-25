@@ -25,8 +25,8 @@ const footerGroups = [
     title: "Resources",
     links: [
       { label: "Documentation", href: "https://docs.bigcapital.app" },
-      { label: "Blog", href: "https://bigcapital.app/blog" },
-      { label: "Product Updates", href: "https://bigcapital.app/updates" },
+      { label: "Blog", href: "/blog" },
+      { label: "Product Updates", href: "/updates" },
       {
         label: "Roadmap",
         href: "https://github.com/bigcapitalhq/bigcapital/milestones",

@@ -1,3 +1,4 @@
+import { ScrollReveal } from "@/components/scroll-reveal";
 import { faqs, type FaqEntry } from "@/lib/faqs";
 
 export function Faq() {
@@ -8,16 +9,18 @@ export function Faq() {
       className="relative isolate py-20 md:py-[100px]"
     >
       <div className="mx-auto w-full max-w-180 px-6">
-        <h2
-          id="faq-title"
-          className="text-balance text-2xl font-[470] leading-snug tracking-tight text-white md:text-3xl"
-        >
-          Frequently asked questions
-        </h2>
+        <ScrollReveal>
+          <h2
+            id="faq-title"
+            className="text-balance text-2xl font-[470] leading-snug tracking-tight text-white md:text-3xl"
+          >
+            Frequently asked questions
+          </h2>
+        </ScrollReveal>
 
         <div className="mt-8 divide-y divide-white/[0.09]">
-          {faqs.map((faq) => (
-            <FaqItem key={faq.question} faq={faq} />
+          {faqs.map((faq, index) => (
+            <FaqItem key={faq.question} faq={faq} index={index} />
           ))}
         </div>
       </div>
@@ -55,31 +58,33 @@ function FaqAnswer({ faq }: { faq: FaqEntry }) {
   );
 }
 
-function FaqItem({ faq }: { faq: FaqEntry }) {
+function FaqItem({ faq, index }: { faq: FaqEntry; index: number }) {
   return (
-    <details name="faq" className="faq-item group">
-      <summary className="flex w-full cursor-pointer select-none list-none items-center justify-between py-5 text-left text-sm font-[470] text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white [&::-webkit-details-marker]:hidden">
-        {faq.question}
-        <svg
-          viewBox="0 0 16 16"
-          fill="none"
-          aria-hidden="true"
-          className="size-4 shrink-0 text-[oklch(66%_0_0)] transition-transform duration-200 group-open:rotate-45 motion-reduce:transition-none"
-        >
-          <path
-            d="M8 3v10M3 8h10"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-          />
-        </svg>
-      </summary>
+    <ScrollReveal delay={Math.min(index * 60, 240)}>
+      <details name="faq" className="faq-item group">
+        <summary className="flex w-full cursor-pointer select-none list-none items-center justify-between py-5 text-left text-sm font-[470] text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white [&::-webkit-details-marker]:hidden">
+          {faq.question}
+          <svg
+            viewBox="0 0 16 16"
+            fill="none"
+            aria-hidden="true"
+            className="size-4 shrink-0 text-[oklch(66%_0_0)] transition-transform duration-200 group-open:rotate-45 motion-reduce:transition-none"
+          >
+            <path
+              d="M8 3v10M3 8h10"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
+          </svg>
+        </summary>
 
-      <div className="pb-5">
-        <div className="faq-answer">
-          <FaqAnswer faq={faq} />
+        <div className="pb-5">
+          <div className="faq-answer">
+            <FaqAnswer faq={faq} />
+          </div>
         </div>
-      </div>
-    </details>
+      </details>
+    </ScrollReveal>
   );
 }

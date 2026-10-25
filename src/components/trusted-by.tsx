@@ -1,4 +1,5 @@
 import { PlaidLogo, PlaidLogoSprite } from "@/components/plaid-logo";
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 export function TrustedBy() {
   return (
@@ -8,7 +9,7 @@ export function TrustedBy() {
     >
       <PlaidLogoSprite />
 
-      <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
+      <ScrollReveal className="mx-auto w-full max-w-7xl px-6 lg:px-8">
         <h2
           id="trusted-by-title"
           className="text-center text-[13px] font-medium uppercase tracking-[0.2em] text-white/40"
@@ -28,7 +29,7 @@ export function TrustedBy() {
             />
           ))}
         </div>
-      </div>
+      </ScrollReveal>
 
       <div
         aria-hidden="true"
