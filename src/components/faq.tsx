@@ -9,7 +9,7 @@ export function Faq() {
       aria-labelledby="faq-title"
       className="relative isolate py-20 md:py-[100px]"
     >
-      <div className="mx-auto w-full max-w-180 px-6">
+      <div className="mx-auto w-full max-w-180 container-px md:px-6">
         <ScrollReveal>
           <h2
             id="faq-title"

@@ -15,7 +15,7 @@ export default function NotFound() {
     <main
       id="main-content"
       tabIndex={-1}
-      className="flex flex-1 flex-col items-center justify-center px-6 py-32 text-center focus:outline-none"
+      className="flex flex-1 flex-col items-center justify-center container-px py-32 text-center focus:outline-none md:px-6"
     >
       <p className="text-[13px] font-medium uppercase tracking-[0.2em] text-white/40">
         {notFoundContent.eyebrow}

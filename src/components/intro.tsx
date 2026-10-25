@@ -7,13 +7,13 @@ export function Intro() {
   return (
     <section
       aria-labelledby="intro-title"
-      className="relative isolate overflow-hidden pb-[75px] pt-[165px]"
+      className="relative isolate overflow-hidden pb-[75px] pt-[100px]"
     >
-      <div className="mx-auto flex w-full max-w-7xl flex-col items-start px-6 text-left lg:px-8">
+      <div className="mx-auto flex w-full max-w-7xl flex-col items-start container-px text-left md:px-6 lg:px-8">
         <div>
           <h1
             id="intro-title"
-            className="text-[58px] font-medium leading-[60px] tracking-tighter text-white"
+            className="text-[34px] font-medium leading-[38px] tracking-tighter text-white md:text-[58px] md:leading-[60px]"
           >
             {intro.title}
           </h1>

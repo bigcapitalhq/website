@@ -10,7 +10,7 @@ export function TrustedBy() {
     >
       <PlaidLogoSprite />
 
-      <ScrollReveal className="mx-auto w-full max-w-7xl px-6 lg:px-8">
+      <ScrollReveal className="mx-auto w-full max-w-7xl container-px md:px-6 lg:px-8">
         <h2
           id="trusted-by-title"
           className="text-center text-[13px] font-medium uppercase tracking-[0.2em] text-white/40"

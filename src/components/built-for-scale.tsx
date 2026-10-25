@@ -9,7 +9,7 @@ export function BuiltForScale() {
       aria-labelledby="built-for-scale-title"
       className="relative isolate pb-24 md:pb-[100px]"
     >
-      <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-7xl container-px md:px-6 lg:px-8">
         <ScrollReveal>
           <h2
             id="built-for-scale-title"

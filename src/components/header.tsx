@@ -16,7 +16,7 @@ import {
 export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-background/95 md:bg-background/80 md:backdrop-blur-xl">
-      <div className="mx-auto grid h-[72px] w-full max-w-7xl grid-cols-[1fr_auto] items-center gap-4 border-x border-white/10 px-6 lg:grid-cols-[1fr_auto_1fr] lg:px-8">
+      <div className="mx-auto grid h-[72px] w-full max-w-7xl grid-cols-[1fr_auto] items-center gap-4 border-x border-white/10 container-px md:px-6 lg:grid-cols-[1fr_auto_1fr] lg:px-8">
         <Link
           href={routes.home}
           prefetch={false}

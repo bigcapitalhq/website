@@ -9,7 +9,7 @@ export function BlogCta() {
       aria-labelledby="blog-cta-title"
       className="border-t border-white/10"
     >
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-6 py-16 md:flex-row md:items-end md:justify-between md:py-20 lg:px-8">
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 container-px py-16 md:flex-row md:items-end md:justify-between md:px-6 md:py-20 lg:px-8">
         <div>
           <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/50">
             {cta.eyebrow}
