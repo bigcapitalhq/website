@@ -68,7 +68,7 @@ async function BlogPostArticle({ params }: BlogPostPageProps) {
     <>
       <StructuredData data={createPostStructuredData(post)} />
 
-      <div className="mx-auto w-full max-w-[760px] px-6 pt-14 pb-20 md:pt-20">
+      <div className="mx-auto w-full max-w-[760px] container-px pt-14 pb-20 md:px-6 md:pt-20">
         <article aria-labelledby="post-title">
           <header>
             <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/50">
@@ -201,7 +201,7 @@ function BlogPostFallback() {
   return (
     <div
       aria-hidden="true"
-      className="mx-auto w-full max-w-[760px] animate-pulse px-6 pt-14 pb-20 motion-reduce:animate-none md:pt-20"
+      className="mx-auto w-full max-w-[760px] animate-pulse container-px pt-14 pb-20 motion-reduce:animate-none md:px-6 md:pt-20"
     >
       <div className="h-3 w-20 rounded bg-white/10" />
       <div className="mt-10 h-3 w-14 rounded bg-white/5" />

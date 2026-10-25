@@ -6,7 +6,7 @@ import {
 
 export function Footer() {
   return (
-    <footer className="w-full px-6 py-10 text-[14px] lg:px-8">
+    <footer className="w-full container-px py-10 text-[14px] md:px-6 lg:px-8">
       <nav aria-label={footerContent.ariaLabel}>
         <div className="grid grid-cols-4 gap-x-6 gap-y-6 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-12">
           {footerContent.groups.map((group) => (

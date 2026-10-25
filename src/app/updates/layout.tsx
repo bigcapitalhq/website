@@ -10,7 +10,7 @@ export default function UpdatesLayout({
       className="flex flex-1 flex-col focus:outline-none"
     >
       <header className="border-b border-white/10">
-        <div className="px-6 pb-10 pt-20 md:pb-12 md:pt-24 lg:px-8">
+        <div className="container-px pb-10 pt-20 md:px-6 md:pb-12 md:pt-24 lg:px-8">
           <div className="lg:ml-[calc(25%+1.5rem)]">
             <h1 className="text-[32px] font-normal leading-none tracking-[-0.5px] text-white/50 md:text-[40px]">
               {updatesContent.layout.title}
@@ -34,7 +34,7 @@ export default function UpdatesLayout({
         </div>
       </header>
 
-      <div className="flex-1 px-6 py-12 md:py-14 lg:px-8">{children}</div>
+      <div className="flex-1 container-px py-12 md:px-6 md:py-14 lg:px-8">{children}</div>
     </main>
   );
 }

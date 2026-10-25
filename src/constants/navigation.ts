@@ -12,7 +12,6 @@ export type HeaderNavItem = NavItem & {
 export const mainNavigation = [
   { label: "Blog", href: routes.blog, prefetch: true },
   { label: "Updates", href: routes.updates, prefetch: true },
-  { label: "About", href: routes.about, prefetch: false },
 ] as const satisfies readonly HeaderNavItem[];
 
 export const accountActions = {

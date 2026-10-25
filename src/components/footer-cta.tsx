@@ -10,10 +10,10 @@ export function FooterCta() {
       aria-labelledby="footer-cta-title"
       className="relative isolate overflow-hidden"
     >
-      <ScrollReveal className="relative mx-auto flex w-full max-w-7xl flex-col items-center p-[80px] text-center">
+      <ScrollReveal className="relative mx-auto flex w-full max-w-7xl flex-col items-center container-px py-[80px] text-center md:p-[80px]">
         <h2
           id="footer-cta-title"
-          className="max-w-5xl text-balance text-[48px] font-semibold leading-[56px] tracking-tighter text-white/50"
+          className="max-w-5xl text-balance text-[36px] font-semibold leading-[42px] tracking-tighter text-white/50 md:text-[48px] md:leading-[56px]"
         >
           {footerCta.title}
         </h2>

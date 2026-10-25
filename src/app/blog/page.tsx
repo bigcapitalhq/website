@@ -26,7 +26,7 @@ export default async function BlogPage() {
       <StructuredData data={createBlogStructuredData(posts)} />
 
       <section aria-labelledby="blog-title" className="relative isolate">
-        <div className="mx-auto w-full max-w-7xl px-6 pt-16 pb-16 md:pt-24 md:pb-20 lg:px-8">
+        <div className="mx-auto w-full max-w-7xl container-px pt-16 pb-16 md:px-6 md:pt-24 md:pb-20 lg:px-8">
           <div className="flex items-end justify-between gap-8">
             <div>
               <h1
@@ -42,7 +42,7 @@ export default async function BlogPage() {
             </div>
 
             <div className="hidden shrink-0 pb-1 text-right md:block">
-              <p className="text-[32px] font-medium leading-none tracking-tighter text-white/50 tabular-nums">
+              <p className="text-[32px] font-normal leading-none tracking-tighter text-white/50 tabular-nums">
                 {String(posts.length).padStart(2, "0")}
               </p>
               <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.2em] text-white/40">

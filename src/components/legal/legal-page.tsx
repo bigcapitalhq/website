@@ -18,7 +18,7 @@ export function LegalPage({ document }: LegalPageProps) {
       className="flex flex-1 flex-col focus:outline-none"
     >
       <header className="border-b border-white/10">
-        <div className="px-6 pb-10 pt-16 md:pb-14 md:pt-24 lg:px-8">
+        <div className="container-px pb-10 pt-16 md:px-6 md:pb-14 md:pt-24 lg:px-8">
           <div className="mx-auto w-full max-w-5xl">
             <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/40">
               {legalContent.eyebrow}
@@ -35,7 +35,7 @@ export function LegalPage({ document }: LegalPageProps) {
         </div>
       </header>
 
-      <div className="flex-1 px-6 py-12 md:py-16 lg:px-8">
+      <div className="flex-1 container-px py-12 md:px-6 md:py-16 lg:px-8">
         <div className="mx-auto grid w-full max-w-5xl gap-10 lg:grid-cols-[minmax(0,1fr)_14rem] lg:gap-16">
           {document.headings.length > 0 ? (
             <aside className="lg:order-last lg:sticky lg:top-24 lg:self-start">

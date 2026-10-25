@@ -42,29 +42,43 @@ export function MobileMenu({ navigation }: MobileMenuProps) {
         aria-label={
           menuOpen ? navigationLabels.closeMenu : navigationLabels.openMenu
         }
-        className="flex h-10 w-10 items-center justify-center justify-self-end rounded-full text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:hidden"
+        className="relative -right-2 flex h-10 w-10 items-center justify-center justify-self-end rounded-full text-white transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:hidden"
       >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.75"
-          strokeLinecap="round"
-          className="h-5 w-5"
-          aria-hidden="true"
-        >
-          {menuOpen ? (
+        {menuOpen ? (
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="h-6 w-6"
+            aria-hidden="true"
+          >
             <path d="M6 6l12 12M18 6L6 18" />
-          ) : (
-            <path d="M4 7h16M4 12h16M4 17h16" />
-          )}
-        </svg>
+          </svg>
+        ) : (
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
+            <line x1="4" y1="8" x2="20" y2="8" />
+            <line x1="4" y1="16" x2="20" y2="16" />
+          </svg>
+        )}
       </button>
 
       {menuOpen && (
         <div
           id="mobile-navigation"
-          className="absolute inset-x-0 top-full border-y border-white/10 bg-background px-6 py-4 lg:hidden"
+          className="absolute inset-x-0 top-full border-y border-white/10 bg-background container-px py-4 md:px-6 lg:hidden"
         >
           <nav aria-label={navigationLabels.mobile} className="flex flex-col">
             {navigation.map((item) => {
