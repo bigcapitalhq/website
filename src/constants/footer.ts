@@ -5,6 +5,7 @@ export type FooterLink = {
   label: string;
   href: string;
   badge?: string;
+  disabled?: boolean;
 };
 
 export type FooterGroup = {
@@ -19,20 +20,22 @@ export const footerContent = {
     {
       title: "Product",
       links: [
-        { label: "Features", href: routes.features },
-        { label: "Pricing", href: routes.pricing },
         { label: "Self-Hosted", href: externalLinks.dockerDeployment },
-        { label: "Bigcapital Cloud", href: routes.signUp, badge: "New" },
+        {
+          label: "Bigcapital Cloud",
+          href: routes.signUp,
+          badge: "Soon",
+          disabled: true,
+        },
       ],
     },
     {
       title: "Resources",
       links: [
         { label: "Documentation", href: externalLinks.docs },
+        { label: "API Reference", href: externalLinks.apiReference },
         { label: "Blog", href: routes.blog },
         { label: "Product Updates", href: routes.updates },
-        { label: "Roadmap", href: externalLinks.roadmap },
-        { label: "Status", href: externalLinks.status },
       ],
     },
     {
@@ -56,10 +59,9 @@ export const footerContent = {
     {
       title: "Legal & Trust",
       links: [
-        { label: "Terms of Use", href: externalLinks.terms },
-        { label: "Privacy Policy", href: externalLinks.privacy },
+        { label: "Terms of Use", href: routes.terms },
+        { label: "Privacy Policy", href: routes.privacy },
         { label: "Security", href: externalLinks.security },
-        { label: "Status", href: externalLinks.status },
       ],
     },
     {
