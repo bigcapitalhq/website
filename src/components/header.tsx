@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AccountAction } from "@/components/account-action";
 import { DesktopNav } from "@/components/desktop-nav";
 import { Logo } from "@/components/logo";
 import { MobileMenu } from "@/components/mobile-menu";
@@ -8,6 +9,7 @@ import {
   mainNavigation,
   navigationLabels,
 } from "@/constants/navigation";
+import { bigcapitalCloudPopover } from "@/constants/popover";
 
 /*
  * The product and company routes are not implemented in this app yet, so only
@@ -29,20 +31,16 @@ export function Header() {
         <DesktopNav navigation={mainNavigation} />
 
         <div className="hidden items-center justify-self-end gap-2 lg:flex">
-          <Link
-            href={accountActions.signIn.href}
-            prefetch={false}
+          <AccountAction
+            action={accountActions.signIn}
+            popover={bigcapitalCloudPopover}
             className="rounded-full px-3.5 py-1.5 text-base font-normal text-white/70 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          >
-            {accountActions.signIn.label}
-          </Link>
-          <Link
-            href={accountActions.signUp.href}
-            prefetch={false}
+          />
+          <AccountAction
+            action={accountActions.signUp}
+            popover={bigcapitalCloudPopover}
             className="rounded-full bg-white px-3.5 py-1.5 text-base font-normal text-background transition-colors hover:bg-white/85 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          >
-            {accountActions.signUp.label}
-          </Link>
+          />
         </div>
 
         <MobileMenu navigation={mainNavigation} />
