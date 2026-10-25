@@ -6,6 +6,9 @@ type PageMetadataOptions = {
   description?: string;
   path: string;
   type?: "website" | "article";
+  publishedTime?: string;
+  modifiedTime?: string;
+  authors?: string[];
 };
 
 /*
@@ -18,13 +21,18 @@ export function createPageMetadata({
   description = siteConfig.description,
   path,
   type = "website",
+  publishedTime,
+  modifiedTime,
+  authors,
 }: PageMetadataOptions): Metadata {
   const socialTitle = title
-    ? `${title} | ${siteConfig.name}`
+    ? title.includes(siteConfig.name)
+      ? title
+      : `${title} | ${siteConfig.name}`
     : siteConfig.title;
 
   return {
-    ...(title ? { title } : {}),
+    ...(title ? { title: { absolute: socialTitle } } : {}),
     description,
     alternates: { canonical: path },
     openGraph: {
@@ -34,6 +42,9 @@ export function createPageMetadata({
       siteName: siteConfig.name,
       title: socialTitle,
       description,
+      ...(type === "article" && publishedTime ? { publishedTime } : {}),
+      ...(type === "article" && modifiedTime ? { modifiedTime } : {}),
+      ...(type === "article" && authors ? { authors } : {}),
     },
     twitter: {
       card: "summary_large_image",

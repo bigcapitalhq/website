@@ -1,4 +1,5 @@
 import { faqAnswerText, faqs } from "@/lib/faqs";
+import type { BlogPost } from "@/lib/blog";
 import { siteConfig } from "@/lib/site";
 
 const organizationId = `${siteConfig.url}/#organization`;
@@ -80,3 +81,88 @@ export const homeStructuredData = {
   "@context": "https://schema.org",
   "@graph": [webPage, softwareApplication, faqPage],
 };
+
+export function createBlogStructuredData(posts: readonly BlogPost[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": `${siteConfig.url}/blog#blog`,
+    name: "Bigcapital Blog",
+    description:
+      "Product announcements, engineering notes, and practical guidance on open-source accounting from the Bigcapital team.",
+    url: `${siteConfig.url}/blog`,
+    inLanguage: "en",
+    publisher: { "@id": organizationId },
+    blogPost: posts.map((post) => {
+      const url = `${siteConfig.url}/blog/${post.slug}`;
+
+      return {
+        "@type": "BlogPosting",
+        "@id": `${url}#article`,
+        headline: post.title,
+        description: post.description,
+        datePublished: post.date,
+        url,
+        author: {
+          "@type": "Person",
+          name: post.author.name,
+        },
+      };
+    }),
+  };
+}
+
+export function createPostStructuredData(post: BlogPost) {
+  const url = `${siteConfig.url}/blog/${post.slug}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": `${url}#article`,
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": url,
+        },
+        headline: post.title,
+        description: post.description,
+        ...(post.cover
+          ? { image: `${siteConfig.url}${post.cover.src}` }
+          : {}),
+        datePublished: post.date,
+        dateModified: post.date,
+        inLanguage: "en",
+        author: {
+          "@type": "Person",
+          name: post.author.name,
+        },
+        publisher: { "@id": organizationId },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${url}#breadcrumbs`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: siteConfig.url,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Blog",
+            item: `${siteConfig.url}/blog`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: post.title,
+            item: url,
+          },
+        ],
+      },
+    ],
+  };
+}

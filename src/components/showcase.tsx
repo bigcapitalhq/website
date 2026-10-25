@@ -3,6 +3,7 @@ import {
   CarouselControls,
   CarouselViewport,
 } from "@/components/carousel";
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 const emptySlides = Array.from({ length: 6 }, (_, index) => (
   <div key={index} className="h-full w-full bg-[#17181b]" />
@@ -16,21 +17,23 @@ export function Showcase() {
       className="relative isolate scroll-mt-24 pb-16 md:pb-20"
     >
       <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
-        <Carousel items={emptySlides} label="Product screenshots">
-          <div className="relative overflow-hidden rounded-[10px] bg-[#17181b]">
-            <div className="flex h-[25px] items-center bg-[#1b212a] px-3.5">
-              <div className="flex items-center gap-3.5" aria-hidden="true">
-                <span className="h-1.5 w-1.5 rounded-full bg-white/25" />
-                <span className="h-1.5 w-1.5 rounded-full bg-white/25" />
-                <span className="h-1.5 w-1.5 rounded-full bg-white/25" />
+        <ScrollReveal distance={32}>
+          <Carousel items={emptySlides} label="Product screenshots">
+            <div className="relative overflow-hidden rounded-[10px] bg-[#17181b]">
+              <div className="flex h-[25px] items-center bg-[#1b212a] px-3.5">
+                <div className="flex items-center gap-3.5" aria-hidden="true">
+                  <span className="h-1.5 w-1.5 rounded-full bg-white/25" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-white/25" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-white/25" />
+                </div>
               </div>
+
+              <CarouselViewport />
             </div>
 
-            <CarouselViewport />
-          </div>
-
-          <CarouselControls className="mt-2.5" />
-        </Carousel>
+            <CarouselControls className="mt-2.5" />
+          </Carousel>
+        </ScrollReveal>
       </div>
     </section>
   );
