@@ -36,7 +36,7 @@ export function Footer() {
 
 function FooterAnchor({ link }: { link: FooterLink }) {
   const className =
-    "flex w-fit items-center gap-1.5 rounded-sm p-0.5 -ml-0.5 text-[#a1a1a1] transition-colors duration-100 hover:text-[#ededed] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
+    "flex w-fit items-center gap-1.5 rounded-sm p-0.5 -ml-0.5 transition-colors duration-100";
 
   const content = (
     <>
@@ -49,13 +49,26 @@ function FooterAnchor({ link }: { link: FooterLink }) {
     </>
   );
 
+  if (link.disabled) {
+    return (
+      <span
+        aria-disabled="true"
+        className={`${className} cursor-not-allowed text-[#6f6f6f]`}
+      >
+        {content}
+      </span>
+    );
+  }
+
+  const linkClassName = `${className} text-[#a1a1a1] hover:text-[#ededed] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white`;
+
   if (link.href.startsWith("http")) {
     return (
       <a
         href={link.href}
         target="_blank"
         rel="noopener noreferrer"
-        className={className}
+        className={linkClassName}
       >
         {content}
       </a>
@@ -63,7 +76,7 @@ function FooterAnchor({ link }: { link: FooterLink }) {
   }
 
   return (
-    <Link href={link.href} prefetch={false} className={className}>
+    <Link href={link.href} prefetch={false} className={linkClassName}>
       {content}
     </Link>
   );

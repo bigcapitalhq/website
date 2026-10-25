@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { routes } from "@/constants/links";
 import { getPosts } from "@/lib/blog";
 import { siteConfig } from "@/lib/site";
 import { getUpdates } from "@/lib/updates";
@@ -9,9 +10,19 @@ import { getUpdates } from "@/lib/updates";
  */
 const staticRoutes = [
   {
-    path: "/",
+    path: routes.home,
     changeFrequency: "weekly" as const,
     priority: 1,
+  },
+  {
+    path: routes.terms,
+    changeFrequency: "yearly" as const,
+    priority: 0.3,
+  },
+  {
+    path: routes.privacy,
+    changeFrequency: "yearly" as const,
+    priority: 0.3,
   },
 ];
 
