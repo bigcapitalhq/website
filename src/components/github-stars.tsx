@@ -15,7 +15,7 @@ const compactNumberFormatter = new Intl.NumberFormat("en-US", {
 const exactNumberFormatter = new Intl.NumberFormat("en-US");
 
 const baseClassName =
-  "group inline-flex items-center justify-center gap-[8px] rounded-full border border-white/10 bg-transparent text-[rgba(255,255,255,0.4)] transition-colors hover:border-white/20 hover:bg-white/[0.06] active:bg-white/[0.1] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
+  "group inline-flex items-center justify-center gap-[6px] rounded-full border border-white/10 bg-transparent text-[rgba(255,255,255,0.4)] transition-colors hover:border-white/20 hover:bg-white/[0.06] active:bg-white/[0.1] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
 
 export function GitHubStars({
   stars,
@@ -37,7 +37,7 @@ export function GitHubStars({
       className={`${baseClassName} ${className}`}
     >
       <GitHubIcon />
-      <span className="text-[13px] font-medium leading-none tabular-nums">
+      <span className="text-[12px] font-medium leading-none tabular-nums">
         {stars === null
           ? "Star"
           : compactNumberFormatter.format(stars).toLowerCase()}
