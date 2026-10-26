@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { AccountAction } from "@/components/account-action";
 import { DesktopNav } from "@/components/desktop-nav";
+import { GitHubStars } from "@/components/github-stars";
 import { Logo } from "@/components/logo";
 import { MobileMenu } from "@/components/mobile-menu";
 import { routes } from "@/constants/links";
@@ -10,12 +11,15 @@ import {
   navigationLabels,
 } from "@/constants/navigation";
 import { bigcapitalCloudPopover } from "@/constants/popover";
+import { getGitHubStars } from "@/lib/github";
 
 /*
  * The product and company routes are not implemented in this app yet, so only
  * the content routes that exist opt into prefetching.
  */
-export function Header() {
+export async function Header() {
+  const githubStars = await getGitHubStars();
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-background/95 md:bg-background/80 md:backdrop-blur-xl">
       <div className="mx-auto grid h-[72px] w-full max-w-7xl grid-cols-[1fr_auto] items-center gap-4 container-px md:px-6 lg:grid-cols-[1fr_auto_1fr] lg:px-8 xl:border-x xl:border-white/10">
@@ -31,6 +35,10 @@ export function Header() {
         <DesktopNav navigation={mainNavigation} />
 
         <div className="hidden items-center justify-self-end gap-2 lg:flex">
+          <GitHubStars
+            stars={githubStars}
+            className="h-9 px-3.5 text-sm"
+          />
           <AccountAction
             action={accountActions.signIn}
             popover={bigcapitalCloudPopover}
@@ -43,7 +51,7 @@ export function Header() {
           />
         </div>
 
-        <MobileMenu navigation={mainNavigation} />
+        <MobileMenu navigation={mainNavigation} githubStars={githubStars} />
       </div>
     </header>
   );

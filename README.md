@@ -40,6 +40,13 @@ Optional search engine verification codes can be supplied with
 `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` and
 `NEXT_PUBLIC_BING_SITE_VERIFICATION`.
 
+## GitHub star count
+
+The header displays the star count for the public Bigcapital repository. The
+count is fetched during prerendering, cached for an hour, and refreshed in the
+background. Unauthenticated GitHub API requests work out of the box. Set
+`GITHUB_TOKEN` to raise the API rate limit from 60 to 5,000 requests per hour.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
