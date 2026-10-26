@@ -24,6 +24,24 @@ export const homeContent = {
   showcase: {
     sectionLabel: "Product showcase",
     carouselLabel: "Product screenshots",
+    slides: [
+      {
+        src: "/images/showcase/showcase-0001.png",
+        alt: "Invoices list in Bigcapital showing customer invoices, payment statuses, and due dates.",
+      },
+      {
+        src: "/images/showcase/showcase-0002.png",
+        alt: "Profit and loss sheet report comparing account balances across two periods.",
+      },
+      {
+        src: "/images/showcase/showcase-0003.png",
+        alt: "Balance sheet report listing asset account balances for Bigcapital, LLC.",
+      },
+      {
+        src: "/images/showcase/showcase-0004.png",
+        alt: "Chart of accounts listing account codes, types, currencies, and balances.",
+      },
+    ],
   },
   trustedBy: {
     title: "Trusted by growing finance teams",
