@@ -11,6 +11,8 @@ export const routes = {
   signUp: "/sign-up",
 } as const;
 
+export const githubRepository = "bigcapitalhq/bigcapital";
+
 export const socialLinks = {
   x: "https://twitter.com/BigcapitalHQ",
   linkedin: "https://www.linkedin.com/company/bigcapital-technology",
@@ -21,7 +23,7 @@ export const externalLinks = {
   docs: "https://docs.bigcapital.app",
   apiReference: "https://docs.bigcapital.app/api-reference/introduction",
   dockerDeployment: "https://docs.bigcapital.app/deployment/docker",
-  github: "https://github.com/bigcapitalhq/bigcapital",
+  github: `https://github.com/${githubRepository}`,
   roadmap: "https://github.com/bigcapitalhq/bigcapital/milestones",
   security: "https://github.com/bigcapitalhq/bigcapital/security",
   license: "https://github.com/bigcapitalhq/bigcapital/blob/develop/LICENSE",

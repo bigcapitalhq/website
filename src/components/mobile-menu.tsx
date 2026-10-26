@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AccountAction } from "@/components/account-action";
+import { GitHubStars } from "@/components/github-stars";
 import {
   accountActions,
   navigationLabels,
@@ -13,12 +14,13 @@ import { isActiveNavPath } from "@/lib/navigation";
 
 interface MobileMenuProps {
   navigation: readonly NavItem[];
+  githubStars: number | null;
 }
 
 const linkClassName =
   "rounded-xl px-3 py-3 text-base font-normal transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
 
-export function MobileMenu({ navigation }: MobileMenuProps) {
+export function MobileMenu({ navigation, githubStars }: MobileMenuProps) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -105,6 +107,11 @@ export function MobileMenu({ navigation }: MobileMenuProps) {
           </nav>
 
           <div className="mt-4 flex flex-col gap-2 border-t border-white/10 pt-4">
+            <GitHubStars
+              stars={githubStars}
+              onClick={() => setMenuOpen(false)}
+              className="h-11 w-full px-5 text-base font-medium"
+            />
             <AccountAction
               action={accountActions.signIn}
               onClick={() => setMenuOpen(false)}
