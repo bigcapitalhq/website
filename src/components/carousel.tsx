@@ -4,6 +4,7 @@ import {
   createContext,
   useContext,
   useEffect,
+  useRef,
   useState,
   type ReactNode,
 } from "react";
@@ -20,6 +21,9 @@ interface CarouselContextValue {
   items: ReactNode[];
   activeIndex: number;
   setActiveIndex: React.Dispatch<React.SetStateAction<number>>;
+  autoAdvanceInterval?: number;
+  isAutoAdvanceRunning: boolean;
+  prefersReducedMotion: boolean;
 }
 
 const CarouselContext = createContext<CarouselContextValue | null>(null);
@@ -62,6 +66,14 @@ export function Carousel({
   const [isPaused, setIsPaused] = useState(false);
   const [isDocumentVisible, setIsDocumentVisible] = useState(true);
   const prefersReducedMotion = usePrefersReducedMotion();
+  const remainingAutoAdvanceTime = useRef(autoAdvanceInterval ?? 0);
+
+  const isAutoAdvanceRunning =
+    Boolean(autoAdvanceInterval) &&
+    !isPaused &&
+    isDocumentVisible &&
+    !prefersReducedMotion &&
+    items.length > 1;
 
   useEffect(() => {
     const handleVisibilityChange = () => {
@@ -76,35 +88,45 @@ export function Carousel({
     };
   }, []);
 
+  // Restart the countdown whenever the active slide changes.
   useEffect(() => {
-    if (
-      !autoAdvanceInterval ||
-      isPaused ||
-      !isDocumentVisible ||
-      prefersReducedMotion ||
-      items.length < 2
-    ) {
+    remainingAutoAdvanceTime.current = autoAdvanceInterval ?? 0;
+  }, [activeIndex, autoAdvanceInterval]);
+
+  useEffect(() => {
+    if (!isAutoAdvanceRunning || !autoAdvanceInterval) {
       return;
     }
 
-    const interval = window.setInterval(() => {
+    const startedAt = performance.now();
+    const timeout = window.setTimeout(() => {
       setActiveIndex((index) => (index + 1) % items.length);
-    }, autoAdvanceInterval);
+    }, remainingAutoAdvanceTime.current);
 
     return () => {
-      window.clearInterval(interval);
+      window.clearTimeout(timeout);
+      remainingAutoAdvanceTime.current = Math.max(
+        0,
+        remainingAutoAdvanceTime.current - (performance.now() - startedAt),
+      );
     };
   }, [
+    activeIndex,
     autoAdvanceInterval,
-    isPaused,
-    isDocumentVisible,
-    prefersReducedMotion,
+    isAutoAdvanceRunning,
     items.length,
   ]);
 
   return (
     <CarouselContext.Provider
-      value={{ items, activeIndex, setActiveIndex }}
+      value={{
+        items,
+        activeIndex,
+        setActiveIndex,
+        autoAdvanceInterval,
+        isAutoAdvanceRunning,
+        prefersReducedMotion,
+      }}
     >
       <div
         role="region"
@@ -139,7 +161,7 @@ export function CarouselViewport({
 
   return (
     <div
-      className={`relative aspect-[1262/758] w-full overflow-hidden bg-[#17181b] ${className}`}
+      className={`relative aspect-[1262/744] w-full overflow-hidden bg-[#17181b] ${className}`}
     >
       {items.map((item, index) => (
         <div
@@ -166,7 +188,18 @@ interface CarouselControlsProps {
 }
 
 export function CarouselControls({ className = "" }: CarouselControlsProps) {
-  const { items, activeIndex, setActiveIndex } = useCarousel();
+  const {
+    items,
+    activeIndex,
+    setActiveIndex,
+    autoAdvanceInterval,
+    isAutoAdvanceRunning,
+    prefersReducedMotion,
+  } = useCarousel();
+  const showProgress =
+    Boolean(autoAdvanceInterval) &&
+    !prefersReducedMotion &&
+    items.length > 1;
 
   return (
     <div className={`flex justify-center gap-1 ${className}`}>
@@ -180,12 +213,29 @@ export function CarouselControls({ className = "" }: CarouselControlsProps) {
           className="group flex h-8 w-9 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
         >
           <span
-            className={`block h-1 w-7 rounded-full transition-colors duration-300 ${
+            className={`relative block h-1 w-7 overflow-hidden rounded-full transition-colors duration-300 ${
               index === activeIndex
-                ? "bg-white/50"
+                ? "bg-white/25"
                 : "bg-white/15 group-hover:bg-white/50"
             }`}
-          />
+          >
+            {index === activeIndex && (
+              <span
+                aria-hidden="true"
+                className="absolute inset-0 origin-left rounded-full bg-white/60"
+                style={
+                  showProgress
+                    ? {
+                        animation: `carousel-progress ${autoAdvanceInterval}ms linear forwards`,
+                        animationPlayState: isAutoAdvanceRunning
+                          ? "running"
+                          : "paused",
+                      }
+                    : undefined
+                }
+              />
+            )}
+          </span>
         </button>
       ))}
     </div>
